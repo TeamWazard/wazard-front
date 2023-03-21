@@ -1,9 +1,11 @@
-import "./App.css";
+import "./App.scss";
+import "./pages/Login.scss";
+import Login from "./pages/Login";
 
 function App() {
   return (
     <div className="App">
-      <h2>웨이저드 시작</h2>
+      <Login />
     </div>
   );
 }
