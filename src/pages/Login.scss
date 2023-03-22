@@ -7,7 +7,7 @@
   height: 100vh;
   width: 100%;
   place-items: center;
-  background: linear-gradient(to right bottom, #bdf4cd84 0%, #bdf4cd 100%);
+  background: linear-gradient(to right bottom, #bdf4cd00 0%, #bdf4cd 100%);
 }
 
 .titleImage {
@@ -16,6 +16,7 @@
 
 .titleImage img {
   border-radius: 20%;
+  box-shadow: 2px 2px 2px 2px rgb(198, 198, 198);
 }
 
 .page {
@@ -24,7 +25,7 @@
   top: 0;
   bottom: 0;
   width: 65%;
-  max-width: 600px;
+  max-width: 300px;
   padding: 0 20px;
   margin-bottom: 100px;
   margin-top: 100px;
@@ -45,12 +46,12 @@
   margin-top: 40px;
   font-size: 36px;
   font-weight: bold;
-  color: #262626;
+  color: #136650;
   margin-bottom: 10px;
 }
 
 .contentWrap {
-  margin-top: 26px;
+  margin-top: 12px;
   flex: 1;
 }
 
@@ -69,7 +70,7 @@
   border: 1px solid #e2e0e0;
 }
 .inputWrap:focus-within {
-  border: 1px solid #9e30f4;
+  border: 1px solid #bdf4cd;
 }
 
 .input {
@@ -97,8 +98,14 @@
   border-radius: 64px;
   background: linear-gradient(to right bottom, #bdf4cd84 0%, #bdf4cd 100%);
   color: white;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   cursor: pointer;
+  box-shadow: 2px 2px 2px 2px rgb(198, 198, 198);
+}
+
+.signUpBtn {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .bottomButton:disabled {

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const User = {
-  email: "test@example.com",
-  pw: "test2323@@@",
+  email: "jjjuyoa@gmail.com",
+  password: "!as990422",
 };
 
 export default function Login() {
@@ -73,11 +74,11 @@ export default function Login() {
               onChange={handleEmail}
             />
           </div>
-          <div className="errorMessageWrap">
+          {/* <div className="errorMessageWrap">
             {!emailValid && email.length > 0 && (
               <div>올바른 이메일을 입력해주세요.</div>
             )}
-          </div>
+          </div> */}
 
           {/* <div style={{ marginTop: "26px" }} className="inputTitle">
           비밀번호
@@ -91,13 +92,13 @@ export default function Login() {
               onChange={handlePassword}
             />
           </div>
-          <div className="errorMessageWrap">
+          {/* <div className="errorMessageWrap">
             {!passwordValid && password.length > 0 && (
               <div color="black">
                 영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.
               </div>
             )}
-          </div>
+          </div> */}
         </div>
 
         <div className="btnDiv">
@@ -108,6 +109,9 @@ export default function Login() {
           >
             Login
           </button>
+          <div className="signUpBtn">
+            <Link to="/signup">Sign Up</Link>
+          </div>
         </div>
       </div>
     </div>
