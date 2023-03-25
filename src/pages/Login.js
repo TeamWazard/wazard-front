@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import blueLogo from "../imgs/blueLogo.png";
 
 const User = {
   email: "jjjuyoa@gmail.com",
@@ -53,14 +54,9 @@ export default function Login() {
   return (
     <div className="bodyBackground">
       <div className="page">
-        <div className="titleWrap">Wazard</div>
+        {/* <div className="titleWrap">WAZARD</div> */}
         <div className="titleImage">
-          <img
-            src="https://blog.kakaocdn.net/dn/NTxS7/btr5dAWjc5G/Khnku4uQ23Szuz4lxrKKa1/img.jpg"
-            alt="Logo"
-            width="100"
-            height="100"
-          />
+          <img src={blueLogo} alt="Logo" width="100" height="100" />
         </div>
 
         <div className="contentWrap">
@@ -110,7 +106,7 @@ export default function Login() {
             Login
           </button>
           <div className="signUpBtn">
-            <Link to="/signup">Sign Up</Link>
+            <Link to="/signup">아직 웨이자드에 가입하지 않으셨나요?</Link>
           </div>
         </div>
       </div>
