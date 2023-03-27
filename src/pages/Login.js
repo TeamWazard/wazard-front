@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import blueLogo from "../imgs/blueLogo.png";
+import mainLogo from "../imgs/mainLogo.svg";
 
 const User = {
   email: "jjjuyoa@gmail.com",
-  password: "!as990422",
+  pw: "!as990422",
 };
 
 export default function Login() {
@@ -33,7 +33,7 @@ export default function Login() {
       setEmailValid(false);
     }
   };
-  const handlePassword = (e) => {
+  const handlePw = (e) => {
     setPassword(e.target.value);
     const regex =
       /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/;
@@ -52,62 +52,52 @@ export default function Login() {
   };
 
   return (
-    <div className="bodyBackground">
+    <div className="all">
+      <div className="backgroundTA1" />
       <div className="page">
-        {/* <div className="titleWrap">WAZARD</div> */}
-        <div className="titleImage">
-          <img src={blueLogo} alt="Logo" width="100" height="100" />
-        </div>
-
+        <div className="titleWrap">Wazard</div>
         <div className="contentWrap">
-          {/* <div className="inputTitle">이메일 주소</div> */}
-          <div className="inputWrap">
-            <input
-              className="input"
-              type="text"
-              placeholder="example@email.com"
-              value={email}
-              onChange={handleEmail}
-            />
+          <div className="inputContainer">
+            <div className="inputWrap">
+              <input
+                className="input"
+                type="text"
+                placeholder="test@email.com"
+                value={email}
+                onChange={handleEmail}
+              />
+            </div>
+            <div className="inputWrap" style={{ marginTop: "40px" }}>
+              <input
+                className="input"
+                type="password"
+                placeholder="영문, 숫자, 특수문자 포함 8자 이상"
+                value={password}
+                onChange={handlePw}
+              />
+            </div>
+            <h3 className="hihi">Forgot your Email or Password ?</h3>
+            <h3>Not a Member?</h3>
           </div>
-          {/* <div className="errorMessageWrap">
-            {!emailValid && email.length > 0 && (
-              <div>올바른 이메일을 입력해주세요.</div>
-            )}
-          </div> */}
-
-          {/* <div style={{ marginTop: "26px" }} className="inputTitle">
-          비밀번호
-        </div> */}
-          <div className="inputWrap">
-            <input
-              className="input"
-              type="password"
-              placeholder="영문, 숫자, 특수문자 포함 8자 이상"
-              value={password}
-              onChange={handlePassword}
-            />
+          <div>
+            <button
+              onClick={onClickConfirmButton}
+              disabled={notAllow}
+              className="loginButton"
+            >
+              ENTER
+            </button>
           </div>
-          {/* <div className="errorMessageWrap">
-            {!passwordValid && password.length > 0 && (
-              <div color="black">
-                영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.
-              </div>
-            )}
-          </div> */}
         </div>
-
-        <div className="btnDiv">
+        {/* 버튼 */}
+        <div className="signUpButtonContainer">
           <button
             onClick={onClickConfirmButton}
             disabled={notAllow}
-            className="bottomButton"
+            className="signUpButton"
           >
-            Login
+            sign up
           </button>
-          <div className="signUpBtn">
-            <Link to="/signup">아직 웨이자드에 가입하지 않으셨나요?</Link>
-          </div>
         </div>
       </div>
     </div>
