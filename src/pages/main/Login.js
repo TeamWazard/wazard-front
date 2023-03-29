@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import mainLogo from "../imgs/mainLogo.svg";
 
 const User = {
   email: "jjjuyoa@gmail.com",

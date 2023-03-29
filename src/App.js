@@ -1,9 +1,8 @@
 import "./App.scss";
-import "./pages/Login.scss";
-import Login from "./pages/Login";
+import "./pages/main/Login.scss";
+import Login from "./pages/main/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SignUpTest from "./pages/SignUpTest";
-import SignUpChoose from "./pages/SignUpChoose";
+import SignUpChoose from "./pages/main/SignUpChoose";
 
 function App() {
   return (
