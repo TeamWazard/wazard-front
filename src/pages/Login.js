@@ -4,7 +4,7 @@ import mainLogo from "../imgs/mainLogo.svg";
 
 const User = {
   email: "jjjuyoa@gmail.com",
-  pw: "!as990422",
+  password: "!as990422",
 };
 
 export default function Login() {
@@ -53,7 +53,6 @@ export default function Login() {
 
   return (
     <div className="all">
-      <div className="backgroundTA1" />
       <div className="page">
         <div className="titleWrap">Wazard</div>
         <div className="contentWrap">
