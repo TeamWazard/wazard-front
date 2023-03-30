@@ -1,0 +1,130 @@
+/* .App {
+  text-align: center;
+} */
+.all {
+  width: 100%;
+  height: 100vh;
+
+  background-image: url(../../imgs/background.jpg);
+  background-size: cover;
+}
+
+.page {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 650px;
+  padding: 0 20px;
+
+  left: 30%;
+  transform: translate(-50%, 0);
+
+  background-color: #ffffff00;
+
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleWrap {
+  margin-top: 50px;
+  width: 793px;
+  height: 252px;
+
+  font-family: "Goldman", cursive;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 150px;
+  line-height: 180px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #000000;
+}
+
+.contentWrap {
+  margin-top: 26px;
+  flex: 1;
+  width: 100%;
+  margin-left: 100px;
+  display: flex;
+}
+
+.inputContainer {
+  width: 50%;
+  text-align: center;
+}
+
+.inputWrap {
+  display: flex;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 8px;
+  background-color: #f5f5f5;
+  border: 1px solid #e2e0e0;
+  max-width: 300px;
+}
+.inputWrap:focus-within {
+  border: 1px solid #9e30f4;
+}
+
+.input {
+  width: 100%;
+  outline: none;
+  border: none;
+  height: 17px;
+  font-size: 14px;
+  font-weight: 400;
+  background-color: #f5f5f5;
+}
+
+.input::placeholder {
+  color: #dadada;
+}
+
+.loginButton {
+  color: #ffffff;
+  font-family: "Goldman", cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  margin-left: 50px;
+  margin-top: 8px;
+  width: 145px;
+  height: 145px;
+  border-radius: 50px;
+  border: 0px;
+  background-color: #9b9cb6;
+}
+
+.signUpButtonContainer {
+  flex: 1;
+}
+.signUpButton {
+  margin-left: 65px;
+  font-family: "Goldman", cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  width: 60%;
+  height: 48px;
+  border: none;
+  border-radius: 64px;
+  background-color: #000000;
+  color: white;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.signUpButton:disabled {
+  background-color: #000000;
+  color: white;
+}
+
+.errorMessageWrap {
+  margin-top: 8px;
+  color: #ef0000;
+  font-size: 12px;
+}

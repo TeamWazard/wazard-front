@@ -1,0 +1,25 @@
+.startBtn {
+  width: 235px;
+  height: 60px;
+
+  background: #9b9cb6;
+  border-radius: 50px;
+  border: none;
+  &:active {
+    background-color: #6a6c92;
+  }
+}
+
+.tel {
+  width: 50px;
+}
+
+.InputSecurityNumber {
+  width: 80px;
+}
+
+.registerLabel {
+  display: inline-block;
+  width: 150px;
+  text-align: center;
+}

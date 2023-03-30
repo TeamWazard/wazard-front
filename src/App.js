@@ -1,10 +1,19 @@
-import "./App.css";
+import "./App.scss";
+import "./pages/main/Login.scss";
+import Login from "./pages/main/Login";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SignUpChoose from "./pages/main/SignUpChoose";
 
 function App() {
   return (
-    <div className="App">
-      <h2>웨이저드 시작</h2>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route exact path="/" element={<Login />} />
+          <Route path="/signupchoose" element={<SignUpChoose />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
