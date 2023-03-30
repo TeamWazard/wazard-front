@@ -71,7 +71,6 @@ export default function Login() {
               ref={emailInput}
               className="input"
               type="text"
-              // placeholder="test@email.com"
               value={email}
               onChange={handleEmail}
             />
@@ -85,7 +84,6 @@ export default function Login() {
               ref={passwordInput}
               className="input"
               type="password"
-              // placeholder="영문, 숫자, 특수문자 포함 8자 이상"
               value={password}
               onChange={handlePw}
             />
