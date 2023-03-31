@@ -99,7 +99,7 @@ export default function Login() {
           </div>
           <div className="signUpButtonContainer">
             <button className="signUpButton">
-              <Link to="/signupchoose">SIGN UP</Link>
+              <Link to="/signup">SIGN UP</Link>
             </button>
           </div>
           <h3 className="hihi">Forgot your Email or Password ?</h3>
