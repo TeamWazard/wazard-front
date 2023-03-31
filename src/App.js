@@ -3,6 +3,7 @@ import "./pages/main/Login.scss";
 import Login from "./pages/main/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignUpChoose from "./pages/main/SignUpChoose";
+import ButtonChoose from "./pages/main/ButtonChoose";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Login />} />
           <Route path="/signupchoose" element={<SignUpChoose />} />
+          <Route path="/buttonChoose" element={<ButtonChoose />} />
         </Routes>
       </div>
     </BrowserRouter>
