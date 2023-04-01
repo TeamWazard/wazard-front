@@ -1,0 +1,72 @@
+//ButtonChoose 페이지
+
+.btnPageContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.btnPageHeader {
+  width: 793px;
+  height: 130px;
+  font-family: "Goldman", cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 180px;
+  flex: 1;
+  margin-left: 20px;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+
+.btnContainer {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btnPJ {
+  font-style: bold;
+  font-weight: 400;
+  font-size: 28px;
+  width: 400px;
+  height: 350px;
+  border: none;
+  border-radius: 64px;
+  background-color: #869dee;
+  color: white;
+  cursor: pointer;
+  margin-right: 50px;
+}
+
+.btnCEO {
+  font-style: bold;
+  font-weight: 400;
+  font-size: 28px;
+  width: 400px;
+  height: 350px;
+  border: none;
+  border-radius: 64px;
+  background-color: #4a52ff;
+  color: white;
+  cursor: pointer;
+  margin-left: 50px;
+}
+
+.btnPageFooter {
+  flex: 1;
+  text-align: center;
+  font-style: bold;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 180px;
+  margin-left: 20px;
+  align-items: center;
+  color: #000000;
+}
+
+.btnH2 {
+  margin-top: -5px;
+}

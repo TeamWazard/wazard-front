@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import userIcon from "../../imgs/userIcon.svg";
 import passwordIcon from "../../imgs/passwordIcon.svg";
+import "./Login.scss";
 
 const User = {
   email: "jjjuyoa@gmail.com",
@@ -99,7 +100,7 @@ export default function Login() {
           </div>
           <div className="signUpButtonContainer">
             <button className="signUpButton">
-              <Link to="/signupchoose">SIGN UP</Link>
+              <Link to="/buttonchoose">SIGN UP</Link>
             </button>
           </div>
           <h3 className="hihi">Forgot your Email or Password ?</h3>

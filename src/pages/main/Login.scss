@@ -38,7 +38,7 @@ a {
 .titleWrap {
   margin-top: 50px;
   width: 793px;
-  height: 252px;
+  height: 170px;
 
   font-family: "Goldman", cursive;
   font-style: normal;
@@ -146,74 +146,4 @@ a {
   display: flex;
   margin-left: 100px;
   margin-bottom: -15px;
-}
-
-//ButtonChoose 페이지
-
-.btnPageContainer {
-  display: flex;
-  flex-direction: column;
-}
-
-.btnPageHeader {
-  width: 793px;
-  height: 130px;
-  font-family: "Goldman", cursive;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 60px;
-  line-height: 180px;
-  flex: 1;
-  margin-left: 20px;
-  align-items: center;
-  text-align: center;
-  color: #000000;
-}
-
-.btnContainer {
-  display: flex;
-  flex: 1;
-  text-align: center;
-}
-
-.btnPJ {
-  font-style: bold;
-  font-weight: 400;
-  font-size: 28px;
-  width: 30vw;
-  height: 50vh;
-  border: none;
-  border-radius: 64px;
-  background-color: #869dee;
-  color: white;
-  margin-bottom: 8px;
-  margin-right: 90px;
-  cursor: pointer;
-}
-
-.btnCEO {
-  font-style: bold;
-  font-weight: 400;
-  font-size: 28px;
-  width: 30vw;
-  height: 50vh;
-  border: none;
-  border-radius: 64px;
-  background-color: #4a52ff;
-  color: white;
-  margin-bottom: 8px;
-  margin-right: 90px;
-  cursor: pointer;
-}
-
-.btnPageFooter {
-  flex: 1;
-  text-align: center;
-  font-style: bold;
-  font-weight: 700;
-  font-size: 60px;
-  line-height: 180px;
-  margin-left: 20px;
-  align-items: center;
-  color: #000000;
 }

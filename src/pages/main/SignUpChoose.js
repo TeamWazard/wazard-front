@@ -1,14 +1,11 @@
 import { useState, useRef } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./SignUpChoose.scss";
-import Button_test from "../../components/Button_test";
-import Input from "../../components/Input";
-import styled from "styled-components";
-
-const InputTel = styled(Input)`
-  width: 50px;
-`;
 
 const SignUpChoose = () => {
+  const location = useLocation();
+  const userType = location.state.userType;
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [emailCheck, setEmailCheck] = useState("");
   const [password, setPassword] = useState("");
@@ -24,12 +21,18 @@ const SignUpChoose = () => {
     thrNum: "",
   });
 
+  console.log(userType);
+
   const emailInput = useRef();
+  const emailCheckInput = useRef();
   const passwordInput = useRef();
   const passwordConfirmInput = useRef();
   const nameInput = useRef();
-  const securityNumInput = useRef();
-  const phoneNumInput = useRef();
+  const securityNumInput_1 = useRef();
+  const securityNumInput_2 = useRef();
+  const phoneNumInput_1 = useRef();
+  const phoneNumInput_2 = useRef();
+  const phoneNumInput_3 = useRef();
 
   //유효성 검사
   const [isEmail, setIsEmail] = useState(false);
@@ -37,8 +40,11 @@ const SignUpChoose = () => {
   const [isPassword, setIsPassword] = useState(false);
   const [isConfirmPassword, setIsConfirmPassword] = useState(false);
   const [isName, setIsName] = useState(false);
-  const [isSecurityNum, setIsSecurityNum] = useState(false);
-  const [isPhoneNum, setIsPhoneNum] = useState(false);
+  const [isSecurityNum_1, setIsSecurityNum_1] = useState(false);
+  const [isSecurityNum_2, setIsSecurityNum_2] = useState(false);
+  const [isPhoneNum_1, setIsPhoneNum_1] = useState(false);
+  const [isPhoneNum_2, setIsPhoneNum_2] = useState(false);
+  const [isPhoneNum_3, setIsPhoneNum_3] = useState(false);
 
   // 오류 메세지
   const [emailMessage, setEmailMessage] = useState("");
@@ -57,6 +63,12 @@ const SignUpChoose = () => {
     } else {
       setIsEmail(true);
     }
+  };
+
+  const onEmailCheckHandler = (e) => {
+    const currentEmailCheck = e.target.value;
+    setEmailCheck(currentEmailCheck);
+    //이메일 인증번호 체크 필요
   };
 
   const onPassWordHandler = (e) => {
@@ -102,19 +114,45 @@ const SignUpChoose = () => {
   const onSecurityNumHandler = (e) => {
     const currentSN = e.target.value.replace(/[^0-9]/g, "");
     e.target.value = currentSN;
-    setSecurityNumber({
-      ...securityNumber,
-      [e.target.name]: currentSN,
-    });
+    setSecurityNumber({ ...securityNumber, [e.target.value]: currentSN });
+    setIsSecurityNum_1(e.target.name === "frontNum" && currentSN.length === 6);
   };
 
-  const onPhoneNumberHandler = (e) => {
+  const onSecurityNumHandler_2 = (e) => {
+    const currentSN = e.target.value.replace(/[^0-9]/g, "");
+    e.target.value = currentSN;
+    setSecurityNumber({ ...securityNumber, [e.target.name]: currentSN });
+    setIsSecurityNum_2(currentSN.length === 1);
+  };
+
+  const onPhoneNumberHandler_1 = (e) => {
     const currentPhoneNum = e.target.value.replace(/[^0-9]/g, "");
     e.target.value = currentPhoneNum;
     setPhoneNumber({
       ...phoneNumber,
       [e.target.name]: currentPhoneNum,
     });
+    setIsPhoneNum_1(currentPhoneNum.length === 3);
+  };
+
+  const onPhoneNumberHandler_2 = (e) => {
+    const currentPhoneNum = e.target.value.replace(/[^0-9]/g, "");
+    e.target.value = currentPhoneNum;
+    setPhoneNumber({
+      ...phoneNumber,
+      [e.target.name]: currentPhoneNum,
+    });
+    setIsPhoneNum_2(currentPhoneNum.length === 4);
+  };
+
+  const onPhoneNumberHandler_3 = (e) => {
+    const currentPhoneNum = e.target.value.replace(/[^0-9]/g, "");
+    e.target.value = currentPhoneNum;
+    setPhoneNumber({
+      ...phoneNumber,
+      [e.target.name]: currentPhoneNum,
+    });
+    setIsPhoneNum_3(currentPhoneNum.length === 4);
   };
 
   const handledClickEmailBtn = (e) => {
@@ -134,6 +172,9 @@ const SignUpChoose = () => {
     if (isEmail === false) {
       emailInput.current.focus();
       return;
+    } else if (isEmailCheck === false) {
+      emailCheckInput.current.focus();
+      return;
     } else if (isPassword === false) {
       passwordInput.current.focus();
       return;
@@ -143,11 +184,20 @@ const SignUpChoose = () => {
     } else if (isName === false) {
       nameInput.current.focus();
       return;
-    } else if (isSecurityNum === false) {
-      securityNumInput.current.focus();
+    } else if (isSecurityNum_1 === false) {
+      securityNumInput_1.current.focus();
       return;
-    } else if (isPhoneNum === false) {
-      phoneNumInput.current.focus();
+    } else if (isSecurityNum_2 === false) {
+      securityNumInput_2.current.focus();
+      return;
+    } else if (isPhoneNum_1 === false) {
+      phoneNumInput_1.current.focus();
+      return;
+    } else if (isPhoneNum_2 === false) {
+      phoneNumInput_2.current.focus();
+      return;
+    } else if (isPhoneNum_3 === false) {
+      phoneNumInput_3.current.focus();
       return;
     }
     event.preventDefault();
@@ -169,102 +219,129 @@ const SignUpChoose = () => {
   };
 
   return (
-    <div className="bodyBackground">
-      <div className="page">
-        <h2>Welcome To Wazard</h2>
+    <div className="all">
+      <div className="signUpPage">
+        <div>
+          <h2>Welcome To Wazard</h2>
+        </div>
         <div className="RegisterForm">
-          <div className="emailForm">
+          <div className="Form">
             <label className="registerLabel">이메일</label>
             <input
+              className="refisterInputInBtn"
               ref={emailInput}
               type="email"
               value={email}
+              placeholder="test@email.com"
               onChange={onEmailHandler}
-            />
-            <Button_test
+            />{" "}
+            <button
+              className="button_send"
               size="sm"
               textColor="pupple"
               onClick={handledClickEmailBtn}
             >
+              {" "}
               이메일 인증
-            </Button_test>
-            <p className="message">{emailMessage}</p>
+            </button>
           </div>
-          <div className="emailCheckForm">
+          <p className="message">{emailMessage}</p>
+          <div className="Form">
             <label className="registerLabel">이메일 인증번호</label>
-            <input />{" "}
-            <Button_test
+            <input ref={emailCheckInput} className="refisterInputInBtn" />{" "}
+            <button
+              className="button_send"
               size="sm"
               textColor="pupple"
               onClick={handledClickEmailCheckBtn}
             >
               인증 확인
-            </Button_test>
-            <p className="message">{emailCheckMessage}</p>
+            </button>
           </div>
-          <div className="passwordForm">
+          <p className="message">{emailCheckMessage}</p>
+          <div className="Form">
             <label className="registerLabel">비밀번호</label>
             <input
+              className="refisterInput"
               ref={passwordInput}
               onChange={onPassWordHandler}
               type="password"
             />
-            <p className="message">{passwordMessage}</p>
           </div>
-          <div className="confirmPasswordForm">
+          <p className="message">{passwordMessage}</p>
+          <div className="Form">
             <label className="registerLabel">비밀번호 확인</label>
             <input
+              className="refisterInput"
               ref={passwordConfirmInput}
               onChange={onConfirmPassWordHandler}
               type="password"
             />
-            <p className="message">{passwordConfirmMessage}</p>
           </div>
-          <div className="nameForm">
+          <p className="message">{passwordConfirmMessage}</p>
+          <div className="Form">
             <label className="registerLabel">이름</label>
-            <input ref={nameInput} onChange={onNameHandler} />
-            <p className="message">{nameMessage}</p>
+            <input
+              className="refisterInput"
+              ref={nameInput}
+              onChange={onNameHandler}
+              placeholder="2글자이상 5글자 이하"
+            />
           </div>
-          <div className="securityNumberForm">
+          <p className="message">{nameMessage}</p>
+          <div className="Form">
             <label className="registerLabel">주민등록번호</label>
             <input
-              ref={securityNumInput}
+              ref={securityNumInput_1}
               className="InputSecurityNumber"
               name="frontNum"
               onChange={onSecurityNumHandler}
+              maxLength={6}
             />{" "}
             -{" "}
             <input
-              type="password"
+              ref={securityNumInput_2}
               name="backNum"
-              className="InputSecurityNumber"
-              onChange={onSecurityNumHandler}
+              className="InputSecurityNumber_back"
+              onChange={onSecurityNumHandler_2}
+              maxLength={1}
             />
+            <p className="InputSecurityNumber_back_password">******</p>
           </div>
-          <div className="phoneNumForm">
+          <div className="Form">
             <label className="registerLabel">휴대폰 번호</label>
             <input
+              ref={phoneNumInput_1}
               className="tel"
               name="fstNum"
-              onChange={onPhoneNumberHandler}
+              onChange={onPhoneNumberHandler_1}
+              maxLength={3}
             />{" "}
             -{" "}
             <input
+              ref={phoneNumInput_2}
               className="tel"
               name="secNum"
-              onChange={onPhoneNumberHandler}
+              onChange={onPhoneNumberHandler_2}
+              maxLength={4}
             />{" "}
             -{" "}
             <input
+              ref={phoneNumInput_3}
               className="tel"
               name="thrNum"
-              onChange={onPhoneNumberHandler}
+              onChange={onPhoneNumberHandler_3}
+              maxLength={4}
             />
           </div>
-          <Button_test size="lg" textColor="pupple" onClick={onSubmitHandler}>
-            START
-          </Button_test>
-          {/* <InputTel onChange={onPhoneNumberHandler} name="thrNum" /> */}
+          <div className="navegateButton">
+            <button className="startBtn" onClick={onSubmitHandler}>
+              START
+            </button>
+            <button className="startCancelBtn" onClick={() => navigate(-1)}>
+              가입취소
+            </button>
+          </div>
         </div>
       </div>
     </div>
