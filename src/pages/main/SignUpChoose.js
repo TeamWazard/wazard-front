@@ -1,10 +1,12 @@
 import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./SignUpChoose.scss";
 
 import Radio from "./../../components/Radio";
 
 const SignUpChoose = () => {
+  const location = useLocation();
+  const userType = location.state.userType;
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [emailCheck, setEmailCheck] = useState("");
@@ -18,6 +20,8 @@ const SignUpChoose = () => {
     secNum: "",
     thrNum: "",
   });
+
+  console.log(userType);
 
   const emailInput = useRef();
   const emailCheckInput = useRef();
