@@ -32,6 +32,8 @@
   width: 50%;
   float: left;
   margin-left: 100px;
+  display: flex;
+  flex-direction: column;
   h2 {
     font-family: "Goldman";
     font-style: normal;
@@ -44,6 +46,7 @@
   .RegisterForm {
     width: 70%;
     margin: 0 auto;
+    flex-direction: column;
   }
 }
 
@@ -51,54 +54,69 @@
 .Form {
   height: 40px;
   margin: 10px;
+  display: flex;
 
   .refisterInputInBtn {
     // display: inline-block;
     @extend %inputBox;
-    width: 320px;
+    // width: 320px;
+    width: 60%;
+    max-width: 320px;
   }
 
   .refisterInput {
     @extend %inputBox;
-    width: 430px; //test
+    width: 80%;
+    max-width: 450px;
+  }
+
+  .tel_wapper {
+    display: flex;
+    width: 90%;
+    justify-content: space-around;
+    font-size: 24px;
+    margin-left: 20px;
   }
 
   .tel {
-    width: 110px;
+    // width: 100px;
+    width: 20%;
     @extend %inputBox;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 
-  .InputSecurityNumber {
-    width: 200px;
-    @extend %inputBox;
+  .gender_wapper {
+    width: 500px;
+    display: flex;
+
+    .gender_male {
+      width: 50%;
+      display: flex;
+    }
+    .gender_female {
+      width: 50%;
+      display: flex;
+    }
   }
 
-  .InputSecurityNumber_back {
-    width: 10px;
+  [type="date"] {
     @extend %inputBox;
-  }
-
-  .InputSecurityNumber_back_password {
-    margin: 10px;
-    margin-left: 40px;
-    color: #000000;
-    display: inline-block;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 23px;
-    line-height: 100%;
-    // display: flex;
-    // align-items: center;
-    // text-align: center;
-    letter-spacing: 0.55em;
   }
 }
 
 // Label
 .registerLabel {
   display: inline-block;
-  width: 120px;
+  // width: 120px;
   font-size: 15px;
+  flex-shrink: 1;
+  width: 130px;
+  line-height: 40px;
+
+  & label {
+    font-size: 15px;
+  }
 }
 
 .message {
@@ -110,9 +128,11 @@
 
 // button
 .button_send {
-  width: 100px;
+  // width: 100px;
+  width: 20%;
   float: right;
   height: 100%;
+  margin: 0 auto;
 
   background: #000000;
   border-radius: 50px;
