@@ -1,54 +1,30 @@
 import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
+import "../../style/company/company.scss";
 
 // export const company_list
 
-const companyList = () => {
+const CompanyList = () => {
+  const navigate = useNavigate();
   const companys = [
     {
       company_id: "0",
       user_id: "0",
-      company_name: "CU",
-      address: "서울특별시 종로구 CU",
+      company_name: "bhc",
+      address: "경기도 부천시",
       tel: "02-3333-2323",
       company_img: null,
     },
     {
       company_id: "1",
       user_id: "0",
-      company_name: "gs",
+      company_name: "CU",
       address: "서울특별시 종로구 CU",
       tel: "02-3333-2323",
       company_img: null,
     },
   ];
-  //   const [companys, setCompanys] = useState([
-  //     {
-  //       company_id: "0",
-  //       user_id: "0",
-  //       company_name: "CU",
-  //       address: "서울특별시 종로구 CU",
-  //       tel: "02-3333-2323",
-  //       company_img: null,
-  //     },
-  //     // (company_id = "0"),
-  //     // (user_id = "0"),
-  //     // (company_name = "CU"),
-  //     // (address = "서울특별시 종로구 CU"),
-  //     // (tel = "02-3333-2323"),
-  //     // (company_img = null),
-  //   ]);
-
-  //   const onCreateCompany = () => {
-  //     const newCompany = {
-  //       company_id,
-  //       user_id,
-  //       company_name,
-  //       address,
-  //       tel,
-  //       company_img,
-  //     };
-  //     setCompanys(...companys, newCompany);
-  //   };
 
   return (
     <div className="company_list_page">
@@ -58,17 +34,22 @@ const companyList = () => {
         </div>
         <div className="list">
           {companys.map((it) => (
-            <div className="compant_one">
-              <div className="company_img">img test</div>
-              <div>업장명:{it.company_name}</div>
-              <div>주소:{it.address}</div>
-              <div>전화번호:{it.tel}</div>
+            <div className="company_one">
+              <div className="company_img">이미지: {it.img}</div>
+              <div className="company_one_right">
+                <div>업장명: {it.company_name}</div>
+                <div>주소: {it.address}</div>
+                <div>전화번호: {it.tel}</div>
+              </div>
             </div>
           ))}
+        </div>
+        <div className="plus_company">
+          <button onClick={() => navigate("/company_editor")}>+</button>
         </div>
       </div>
     </div>
   );
 };
 
-export default companyList;
+export default CompanyList;
