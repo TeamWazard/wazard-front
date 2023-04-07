@@ -1,3 +1,11 @@
+//중복 값 처리
+%bluck_type {
+  border-radius: 10px;
+  border: none;
+  color: #ffffff;
+}
+
+// 업소 리스트
 .company_list_page {
   display: flex;
   width: 100vw;
@@ -7,7 +15,7 @@
   justify-content: center;
 
   .company_list_wrapper {
-    width: 1300px;
+    width: 80vw;
     height: 100vh;
   }
 
@@ -28,16 +36,47 @@
     .company_one {
       margin: 20px;
       display: flex;
-      background: rgba(17, 26, 215, 0.05);
-      opacity: 0.7;
-      border-radius: 20px;
+      justify-content: center;
 
       .company_img {
-        width: 100px;
+        width: 200px;
         height: 100px;
       }
 
       .company_one_right {
+        display: flex;
+        background: rgba(17, 26, 215, 0.05);
+        opacity: 0.7;
+        border-radius: 20px;
+        width: 60vw;
+        height: 200px;
+        font-size: 20px;
+        justify-content: center;
+        flex-direction: column;
+
+        label {
+          font-weight: 700;
+        }
+      }
+
+      .company_one_btn {
+        display: flex;
+        flex-direction: column;
+        width: 80px;
+
+        .in {
+          height: 80%;
+          margin: 5px;
+          background: #4a52ff;
+          @extend %bluck_type;
+        }
+
+        .edit {
+          height: 20%;
+          margin: 5px;
+          background: #788cf2;
+          @extend %bluck_type;
+        }
       }
     }
   }
@@ -59,15 +98,18 @@
 
 .editor_wrapper {
   margin: 20px;
+  height: 400px;
   // background: rgba(17, 26, 215, 0.05);
   opacity: 0.7;
   border-radius: 20px;
   display: flex;
+  // justify-content: center;
 
   .editor_img {
     display: flex;
     flex-direction: column;
     text-align: center;
+    justify-content: center;
 
     .uploadImg {
       margin: 5px 0 20px 0;
@@ -91,11 +133,25 @@
       display: none;
     }
   }
+
+  .editor_right {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+
   .editor_set {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     label {
-      display: inline-block;
+      // display: inline-block;
       width: 100px;
       text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     input {
@@ -104,6 +160,8 @@
       height: 20px;
       border: 1px solid #828282;
       border-radius: 10px;
+      display: inline-block;
+      // transform: translate(-50%, -50%);
 
       &:focus {
         outline: none;

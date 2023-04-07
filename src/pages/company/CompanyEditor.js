@@ -1,17 +1,28 @@
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useImgsave } from "./../../hooks/UseImgSave";
 import ceoIcon from "../../imgs/ceoIcon.svg";
 
 const CompanyEditor = () => {
-  const [imgFile, setImgFile] = useState("");
+  const navigate = useNavigate();
   const imgRef = useRef();
+  const [imgFile, saveImgFile] = useImgsave("", imgRef);
 
-  const saveImgFile = () => {
-    const file = imgRef.current.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = () => {
-      setImgFile(reader.result);
-    };
+  const [company, setCompany] = useState({
+    user_id: "",
+    company_id: "",
+    company_name: "",
+    address: "",
+    tel: "",
+    salary_day: "",
+    company_img: "",
+  });
+
+  const handleChangeState = (e) => {
+    setCompany({
+      ...company,
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (
@@ -38,26 +49,39 @@ const CompanyEditor = () => {
             <div className="editor_right">
               <div className="editor_set">
                 <label>업장명 </label>
-                <input></input>
+                <input name="company_name" onChange={handleChangeState}></input>
               </div>
               <div className="editor_set">
                 <label>주소 </label>
-                <input></input>
+                <input name="address" onChange={handleChangeState}></input>
               </div>
               <div className="editor_set">
                 <label>전화번호 </label>
-                <input></input>
+                <input name="tel" onChange={handleChangeState}></input>
               </div>
               <div className="editor_set">
                 <label>월급날 </label>
-                <input type="date"></input>
+                <input
+                  type="date"
+                  name="salary_day"
+                  onChange={handleChangeState}
+                ></input>
               </div>
             </div>
           </div>
         </div>
         <div className="editor_company">
-          <button className="save">저장</button>
-          <button className="cancel">취소</button>
+          <button
+            className="save"
+            onClick={() => {
+              console.log(company);
+            }}
+          >
+            저장
+          </button>
+          <button className="cancel" onClick={() => navigate(-1)}>
+            취소
+          </button>
         </div>
       </div>
     </div>

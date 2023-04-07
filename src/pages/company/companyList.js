@@ -41,6 +41,10 @@ const CompanyList = () => {
                 <div>주소: {it.address}</div>
                 <div>전화번호: {it.tel}</div>
               </div>
+              <div className="company_one_btn">
+                <button className="in">입장</button>
+                <button className="edit">수정</button>
+              </div>
             </div>
           ))}
         </div>
