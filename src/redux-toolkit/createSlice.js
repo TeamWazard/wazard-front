@@ -31,7 +31,7 @@ export const companySlice = createSlice({
       state.push(action.payload);
     },
     init: (state, action) => {
-      state = manageCompany;
+      state = action.payload;
     },
     remove: (state, action) => {
       return state.filter((e) => e.id !== action.payload);
@@ -40,5 +40,4 @@ export const companySlice = createSlice({
 });
 
 export default companySlice.reducer;
-export const { create, init } = companySlice.actions;
-export const manageCompany = (state) => state.companies;
+export const { create, init, errormessage } = companySlice.actions;

@@ -2,16 +2,25 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useImgsave } from "../../hooks/useImgsave";
 import ceoIcon from "../../imgs/ceoIcon.svg";
-import { useDispatch, useSelector } from "react-redux";
-import { create, init, manageCompany } from "./../../redux-toolkit/createSlice";
+import { useDispatch } from "react-redux";
+import { create } from "./../../redux-toolkit/createSlice";
+import "../../style/company/company.scss";
 
 const CompanyEditor = () => {
   const navigate = useNavigate();
   const imgRef = useRef();
   const [imgFile, saveImgFile] = useImgsave("", imgRef);
-  const inputRef = useRef(null);
+  const inputRefs = {
+    companyNameInput: useRef(),
+    addressInput: useRef(),
+    tel1Input: useRef(),
+    tel2Input: useRef(),
+    tel3Input: useRef(),
+    salaryDayInput: useRef(),
+  };
   const dispatch = useDispatch();
 
+  const [message, setMessage] = useState("");
   const [company, setCompany] = useState({
     user_id: "",
     company_id: "",
@@ -51,11 +60,26 @@ const CompanyEditor = () => {
     }
   };
 
+  const inputFocus = (props) => {
+    if (props === "") {
+      props.ref.current.focus();
+    }
+  };
+
   const onSubmit = () => {
-    console.log(company);
-    if (inputRef.current.value.trim() === "") {
-      alert("칸을 다 입력해주세요.");
-      return;
+    // inputFocus(company.company_name);
+    if (company.company_name === "") {
+      inputRefs.companyNameInput.current.focus();
+    } else if (company.address === "") {
+      inputRefs.addressInput.current.focus();
+    } else if (phoneNumber.tel1 === "") {
+      inputRefs.tel1Input.current.focus();
+    } else if (phoneNumber.tel2 === "") {
+      inputRefs.tel2Input.current.focus();
+    } else if (phoneNumber.tel3 == "") {
+      inputRefs.tel3Input.current.focus();
+    } else if (company.salary_day === "") {
+      inputRefs.salaryDayInput.current.focus();
     } else {
       dispatch(
         create({
@@ -69,7 +93,6 @@ const CompanyEditor = () => {
       );
       navigate(-1);
     }
-    // console.log(company);
   };
 
   return (
@@ -96,35 +119,40 @@ const CompanyEditor = () => {
             <div className="editor_right">
               <div className="editor_set">
                 <label>업장명 </label>
-                <input name="company_name" onChange={handleChangeState}></input>
-              </div>
-              <div className="editor_set">
-                <label>주소 </label>
                 <input
-                  ref={inputRef}
-                  name="address"
+                  ref={inputRefs.companyNameInput}
+                  name="company_name"
                   onChange={handleChangeState}
                 ></input>
               </div>
               <div className="editor_set">
+                <label>주소 </label>
+                <input
+                  ref={inputRefs.addressInput}
+                  name="address"
+                  onChange={handleChangeState}
+                ></input>
+              </div>
+              {message !== "" && <p>{message}</p>}
+              <div className="editor_set">
                 <label>전화번호 </label>
                 <input
                   value={phoneNumber.tel1}
-                  ref={inputRef}
+                  ref={inputRefs.tel1Input}
                   name="tel1"
                   onChange={handlePhoneNumber}
                   maxLength="3"
                 ></input>
                 -
                 <input
-                  ref={inputRef}
+                  ref={inputRefs.tel2Input}
                   name="tel2"
                   onChange={handlePhoneNumber}
                   maxLength="4"
                 ></input>
                 -
                 <input
-                  ref={inputRef}
+                  ref={inputRefs.tel3Input}
                   name="tel3"
                   onChange={handlePhoneNumber}
                   maxLength="4"
@@ -135,7 +163,7 @@ const CompanyEditor = () => {
                 <select
                   name="salary_day"
                   onChange={handleChangeState}
-                  ref={inputRef}
+                  ref={inputRefs.salaryDayInput}
                 >
                   <option value="">월급날을 선택하세요.</option>
                   {Array.from({ length: 31 }, (_, index) => (

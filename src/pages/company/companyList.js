@@ -1,9 +1,9 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { init, manageCompany } from "../../redux-toolkit/createSlice";
+import { useSelector } from "react-redux";
 
 import "../../style/company/company.scss";
-import { useDispatch, useSelector } from "react-redux";
 
 const CompanyList = () => {
   const navigate = useNavigate();
@@ -20,10 +20,22 @@ const CompanyList = () => {
             <div className="company_one">
               <div className="company_img">이미지: {it.img}</div>
               <div className="company_one_right">
-                <div>업장명: {it.company_name}</div>
-                <div>주소: {it.address}</div>
-                <div>전화번호: {it.tel}</div>
-                <div>월급날: {it.salary_day} 일</div>
+                <div className="company_set">
+                  <label>업장명</label>
+                  {it.company_name}
+                </div>
+                <div className="company_set">
+                  <label>주소</label>
+                  {it.address}
+                </div>
+                <div className="company_set">
+                  <label>전화번호</label>
+                  {it.tel}
+                </div>
+                <div className="company_set">
+                  <label>월급날</label>
+                  {it.salary_day} 일
+                </div>
               </div>
               <div className="company_one_btn">
                 <button className="in">입장</button>
