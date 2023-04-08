@@ -13,19 +13,19 @@ import "./pages/main/Login.scss";
 
 function App() {
   return (
-    // <Provider store={store}>
-    <BrowserRouter>
-      <div className="App">
-        <Routes>
-          <Route exact path="/" element={<Login />} />
-          <Route path="/signup" element={<SignUpChoose />} />
-          <Route path="/buttonChoose" element={<ButtonChoose />} />
-          <Route path="/company_list" element={<CompanyList />} />
-          <Route path="/company_editor" element={<CompanyEditor />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
-    // </Provider>
+    <Provider store={store}>
+      <BrowserRouter>
+        <div className="App">
+          <Routes>
+            <Route exact path="/" element={<Login />} />
+            <Route path="/signup" element={<SignUpChoose />} />
+            <Route path="/buttonChoose" element={<ButtonChoose />} />
+            <Route path="/company_list" element={<CompanyList />} />
+            <Route path="/company_editor" element={<CompanyEditor />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

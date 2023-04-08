@@ -169,6 +169,13 @@
         box-shadow: 0 0 1px #9e30f4;
       }
     }
+    input[name="salary_day"] {
+      width: 100px;
+    }
+
+    input[name="tel"] {
+      width: 80px;
+    }
 
     [type="date"] {
       text-align: center;
