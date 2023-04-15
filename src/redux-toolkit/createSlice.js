@@ -1,9 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
-
+import { createSlice, current } from "@reduxjs/toolkit";
+import { useRef } from "react";
+// const nextId = useRef(2);
 let nextId = 0;
 const initialValue = [
   {
-    company_id: "0",
+    company_id: 0,
     user_id: "0",
     company_name: "bhc",
     address: "경기도 부천시",
@@ -12,7 +13,7 @@ const initialValue = [
     company_img: null,
   },
   {
-    company_id: "1",
+    company_id: 1,
     user_id: "0",
     company_name: "CU",
     address: "서울특별시 종로구 CU",
@@ -27,11 +28,21 @@ export const companySlice = createSlice({
   initialState: initialValue,
   reducers: {
     create: (state, action) => {
-      // nextId++;
-      state.push(action.payload);
+      // console.log(action.payload);
+      // nextId += 1;
+      // const nextId = useRef(2);
+      nextId = action.payload.company_id += 1;
+      // state.company_id += 1;
+      state.push({ ...action.payload, company_id: nextId });
     },
     init: (state, action) => {
-      state = action.payload;
+      //필요없을듯 useSelecter 사용가능
+      // const nextId = useRef(2);
+      const company = state.filter(
+        (company) => company.company_id === parseInt(action.payload)
+      );
+      // console.log(company);
+      return company;
     },
     remove: (state, action) => {
       return state.filter((e) => e.id !== action.payload);

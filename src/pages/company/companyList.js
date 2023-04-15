@@ -8,6 +8,7 @@ import "../../style/company/company.scss";
 const CompanyList = () => {
   const navigate = useNavigate();
   const companies = useSelector((state) => state.companies);
+  // console.log(companies);
 
   return (
     <div className="company_list_page">
