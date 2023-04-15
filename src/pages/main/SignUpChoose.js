@@ -344,7 +344,7 @@ const SignUpChoose = () => {
             <button className="startBtn" onClick={onSubmitHandler}>
               START
             </button>
-            <button className="startCancelBtn" onClick={() => navigate(-1)}>
+            <button className="startCancelBtn" onClick={() => navigate("/")}>
               가입취소
             </button>
           </div>
