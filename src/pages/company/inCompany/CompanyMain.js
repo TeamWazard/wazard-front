@@ -1,11 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { init } from "../../../redux-toolkit/createSlice";
-
 import { useState } from "react";
+
 import Calendar from "react-calendar";
-// import "react-calendar/dist/Calendar.css";
+import Header from "components/Header";
+import LeftMenuCeo from "components/LeftMenuCeo";
+
 import "../../../style/calendar/Calendar.scss";
+import "style/company/company_main_calender.scss";
 
 const CompanyMain = (props) => {
   const navigate = useNavigate();
@@ -16,8 +19,14 @@ const CompanyMain = (props) => {
   const [value, onChange] = useState(new Date());
 
   return (
-    <div className="company_list_page">
-      <Calendar onChange={onChange} value={value} />
+    <div className="main">
+      <Header />
+      <div className="companyMain-wrapper">
+        <LeftMenuCeo />
+        <div className="ceoMainBody">
+          <Calendar onChange={onChange} value={value} />
+        </div>
+      </div>
     </div>
   );
 };

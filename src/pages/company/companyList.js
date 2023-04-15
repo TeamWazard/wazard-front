@@ -41,7 +41,12 @@ const CompanyList = () => {
                 </div>
               </div>
               <div className="company_one_btn">
-                <button className="in">입장</button>
+                <button
+                  className="in"
+                  onClick={() => navigate(`/company_main/${it.company_id}`)}
+                >
+                  입장
+                </button>
                 <button
                   className="edit"
                   onClick={() =>

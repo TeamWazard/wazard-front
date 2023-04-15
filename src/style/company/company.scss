@@ -1,4 +1,5 @@
 //중복 값 처리
+// 박스 둥굴게 글씨 하얀색
 %bluck_type {
   border-radius: 10px;
   border: none;
@@ -12,7 +13,7 @@
   height: 100vh;
   margin: 0;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
   overflow-x: hidden;
   flex-direction: column;
 
@@ -76,6 +77,9 @@
           margin: 5px;
           background: #4a52ff;
           @extend %bluck_type;
+        }
+        button:hover {
+          background-color: #1e26b7;
         }
 
         .edit {

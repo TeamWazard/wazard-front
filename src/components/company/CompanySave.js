@@ -122,96 +122,90 @@ const CompanySave = ({ mode, onSave, id }) => {
   };
   console.log(company);
   return (
-    <div className="company_list_page">
-      {/* <Header /> */}
-      <div className="company_list_wrapper">
-        <div className="title">
-          <h2>업장 등록</h2>
-        </div>
-        <div className="list">
-          <div className="editor_wrapper">
-            <div className="editor_img">
-              <img src={imgFile ? imgFile : ceoIcon} alt="프로필 이미지" />
-              <label className="uploadImg" htmlFor="companyImg">
-                이미지 업로드
-              </label>
+    <div>
+      <div className="list">
+        <div className="editor_wrapper">
+          <div className="editor_img">
+            <img src={imgFile ? imgFile : ceoIcon} alt="프로필 이미지" />
+            <label className="uploadImg" htmlFor="companyImg">
+              이미지 업로드
+            </label>
+            <input
+              id="companyImg"
+              type="file"
+              accept="image/*"
+              ref={imgRef}
+              onChange={saveImgFile}
+            />
+          </div>
+          <div className="editor_right">
+            <div className="editor_set">
+              <label>업장명 </label>
               <input
-                id="companyImg"
-                type="file"
-                accept="image/*"
-                ref={imgRef}
-                onChange={saveImgFile}
-              />
+                ref={inputRefs.companyNameInput}
+                name="company_name"
+                onChange={handleChangeState}
+              ></input>
             </div>
-            <div className="editor_right">
-              <div className="editor_set">
-                <label>업장명 </label>
-                <input
-                  ref={inputRefs.companyNameInput}
-                  name="company_name"
-                  onChange={handleChangeState}
-                ></input>
-              </div>
-              <div className="editor_set">
-                <label>주소 </label>
-                <input
-                  ref={inputRefs.addressInput}
-                  name="address"
-                  onChange={handleChangeState}
-                ></input>
-              </div>
-              {/* {message !== "" && <p>{message}</p>} */}
-              <div className="editor_set">
-                <label>전화번호 </label>
-                <input
-                  value={phoneNumber.tel1}
-                  ref={inputRefs.tel1Input}
-                  name="tel1"
-                  onChange={handlePhoneNumber}
-                  maxLength="3"
-                ></input>
-                -
-                <input
-                  ref={inputRefs.tel2Input}
-                  name="tel2"
-                  onChange={handlePhoneNumber}
-                  maxLength="4"
-                ></input>
-                -
-                <input
-                  ref={inputRefs.tel3Input}
-                  name="tel3"
-                  onChange={handlePhoneNumber}
-                  maxLength="4"
-                ></input>
-              </div>
-              <div className="editor_set">
-                <label>월급날 </label>
-                <select
-                  name="salary_day"
-                  onChange={handleChangeState}
-                  ref={inputRefs.salaryDayInput}
-                >
-                  <option value="">월급날을 선택하세요.</option>
-                  {Array.from({ length: 31 }, (_, index) => (
-                    <option key={index} value={index + 1}>
-                      {index + 1}
-                    </option>
-                  ))}
-                </select>{" "}
-                일
-              </div>
+            <div className="editor_set">
+              <label>주소 </label>
+              <input
+                ref={inputRefs.addressInput}
+                name="address"
+                onChange={handleChangeState}
+              ></input>
+            </div>
+            {/* {message !== "" && <p>{message}</p>} */}
+            <div className="editor_set">
+              <label>전화번호 </label>
+              <input
+                value={phoneNumber.tel1}
+                ref={inputRefs.tel1Input}
+                name="tel1"
+                onChange={handlePhoneNumber}
+                maxLength="3"
+              ></input>
+              -
+              <input
+                ref={inputRefs.tel2Input}
+                name="tel2"
+                onChange={handlePhoneNumber}
+                maxLength="4"
+              ></input>
+              -
+              <input
+                ref={inputRefs.tel3Input}
+                name="tel3"
+                onChange={handlePhoneNumber}
+                maxLength="4"
+              ></input>
+            </div>
+            <div className="editor_set">
+              <label>월급날 </label>
+              <select
+                name="salary_day"
+                onChange={handleChangeState}
+                ref={inputRefs.salaryDayInput}
+              >
+                <option value="">월급날을 선택하세요.</option>
+                {Array.from({ length: 31 }, (_, index) => (
+                  <option key={index} value={index + 1}>
+                    {index + 1}
+                  </option>
+                ))}
+              </select>{" "}
+              일
             </div>
           </div>
         </div>
-        <div className="editor_company">
-          <button className="save" onClick={onSubmit}>
-            저장
-          </button>
-          <button className="cancel" onClick={() => navigate(-1)}>
-            취소
-          </button>
-        </div>
+      </div>
+      <div className="editor_company">
+        <button className="save" onClick={onSubmit}>
+          저장
+        </button>
+        <button className="cancel" onClick={() => navigate(-1)}>
+          취소
+        </button>
       </div>
     </div>
   );
