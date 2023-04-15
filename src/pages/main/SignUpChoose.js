@@ -6,7 +6,7 @@ import Radio from "./../../components/Radio";
 
 const SignUpChoose = () => {
   const location = useLocation();
-  const userType = location.state.userType;
+  // const userType = location.state.userType;
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [emailCheck, setEmailCheck] = useState("");
@@ -21,7 +21,7 @@ const SignUpChoose = () => {
     thrNum: "",
   });
 
-  console.log(userType);
+  // console.log(userType);
 
   const emailInput = useRef();
   const emailCheckInput = useRef();

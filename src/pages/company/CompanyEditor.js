@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useImgsave } from "../../hooks/useImgsave";
+import { useImgsave } from "../../hooks/UseImgSave";
 import ceoIcon from "../../imgs/ceoIcon.svg";
 import { useDispatch } from "react-redux";
 import { create } from "./../../redux-toolkit/createSlice";
@@ -19,6 +19,7 @@ const CompanyEditor = () => {
     salaryDayInput: useRef(),
   };
   const dispatch = useDispatch();
+  const companyId = useRef(2);
 
   const [message, setMessage] = useState("");
   const [company, setCompany] = useState({
@@ -67,6 +68,7 @@ const CompanyEditor = () => {
   };
 
   const onSubmit = () => {
+    // const companyId = useRef(2);
     // inputFocus(company.company_name);
     if (company.company_name === "") {
       inputRefs.companyNameInput.current.focus();
@@ -83,6 +85,7 @@ const CompanyEditor = () => {
     } else {
       dispatch(
         create({
+          company_id: companyId.current,
           user_id: company.user_id,
           company_name: company.company_name,
           address: company.address,
@@ -91,6 +94,8 @@ const CompanyEditor = () => {
           company_img: company.company_img,
         })
       );
+      companyId.current += 1;
+      console.log(companyId);
       navigate(-1);
     }
   };

@@ -6,6 +6,7 @@ import SignUpChoose from "./pages/main/SignUpChoose";
 import ButtonChoose from "./pages/main/ButtonChoose";
 import CompanyList from "./pages/company/CompanyList";
 import CompanyEditor from "./pages/company/CompanyEditor";
+import CompanyMain from "./pages/company/inCompany/CompanyMain";
 import Login from "./pages/main/Login";
 
 import "./App.scss";
@@ -22,6 +23,7 @@ function App() {
             <Route path="/buttonChoose" element={<ButtonChoose />} />
             <Route path="/company_list" element={<CompanyList />} />
             <Route path="/company_editor" element={<CompanyEditor />} />
+            <Route path="/company_main/:id" element={<CompanyMain />} />
           </Routes>
         </div>
       </BrowserRouter>
