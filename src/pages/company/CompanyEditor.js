@@ -5,6 +5,7 @@ import ceoIcon from "../../imgs/ceoIcon.svg";
 import { useDispatch } from "react-redux";
 import { create } from "./../../redux-toolkit/createSlice";
 import "../../style/company/company.scss";
+import Header from "../../components/Header";
 
 const CompanyEditor = () => {
   const navigate = useNavigate();
@@ -102,6 +103,7 @@ const CompanyEditor = () => {
 
   return (
     <div className="company_list_page">
+      <Header />
       <div className="company_list_wrapper">
         <div className="title">
           <h2>업장 등록</h2>

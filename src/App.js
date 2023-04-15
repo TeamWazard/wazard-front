@@ -12,6 +12,11 @@ import Login from "./pages/main/Login";
 import "./App.scss";
 import "./pages/main/Login.scss";
 
+import CeoMain from "./pages/main/CeoMain";
+import CeoMain2 from "./pages/main/CeoMain2";
+import CeoMain3 from "./pages/main/CeoMain3";
+import CeoMain4 from "./pages/main/CeoMain4";
+
 function App() {
   return (
     <Provider store={store}>
@@ -24,6 +29,10 @@ function App() {
             <Route path="/company_list" element={<CompanyList />} />
             <Route path="/company_editor" element={<CompanyEditor />} />
             <Route path="/company_main/:id" element={<CompanyMain />} />
+            <Route path="/ceomain" element={<CeoMain />} />
+            <Route path="/ceomain2" element={<CeoMain2 />} />
+            <Route path="/ceomain3" element={<CeoMain3 />} />
+            <Route path="/ceomain4" element={<CeoMain4 />} />
           </Routes>
         </div>
       </BrowserRouter>

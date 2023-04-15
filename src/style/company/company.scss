@@ -13,6 +13,8 @@
   margin: 0;
   align-items: center;
   justify-content: center;
+  overflow-x: hidden;
+  flex-direction: column;
 
   .company_list_wrapper {
     width: 80%;
