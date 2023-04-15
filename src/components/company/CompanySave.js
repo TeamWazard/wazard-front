@@ -1,13 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useImgsave } from "../../hooks/UseImgSave";
+import { useImgsave } from "hooks/UseImgSave";
 import ceoIcon from "../../imgs/ceoIcon.svg";
-import { useDispatch } from "react-redux";
-import { create } from "./../../redux-toolkit/createSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { create, edit } from "../../redux-toolkit/createSlice";
 import "../../style/company/company.scss";
-import Header from "../../components/Header";
 
-const CompanyEditor = () => {
+const CompanySave = ({ mode, onSave, id }) => {
   const navigate = useNavigate();
   const imgRef = useRef();
   const [imgFile, saveImgFile] = useImgsave("", imgRef);
@@ -21,23 +20,39 @@ const CompanyEditor = () => {
   };
   const dispatch = useDispatch();
   const companyId = useRef(2);
+  const editCompany = useSelector((state) =>
+    state.companies.find((company) => company.company_id === parseInt(id))
+  );
 
-  const [message, setMessage] = useState("");
-  const [company, setCompany] = useState({
-    user_id: "",
-    company_id: "",
-    company_name: "",
-    address: "",
-    tel: "",
-    salary_day: "",
-    company_img: "",
-  });
+  const [company, setCompany] = useState(
+    editCompany || {
+      user_id: "",
+      company_id: "",
+      company_name: "",
+      address: "",
+      tel: "",
+      salary_day: "",
+      company_img: "",
+    }
+  );
 
   const [phoneNumber, setPhoneNumber] = useState({
     tel1: "",
     tel2: "",
     tel3: "",
   });
+
+  // useEffect(() => {
+  //   setCompany({
+  //     user_id: editCompany.user_id,
+  //     company_id: editCompany.company_id,
+  //     company_name: editCompany.company_name,
+  //     address: editCompany.address,
+  //     tel: editCompany.tel,
+  //     salary_day: editCompany.salary_day,
+  //     company_img: editCompany.company_img,
+  //   });
+  // }, []);
 
   useEffect(() => {
     setCompany({
@@ -61,16 +76,7 @@ const CompanyEditor = () => {
       });
     }
   };
-
-  const inputFocus = (props) => {
-    if (props === "") {
-      props.ref.current.focus();
-    }
-  };
-
   const onSubmit = () => {
-    // const companyId = useRef(2);
-    // inputFocus(company.company_name);
     if (company.company_name === "") {
       inputRefs.companyNameInput.current.focus();
     } else if (company.address === "") {
@@ -79,31 +85,45 @@ const CompanyEditor = () => {
       inputRefs.tel1Input.current.focus();
     } else if (phoneNumber.tel2 === "") {
       inputRefs.tel2Input.current.focus();
-    } else if (phoneNumber.tel3 == "") {
+    } else if (phoneNumber.tel3 === "") {
       inputRefs.tel3Input.current.focus();
     } else if (company.salary_day === "") {
       inputRefs.salaryDayInput.current.focus();
     } else {
-      dispatch(
-        create({
-          company_id: companyId.current,
-          user_id: company.user_id,
-          company_name: company.company_name,
-          address: company.address,
-          tel: company.tel,
-          salary_day: company.salary_day,
-          company_img: company.company_img,
-        })
-      );
+      if (mode === "add") {
+        dispatch(
+          create({
+            company_id: companyId.current,
+            user_id: company.user_id,
+            company_name: company.company_name,
+            address: company.address,
+            tel: company.tel,
+            salary_day: company.salary_day,
+            company_img: company.company_img,
+          })
+        );
+      } else if (mode === "edit") {
+        dispatch(
+          edit({
+            company_id: company.company_id,
+            user_id: company.user_id,
+            company_name: company.company_name,
+            address: company.address,
+            tel: company.tel,
+            salary_day: company.salary_day,
+            company_img: company.company_img,
+          })
+        );
+      }
+
       companyId.current += 1;
-      console.log(companyId);
       navigate(-1);
     }
   };
-
+  console.log(company);
   return (
     <div className="company_list_page">
-      <Header />
+      {/* <Header /> */}
       <div className="company_list_wrapper">
         <div className="title">
           <h2>업장 등록</h2>
@@ -140,7 +160,7 @@ const CompanyEditor = () => {
                   onChange={handleChangeState}
                 ></input>
               </div>
-              {message !== "" && <p>{message}</p>}
+              {/* {message !== "" && <p>{message}</p>} */}
               <div className="editor_set">
                 <label>전화번호 </label>
                 <input
@@ -197,4 +217,4 @@ const CompanyEditor = () => {
   );
 };
 
-export default CompanyEditor;
+export default CompanySave;

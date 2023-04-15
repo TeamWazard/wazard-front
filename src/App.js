@@ -5,7 +5,8 @@ import store from "./redux-toolkit/store";
 import SignUpChoose from "./pages/main/SignUpChoose";
 import ButtonChoose from "./pages/main/ButtonChoose";
 import CompanyList from "./pages/company/CompanyList";
-import CompanyEditor from "./pages/company/CompanyEditor";
+import CompanyAdd from "./pages/company/CompanyAdd";
+import CompanyEdit from "pages/company/CompanyEdit";
 import CompanyMain from "./pages/company/inCompany/CompanyMain";
 import Login from "./pages/main/Login";
 
@@ -27,7 +28,8 @@ function App() {
             <Route path="/signup" element={<SignUpChoose />} />
             <Route path="/buttonChoose" element={<ButtonChoose />} />
             <Route path="/company_list" element={<CompanyList />} />
-            <Route path="/company_editor" element={<CompanyEditor />} />
+            <Route path="/company_add" element={<CompanyAdd />} />
+            <Route path="/company_edit" element={<CompanyEdit />} />
             <Route path="/company_main/:id" element={<CompanyMain />} />
             <Route path="/ceomain" element={<CeoMain />} />
             <Route path="/ceomain2" element={<CeoMain2 />} />

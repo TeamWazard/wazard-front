@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { init, manageCompany } from "../../redux-toolkit/createSlice";
+import { manageCompany } from "../../redux-toolkit/createSlice";
 import { useSelector } from "react-redux";
 // import LeftMenuCeo from "../../components/LeftMenuCeo";
 import Header from "../../components/Header";
@@ -10,7 +10,6 @@ import "../../style/company/company.scss";
 const CompanyList = () => {
   const navigate = useNavigate();
   const companies = useSelector((state) => state.companies);
-  // console.log(companies);
 
   return (
     <div className="company_list_page">
@@ -43,13 +42,22 @@ const CompanyList = () => {
               </div>
               <div className="company_one_btn">
                 <button className="in">입장</button>
-                <button className="edit">수정</button>
+                <button
+                  className="edit"
+                  onClick={() =>
+                    navigate("/company_edit", {
+                      state: { value: it.company_id },
+                    })
+                  }
+                >
+                  수정
+                </button>
               </div>
             </div>
           ))}
         </div>
         <div className="plus_company">
-          <button onClick={() => navigate("/company_editor")}>+</button>
+          <button onClick={() => navigate("/company_add")}>+</button>
         </div>
       </div>
     </div>

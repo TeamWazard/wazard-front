@@ -98,6 +98,10 @@
       border: none;
       font-size: 30px;
     }
+
+    button:hover {
+      background-color: #a9a9a9;
+    }
   }
 }
 
@@ -216,4 +220,13 @@
     background-color: #4a52ff;
     color: #ffffff;
   }
+  .save:hover {
+    background-color: #8a90ff;
+  }
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: 0.5s;
 }
