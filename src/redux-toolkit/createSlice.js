@@ -28,21 +28,17 @@ export const companySlice = createSlice({
   initialState: initialValue,
   reducers: {
     create: (state, action) => {
-      // console.log(action.payload);
-      // nextId += 1;
-      // const nextId = useRef(2);
       nextId = action.payload.company_id += 1;
-      // state.company_id += 1;
       state.push({ ...action.payload, company_id: nextId });
     },
-    init: (state, action) => {
-      //필요없을듯 useSelecter 사용가능
-      // const nextId = useRef(2);
-      const company = state.filter(
-        (company) => company.company_id === parseInt(action.payload)
+    edit: (state, action) => {
+      const index = state.findIndex(
+        (company) => company.company_id === action.payload.company_id
       );
-      // console.log(company);
-      return company;
+
+      if (index !== -1) {
+        state[index] = action.payload;
+      }
     },
     remove: (state, action) => {
       return state.filter((e) => e.id !== action.payload);
@@ -51,4 +47,4 @@ export const companySlice = createSlice({
 });
 
 export default companySlice.reducer;
-export const { create, init, errormessage } = companySlice.actions;
+export const { create, edit, remove } = companySlice.actions;
