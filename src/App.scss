@@ -1,3 +1,28 @@
 /* .App {
   text-align: center;
 } */
+
+//상단 바 scss
+.topbar {
+  background-image: url("./imgs/topbar.svg");
+  background-size: cover;
+  display: flex;
+  height: 80px;
+  width: 100%;
+}
+
+.topTitle {
+  color: white;
+  font-family: "Goldman", cursive;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  margin-top: 15px;
+  margin-left: 60px;
+}
+
+.topMyPage {
+  position: absolute;
+  top: 28px;
+  right: 30px;
+}
