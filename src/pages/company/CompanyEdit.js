@@ -10,7 +10,7 @@ const CompanyEdit = () => {
       <Header />
       <div className="company_list_wrapper">
         <div className="title">
-          <h2>업장 등록</h2>
+          <h2>업장 수정</h2>
         </div>
         <CompanySave mode="edit" id={id} />
       </div>
