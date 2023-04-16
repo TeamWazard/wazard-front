@@ -1,6 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { init } from "../../../redux-toolkit/createSlice";
 import { useState } from "react";
 
 import Calendar from "react-calendar";
@@ -8,7 +7,7 @@ import Header from "components/Header";
 import LeftMenuCeo from "components/LeftMenuCeo";
 
 import "../../../style/calendar/Calendar.scss";
-import "style/company/company_main_calender.scss";
+import "./CompanyMain.scss";
 
 const CompanyMain = (props) => {
   const navigate = useNavigate();
@@ -23,8 +22,16 @@ const CompanyMain = (props) => {
       <Header />
       <div className="companyMain-wrapper">
         <LeftMenuCeo />
-        <div className="ceoMainBody">
+        <div className="calender-wrapper">
           <Calendar onChange={onChange} value={value} />
+          <div className="date">
+            <div className="title">
+              {value.toLocaleDateString()}
+              <label>날에 근무한 알바생</label>
+            </div>
+
+            <div className="memberList"></div>
+          </div>
         </div>
       </div>
     </div>
