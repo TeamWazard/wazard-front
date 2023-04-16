@@ -1,7 +1,9 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { init, manageCompany } from "../../redux-toolkit/createSlice";
+import { manageCompany } from "../../redux-toolkit/createSlice";
 import { useSelector } from "react-redux";
+// import LeftMenuCeo from "../../components/LeftMenuCeo";
+import Header from "../../components/Header";
 
 import "../../style/company/company.scss";
 
@@ -11,6 +13,7 @@ const CompanyList = () => {
 
   return (
     <div className="company_list_page">
+      <Header />
       <div className="company_list_wrapper">
         <div className="title">
           <h2>운영중인 업장</h2>
@@ -38,14 +41,28 @@ const CompanyList = () => {
                 </div>
               </div>
               <div className="company_one_btn">
-                <button className="in">입장</button>
-                <button className="edit">수정</button>
+                <button
+                  className="in"
+                  onClick={() => navigate(`/company_main/${it.company_id}`)}
+                >
+                  입장
+                </button>
+                <button
+                  className="edit"
+                  onClick={() =>
+                    navigate("/company_edit", {
+                      state: { value: it.company_id },
+                    })
+                  }
+                >
+                  수정
+                </button>
               </div>
             </div>
           ))}
         </div>
         <div className="plus_company">
-          <button onClick={() => navigate("/company_editor")}>+</button>
+          <button onClick={() => navigate("/company_add")}>+</button>
         </div>
       </div>
     </div>

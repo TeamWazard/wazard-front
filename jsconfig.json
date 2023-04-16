@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src"
+  },
+
+  "include": ["src"]
+}
+//절대경로 간편화 해줌
