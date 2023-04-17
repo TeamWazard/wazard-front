@@ -1,0 +1,58 @@
+.companyMain-wrapper {
+  display: flex;
+
+  .calender-wrapper {
+    width: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+
+    .date {
+      margin: 20px;
+      width: 1000px;
+      .title {
+        font-style: italic;
+        font-weight: 500;
+        font-size: 30px;
+        border-bottom: 3px solid #4a52ff;
+        padding: 10px;
+        label {
+          font-style: normal;
+          color: #888888;
+        }
+      }
+
+      .memberList {
+        &-view {
+          padding: 10px;
+
+          .member {
+            .number {
+              font-size: 23px;
+              margin: 10px;
+              font-weight: bold;
+              color: #4a52ff;
+              text-shadow: 1px 1px 1px gray;
+            }
+            label {
+              font-weight: bold;
+            }
+            display: flex;
+            align-items: center;
+            height: 60px;
+            .name {
+              width: 200px;
+            }
+            .time {
+              display: flex;
+              * {
+                width: 200px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
