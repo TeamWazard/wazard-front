@@ -1,0 +1,236 @@
+//중복 값 처리
+// 박스 둥굴게 글씨 하얀색
+%bluck_type {
+  border-radius: 10px;
+  border: none;
+  color: #ffffff;
+}
+
+// 업소 리스트
+.company_list_page {
+  display: flex;
+  // width: 100vw;
+  // height: 100vh;
+  margin: 0;
+  align-items: center;
+  // justify-content: center;
+  overflow-x: hidden;
+  flex-direction: column;
+
+  .company_list_wrapper {
+    width: 80%;
+    height: 100%;
+  }
+
+  .title {
+    display: flex;
+    height: 100px;
+    margin-top: 20px;
+    align-items: center;
+    border-bottom: 4px solid #9db5fd;
+    h2 {
+      display: inline-block;
+    }
+  }
+
+  .list {
+    display: inline-block;
+    width: 100%;
+    .company_one {
+      margin: 20px;
+      display: flex;
+      justify-content: center;
+
+      .company_img {
+        width: 200px;
+        height: 100px;
+      }
+
+      .company_one_right {
+        display: flex;
+        background: rgba(17, 26, 215, 0.05);
+        opacity: 0.7;
+        border-radius: 20px;
+        width: 60vw;
+        height: 200px;
+        font-size: 20px;
+        justify-content: center;
+        flex-direction: column;
+        .company_set {
+          display: flex;
+        }
+
+        label {
+          display: inline-block;
+          font-weight: 700;
+          width: 100px;
+        }
+      }
+
+      .company_one_btn {
+        display: flex;
+        flex-direction: column;
+        width: 80px;
+
+        .in {
+          height: 80%;
+          margin: 5px;
+          background: #4a52ff;
+          @extend %bluck_type;
+        }
+        button:hover {
+          background-color: #1e26b7;
+        }
+
+        .edit {
+          height: 20%;
+          margin: 5px;
+          background: #788cf2;
+          @extend %bluck_type;
+        }
+      }
+    }
+  }
+
+  .plus_company {
+    text-align: center;
+    button {
+      background-color: #d9d9d9;
+      width: 100px;
+      height: 100px;
+      border-radius: 100px;
+      border: none;
+      font-size: 30px;
+    }
+
+    button:hover {
+      background-color: #a9a9a9;
+    }
+  }
+}
+
+// 업장 등록
+
+.editor_wrapper {
+  margin: 20px;
+  height: 400px;
+  // background: rgba(17, 26, 215, 0.05);
+  opacity: 0.7;
+  border-radius: 20px;
+  display: flex;
+  // justify-content: center;
+
+  .editor_img {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+
+    .uploadImg {
+      margin: 5px 0 20px 0;
+      font-weight: bold;
+      font-size: 13px;
+      color: #0095f6;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    img {
+      width: 100px;
+      height: 100px;
+      min-width: 130px;
+      min-height: 130px;
+
+      border-radius: 10px;
+    }
+
+    input {
+      display: none;
+    }
+  }
+
+  .editor_right {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    margin: 10px;
+    margin-left: 40px;
+  }
+
+  .editor_set {
+    // height: 50px;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    // justify-content: center;
+    label {
+      // display: inline-block;
+      width: 100px;
+      text-align: center;
+      display: flex;
+      // justify-content: center;
+      align-items: center;
+    }
+
+    input {
+      background: rgba(235, 235, 235, 0.19);
+      width: 200px;
+      height: 25px;
+      border: 1px solid #828282;
+      border-radius: 10px;
+      display: inline-block;
+      // transform: translate(-50%, -50%);
+
+      &:focus {
+        outline: none;
+        border-color: #9e30f4;
+        box-shadow: 0 0 1px #9e30f4;
+      }
+    }
+    input[name="salary_day"] {
+      width: 100px;
+    }
+
+    input[name="tel1"],
+    [name="tel2"],
+    [name="tel3"] {
+      width: 80px;
+    }
+
+    [type="date"] {
+      text-align: center;
+    }
+
+    select {
+      border-radius: 50px;
+      height: 30px;
+    }
+  }
+}
+
+.editor_company {
+  text-align: center;
+  button {
+    background-color: #d9d9d9;
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+    font-size: 22px;
+    margin: 20px;
+  }
+  .save {
+    background-color: #4a52ff;
+    color: #ffffff;
+  }
+  .save:hover {
+    background-color: #8a90ff;
+  }
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: 0.5s;
+}
