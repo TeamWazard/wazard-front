@@ -215,7 +215,7 @@ const SignUpChoose = () => {
   return (
     <div className="all">
       <div className="signUpPage">
-        <div>
+        <div className="title">
           <h2>Welcome To Wazard</h2>
         </div>
         <div className="RegisterForm">

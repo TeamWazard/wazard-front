@@ -207,6 +207,12 @@
       height: 30px;
     }
   }
+
+  button:hover {
+    filter: brightness(50%);
+    cursor: pointer;
+    transition: 0.5s;
+  }
 }
 
 .editor_company {
@@ -229,8 +235,8 @@
   }
 }
 
-button:hover {
-  background-color: rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  transition: 0.5s;
-}
+// button:hover {
+//   filter: brightness(80%);
+//   cursor: pointer;
+//   transition: 0.4s;
+// }
