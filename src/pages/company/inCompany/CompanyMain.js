@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Calendar from "react-calendar";
 import Header from "components/Header";
@@ -30,15 +30,24 @@ const CompanyMain = (props) => {
       end_time: "23:00:30",
     },
   ];
+
+  //페이지 이동시 스크롤 제일 위로
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [navigate]);
+
   return (
     <div className="main">
       <Header />
       <div className="companyMain-wrapper">
         <LeftMenuCeo />
         <div className="calender-wrapper">
+          <div className="title">
+            <h3>{company.company_name}</h3>
+          </div>
           <Calendar onChange={onChange} value={value} />
           <div className="date">
-            <div className="title">
+            <div className="date-title">
               {value.toLocaleDateString()}
               <label>날에 근무한 알바생</label>
             </div>

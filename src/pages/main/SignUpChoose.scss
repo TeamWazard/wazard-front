@@ -26,27 +26,47 @@
   background-size: cover;
 }
 
+// .page {
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   width: 100%;
+//   max-width: 650px;
+//   padding: 0 20px;
+//   left: 30%;
+//   transform: translate(-50%, 0);
+//   background-color: #ffffff00;
+//   overflow: hidden;
+//   display: flex;
+//   flex-direction: column;
+// }
+
 // 회원가입 창
 .signUpPage {
-  margin-top: 40px;
-  width: 50%;
-  float: left;
-  margin-left: 100px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 750px;
+  left: 8%;
   display: flex;
   flex-direction: column;
-  h2 {
+  .title {
     font-family: "Goldman";
-    font-style: normal;
-    margin-bottom: 20px;
     font-weight: 400;
-    font-size: 70px;
+    font-size: 40px;
     text-align: center;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h2 {
+      margin: 0;
+    }
   }
 
   .RegisterForm {
-    width: 70%;
+    width: 600px;
     margin: 0 auto;
-    flex-direction: column;
   }
 }
 
@@ -55,35 +75,34 @@
   height: 40px;
   margin: 10px;
   display: flex;
+  // justify-content: space-between;
 
   .refisterInputInBtn {
-    // display: inline-block;
     @extend %inputBox;
-    // width: 320px;
-    width: 60%;
-    max-width: 320px;
+    // width: 60%;
+    width: 300px;
   }
 
   .refisterInput {
     @extend %inputBox;
-    width: 80%;
-    max-width: 450px;
+    width: 400px;
+    // max-width: 450px;
   }
 
   .tel_wapper {
     display: flex;
-    width: 90%;
+    width: 500px;
     justify-content: space-around;
     font-size: 24px;
-    margin-left: 20px;
-  }
+    // margin-left: 20px;
 
-  .tel {
-    // width: 100px;
-    width: 20%;
-    @extend %inputBox;
-    margin-left: 5px;
-    margin-right: 5px;
+    .tel {
+      // width: 100px;
+      width: 100px;
+      @extend %inputBox;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
   }
 
   .gender_wapper {
@@ -102,6 +121,7 @@
 
   [type="date"] {
     @extend %inputBox;
+    cursor: pointer;
   }
 }
 
@@ -109,13 +129,15 @@
 .registerLabel {
   display: inline-block;
   // width: 120px;
-  font-size: 15px;
+  // font-size: 11px;
   flex-shrink: 1;
   width: 130px;
+  // max-width: 130px;
   line-height: 40px;
 
   & label {
-    font-size: 15px;
+    font-size: 14px;
+    font-weight: 700;
   }
 }
 
@@ -123,7 +145,7 @@
   color: #ec6c6c;
   margin-left: 50px;
   width: 100vh;
-  font-size: 15px;
+  font-size: 13px;
 }
 
 // button
@@ -132,11 +154,12 @@
   width: 20%;
   float: right;
   height: 100%;
-  margin: 0 auto;
+  margin-left: 10px;
 
   background: #000000;
   border-radius: 50px;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .navegateButton {
@@ -151,12 +174,13 @@
   font-size: 20px;
   border-radius: 50px;
   border: none;
+  cursor: pointer;
 }
 .startBtn {
   @extend %buttonForm;
   font-family: "Goldman";
   background: #4a52ff;
-  &:active {
+  &:hover {
     background-color: #3037af;
   }
 }
@@ -164,7 +188,7 @@
 .startCancelBtn {
   @extend %buttonForm;
   background: #869dee;
-  &:active {
+  &:hover {
     background-color: #6175bd;
   }
 }
