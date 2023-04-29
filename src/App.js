@@ -19,8 +19,7 @@ import CeoMain3 from "./pages/main/CeoMain3";
 import CeoMain4 from "./pages/main/CeoMain4";
 
 import CompanyAlbaList from "pages/company/inCompany/CompanyAlbaList";
-
-
+import CompanyAlbaSalary from "pages/company/inCompany/CompanyAlbaSalary";
 
 function App() {
   return (
@@ -39,6 +38,11 @@ function App() {
             <Route
               path="/company_main/:id/alba_list"
               element={<CompanyAlbaList />}
+            />
+
+            <Route
+              path="/company_main/:id/alba_salary"
+              element={<CompanyAlbaSalary />}
             />
 
             <Route path="/ceomain" element={<CeoMain />} />

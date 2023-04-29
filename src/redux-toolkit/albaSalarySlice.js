@@ -2,27 +2,28 @@ import { createSlice, current } from "@reduxjs/toolkit";
 import { useRef } from "react";
 
 let nextId = 0;
+
 const initialValue = [
   {
     company_id: 1,
     user_name: "김민규",
-    user_age: "26",
-    user_gender: "남",
-    address: "경기도 부천시",
+    accumulate_time: 120,
+    hourly_wage: 10000,
+    accumulate_salary: 1200000,
   },
   {
     company_id: 1,
     user_name: "윤서영",
-    user_age: "23",
-    user_gender: "여",
-    address: "서울특별시",
+    accumulate_time: 130,
+    hourly_wage: 11000,
+    accumulate_salary: 130 * 11000,
   },
 ];
 
-export const albaListSlice = createSlice({
-  name: "albalist",
+export const albaSalarySlice = createSlice({
+  name: "albaSalary",
   initialState: initialValue,
   reducers: {},
 });
 
-export default albaListSlice.reducer;
+export default albaSalarySlice.reducer;
