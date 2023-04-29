@@ -19,8 +19,7 @@ import CeoMain3 from "./pages/main/CeoMain3";
 import CeoMain4 from "./pages/main/CeoMain4";
 
 import CompanyAlbaList from "pages/company/inCompany/CompanyAlbaList";
-
-
+import CompanyAlba from "pages/company/inCompany/CompanyAlba";
 
 function App() {
   return (
@@ -39,6 +38,10 @@ function App() {
             <Route
               path="/company_main/:id/alba_list"
               element={<CompanyAlbaList />}
+            />
+            <Route
+              path="/company_main/:id/alba_list/:alba_id"
+              element={<CompanyAlba />}
             />
 
             <Route path="/ceomain" element={<CeoMain />} />
