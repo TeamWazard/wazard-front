@@ -10,6 +10,9 @@
   display: flex;
   .title {
     margin-left: 20px;
+    h2 {
+      color: #656577;
+    }
   }
 
   .list-Wrapper {
@@ -120,6 +123,51 @@
           margin: 5px;
           background: #788cf2;
           @extend %bluck_type;
+        }
+      }
+    }
+  }
+}
+
+//알바생 급여 scss
+
+.companyAlbaSalary-Wrapper {
+  display: flex;
+
+  .salaryList-Wrapper {
+    width: 100vw;
+    height: 100vh;
+    .title {
+      margin-left: 20px;
+      h2 {
+        color: #656577;
+      }
+    }
+
+    .salary {
+      display: inline-block;
+      width: 100%;
+      .company_one {
+        margin: 20px;
+        display: flex;
+        justify-content: center;
+
+        .company_one_right {
+          display: flex;
+          border-radius: 20px;
+          width: 900px;
+          height: 50px;
+          font-size: 20px;
+          justify-content: left;
+          flex-direction: row;
+
+          .company_set {
+            background: #788cf23a;
+            border: 2px white solid;
+            font-size: 30px;
+            margin-right: -2px;
+            color: black;
+          }
         }
       }
     }
