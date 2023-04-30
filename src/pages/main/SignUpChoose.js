@@ -215,12 +215,14 @@ const SignUpChoose = () => {
   return (
     <div className="all">
       <div className="signUpPage">
-        <div>
+        <div className="title">
           <h2>Welcome To Wazard</h2>
         </div>
         <div className="RegisterForm">
           <div className="Form">
-            <label className="registerLabel">이메일</label>
+            <div className="registerLabel">
+              <label>이메일</label>
+            </div>
             <input
               className="refisterInputInBtn"
               ref={emailInput}
@@ -236,7 +238,9 @@ const SignUpChoose = () => {
           </div>
           <p className="message">{emailMessage}</p>
           <div className="Form">
-            <label className="registerLabel">이메일 인증번호</label>
+            <div className="registerLabel">
+              <label>이메일 인증번호</label>
+            </div>
             <input ref={emailCheckInput} className="refisterInputInBtn" />{" "}
             <button className="button_send" onClick={handledClickEmailCheckBtn}>
               인증 확인
@@ -244,7 +248,9 @@ const SignUpChoose = () => {
           </div>
           <p className="message">{emailCheckMessage}</p>
           <div className="Form">
-            <label className="registerLabel">비밀번호</label>
+            <div className="registerLabel">
+              <label>비밀번호</label>
+            </div>
             <input
               className="refisterInput"
               ref={passwordInput}
@@ -254,7 +260,9 @@ const SignUpChoose = () => {
           </div>
           <p className="message">{passwordMessage}</p>
           <div className="Form">
-            <label className="registerLabel">비밀번호 확인</label>
+            <div className="registerLabel">
+              <label>비밀번호 확인</label>
+            </div>
             <input
               className="refisterInput"
               ref={passwordConfirmInput}
@@ -264,7 +272,9 @@ const SignUpChoose = () => {
           </div>
           <p className="message">{passwordConfirmMessage}</p>
           <div className="Form">
-            <label className="registerLabel">이름</label>
+            <div className="registerLabel">
+              <label>이름</label>
+            </div>
             <input
               className="refisterInput"
               ref={nameInput}
@@ -300,7 +310,9 @@ const SignUpChoose = () => {
           </div>
           <p className="message">{genderMessage}</p>
           <div className="Form">
-            <label className="registerLabel">생년 월 일</label>
+            <div className="registerLabel">
+              <label>생년 월 일</label>
+            </div>
             <input
               type="date"
               value={birth}

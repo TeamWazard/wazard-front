@@ -42,18 +42,6 @@ const CompanySave = ({ mode, onSave, id }) => {
     tel3: "",
   });
 
-  // useEffect(() => {
-  //   setCompany({
-  //     user_id: editCompany.user_id,
-  //     company_id: editCompany.company_id,
-  //     company_name: editCompany.company_name,
-  //     address: editCompany.address,
-  //     tel: editCompany.tel,
-  //     salary_day: editCompany.salary_day,
-  //     company_img: editCompany.company_img,
-  //   });
-  // }, []);
-
   useEffect(() => {
     setCompany({
       ...company,

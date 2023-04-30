@@ -83,7 +83,7 @@ const SubMenuItem = styled.div`
   `}
 `;
 
-function LeftMenuCeo() {
+function LeftMenuCeo({ companyId }) {
   const location = useLocation();
   const [showSubMenu, setShowSubMenu] = useState(false);
 
