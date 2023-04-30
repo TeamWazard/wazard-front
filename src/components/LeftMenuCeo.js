@@ -83,10 +83,10 @@ const SubMenuItem = styled.div`
   `}
 `;
 
-function LeftMenuCeo({ companyId }) {
+const LeftMenuCeo = (props) => {
   const location = useLocation();
   const [showSubMenu, setShowSubMenu] = useState(false);
-
+  const { companyId } = props;
   const handleSubMenuToggle = () => {
     setShowSubMenu(!showSubMenu);
   };
@@ -107,7 +107,7 @@ function LeftMenuCeo({ companyId }) {
   return (
     <MenuLine>
       <MenuWrap>
-        <NavLink to="/company_main/:id">
+        <NavLink to={`/company_main/${companyId}`}>
           <MenuTitle>관리자 페이지</MenuTitle>
         </NavLink>
         <NavLink
@@ -172,6 +172,6 @@ function LeftMenuCeo({ companyId }) {
       </MenuWrap>
     </MenuLine>
   );
-}
+};
 
 export default LeftMenuCeo;
