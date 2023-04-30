@@ -107,8 +107,9 @@ function LeftMenuCeo() {
   return (
     <MenuLine>
       <MenuWrap>
-        <MenuTitle>관리자 페이지</MenuTitle>
-
+        <NavLink to="/company_main/:id">
+          <MenuTitle>관리자 페이지</MenuTitle>
+        </NavLink>
         <NavLink
           to="/ceomain"
           className={location.pathname === "/ceomain" ? "active" : ""}
