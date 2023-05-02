@@ -44,9 +44,7 @@ const CompanyAlbaList = () => {
                     <label>거주지</label>
                     {it.address}
                   </div>
-                  <div className="absent_btn">
-                    <button className="absent_in">결석</button>
-                  </div>
+
                   <div className="fire_btn">
                     <button className="fire_in">방출</button>
                   </div>
