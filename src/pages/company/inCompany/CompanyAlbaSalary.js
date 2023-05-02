@@ -20,7 +20,7 @@ const CompanyAlbaSalary = () => {
     <div className="albaList">
       <Header />
       <div className="companyAlbaSalary-Wrapper">
-        <LeftMenuCeo />
+        <LeftMenuCeo companyId={id} />
         <div className="salaryList-Wrapper">
           <div className="title">
             <h2>알바생 급여</h2>

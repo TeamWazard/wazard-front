@@ -19,7 +19,7 @@ const CompanyAlbaList = () => {
     <div className="albaList">
       <Header />
       <div className="companyAlba-Wrapper">
-        <LeftMenuCeo />
+        <LeftMenuCeo companyId={id} />
         <div className="list-Wrapper">
           <div className="title">
             <h2>알바생 관리</h2>

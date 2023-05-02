@@ -15,6 +15,7 @@ const CompanyMain = (props) => {
   const company = useSelector((state) =>
     state.companies.find((company) => company.company_id === parseInt(id))
   );
+  console.log({ id });
   const [value, onChange] = useState(new Date());
   const members = [
     {
@@ -40,7 +41,7 @@ const CompanyMain = (props) => {
     <div className="main">
       <Header />
       <div className="companyMain-wrapper">
-        <LeftMenuCeo />
+        <LeftMenuCeo companyId={id} />
         <div className="calender-wrapper">
           <div className="title">
             <h3>{company.company_name}</h3>
@@ -57,7 +58,7 @@ const CompanyMain = (props) => {
                 {members.map((member, index) => (
                   <div className="member">
                     <div className="number" key={index}>
-                      {index + 1} )
+                      {index + 1}
                     </div>
                     <div className="name">
                       <label>이름:</label>
