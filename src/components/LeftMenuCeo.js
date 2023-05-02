@@ -110,62 +110,55 @@ const LeftMenuCeo = (props) => {
         <NavLink to={`/company_main/${companyId}`}>
           <MenuTitle>관리자 페이지</MenuTitle>
         </NavLink>
+
         <NavLink
-          to="/ceomain"
-          className={location.pathname === "/ceomain" ? "active" : ""}
+          to={`/company_main/${companyId}/alba_list`}
+          className={
+            location.pathname === `/company_main/${companyId}/alba_list`
+              ? "active"
+              : ""
+          }
         >
-          <MenuItem isActive={location.pathname === "/ceomain"}>
-            업장 정보 수정
+          <MenuItem
+            isActive={
+              location.pathname === `/company_main/${companyId}/alba_list`
+            }
+          >
+            알바생 관리
           </MenuItem>
         </NavLink>
 
-        <MenuItem onClick={handleSubMenuToggle}>알바생 관리</MenuItem>
-
-        {showSubMenu && (
-          <SubMenu>
-            <NavLink
-              to="/ceomain2"
-              className={location.pathname === "/ceomain2" ? "active" : ""}
-            >
-              <SubMenuItem isActive={location.pathname.includes("/ceomain2")}>
-                하위 메뉴 1
-              </SubMenuItem>
-            </NavLink>
-
-            <NavLink
-              to="/ceomain3"
-              className={location.pathname === "/ceomain3" ? "active" : ""}
-            >
-              <SubMenuItem isActive={location.pathname.includes("/ceomain3")}>
-                하위 메뉴 2
-              </SubMenuItem>
-            </NavLink>
-
-            <NavLink
-              to="/ceomain3"
-              className={location.pathname === "/ceomain3" ? "active" : ""}
-            >
-              <SubMenuItem isActive={location.pathname.includes("/ceomain3")}>
-                하위 메뉴 2
-              </SubMenuItem>
-            </NavLink>
-
-            <NavLink
-              to="/ceomain3"
-              className={location.pathname === "/ceomain3" ? "active" : ""}
-            >
-              <SubMenuItem isActive={location.pathname.includes("/ceomain3")}>
-                하위 메뉴 2
-              </SubMenuItem>
-            </NavLink>
-          </SubMenu>
-        )}
+        <NavLink
+          to={`/company_main/${companyId}/alba_salary`}
+          className={
+            location.pathname === `/company_main/${companyId}/alba_salary`
+              ? "active"
+              : ""
+          }
+        >
+          <MenuItem
+            isActive={
+              location.pathname === `/company_main/${companyId}/alba_salary`
+            }
+          >
+            알바생 전체 급여 조회
+          </MenuItem>
+        </NavLink>
 
         <NavLink
-          to="/ceomain4"
-          className={location.pathname === "/ceomain4" ? "active" : ""}
+          to={`/ceomain`}
+          className={location.pathname === `/ceomain` ? "active" : ""}
         >
-          <MenuItem isActive={location.pathname === "/ceomain4"}>
+          <MenuItem isActive={location.pathname === `/ceomain`}>
+            알바생 초대
+          </MenuItem>
+        </NavLink>
+
+        <NavLink
+          to={`/ceomain2`}
+          className={location.pathname === `/ceomain2` ? "active" : ""}
+        >
+          <MenuItem isActive={location.pathname === `/ceomain2`}>
             QR코드 조회
           </MenuItem>
         </NavLink>
