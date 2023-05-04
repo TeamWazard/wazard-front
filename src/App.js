@@ -15,8 +15,6 @@ import "./pages/main/Login.scss";
 
 import CeoMain from "./pages/main/CeoMain";
 import CeoMain2 from "./pages/main/CeoMain2";
-import CeoMain3 from "./pages/main/CeoMain3";
-import CeoMain4 from "./pages/main/CeoMain4";
 
 import CompanyAlbaList from "pages/company/inCompany/CompanyAlbaList";
 
@@ -52,8 +50,6 @@ function App() {
 
             <Route path="/ceomain" element={<CeoMain />} />
             <Route path="/ceomain2" element={<CeoMain2 />} />
-            <Route path="/ceomain3" element={<CeoMain3 />} />
-            <Route path="/ceomain4" element={<CeoMain4 />} />
           </Routes>
         </div>
       </BrowserRouter>
