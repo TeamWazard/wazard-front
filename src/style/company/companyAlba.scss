@@ -173,3 +173,77 @@
     }
   }
 }
+
+// 특정 알바생 조회 페이지
+// 테이블 scss
+.alba-work-table {
+  border-collapse: collapse;
+  width: 95%;
+  margin: 0 auto;
+
+  tr {
+    border-bottom: 1px solid rgba(172, 172, 172, 0.897);
+    th {
+      text-align: left;
+      vertical-align: bottom;
+      // border-bottom: 3px solid black;
+      background-color: #4a52ff;
+      color: #ffffff;
+      font-size: 18px;
+    }
+    th,
+    td {
+      padding: 6px 15px;
+      text-align: center;
+    }
+    td {
+      font-size: 17px;
+    }
+    button {
+      border-radius: 20px;
+      border: none;
+      width: 80px;
+      height: 30px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    .lateBtn {
+      background: #ffc148;
+      color: #ffffff;
+      &Cancel {
+        width: 100px;
+      }
+    }
+
+    .absentBtn {
+      background: #ff4848;
+      color: #ffffff;
+      &Cancel {
+        width: 100px;
+      }
+    }
+  }
+}
+
+.companyAlba {
+  .month {
+    margin: 10px;
+    span {
+      font-size: 20px;
+      font-weight: 600;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
+    }
+    button {
+      margin: 0px 10px 0px 10px;
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 100px;
+      background-color: rgba(134, 157, 238, 0.5);
+      font-size: 16px;
+    }
+  }
+  .member {
+    margin: 20px;
+  }
+}

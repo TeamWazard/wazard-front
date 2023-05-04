@@ -1,16 +1,26 @@
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import Header from "components/Header";
 import LeftMenuCeo from "components/LeftMenuCeo";
-import { useState } from "react";
 import moment from "moment";
 
-import "./CompanyAlba.scss";
+import "../../../style/company/companyAlba.scss";
 
 const CompanyAlba = () => {
+  const location = useLocation();
+  const id = location.state.value;
   const [currentMonth, setCurrentMonth] = useState(moment());
-  const [showModal, setShowModal] = useState(false);
+  // console.log(id);
+  const alba = useSelector((state) =>
+    state.albalist.find((alba) => alba.alba_id === parseInt(id))
+  );
+  // console.log(alba);
   const [employees, setEmployees] = useState([
     {
-      id: 1,
+      id: 0,
+      company_id: 1,
       name: "김민규",
       date: "2023-05-02",
       start_time: "08:59",
@@ -19,7 +29,8 @@ const CompanyAlba = () => {
       absent: false,
     },
     {
-      id: 2,
+      id: 1,
+      company_id: 1,
       name: "김민규",
       date: "2023-05-03",
       start_time: "08:59",
@@ -76,13 +87,14 @@ const CompanyAlba = () => {
   }
 
   return (
-    <div>
+    <div className="companyAlba">
       <Header />
       <div className="companyAlba-Wrapper">
         <LeftMenuCeo />
-
-        <div className="home">
-          <div className="name">{employees[0].name}</div>
+        <div className="list-Wrapper">
+          <div className="title">
+            <h2>{alba.user_name}</h2>
+          </div>
           <div className="month">
             <button onClick={handlePrevMonth}>{"<"}</button>
             <span>
@@ -119,11 +131,15 @@ const CompanyAlba = () => {
                     <td>{employee.absent ? "O" : "X"}</td>
                     <td>
                       {employee.late ? (
-                        <button onClick={() => handleLateToggleClick(employee)}>
+                        <button
+                          className="lateBtnCancel"
+                          onClick={() => handleLateToggleClick(employee)}
+                        >
                           지각취소
                         </button>
                       ) : (
                         <button
+                          className="lateBtn"
                           onClick={() => {
                             handleConfirm("late", employee);
                           }}
@@ -135,12 +151,14 @@ const CompanyAlba = () => {
                     <td>
                       {employee.absent ? (
                         <button
+                          className="absentBtnCancel"
                           onClick={() => handleAbsentToggleClick(employee)}
                         >
                           결석취소
                         </button>
                       ) : (
                         <button
+                          className="absentBtn"
                           onClick={() => handleConfirm("absent", employee)}
                         >
                           결석
