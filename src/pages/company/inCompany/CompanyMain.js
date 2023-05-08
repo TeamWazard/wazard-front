@@ -46,7 +46,12 @@ const CompanyMain = (props) => {
           <div className="title">
             <h3>{company.company_name}</h3>
           </div>
-          <Calendar onChange={onChange} value={value} />
+          <Calendar
+            onChange={onChange}
+            value={value}
+            showNeighboringMonth={false}
+            calendarType="US"
+          />
           <div className="date">
             <div className="date-title">
               {value.toLocaleDateString()}

@@ -179,7 +179,7 @@
 .startBtn {
   @extend %buttonForm;
   font-family: "Goldman";
-  background: #4a52ff;
+  background: rgba(74, 82, 255, 0.85);
   &:hover {
     background-color: #3037af;
   }
@@ -187,7 +187,7 @@
 
 .startCancelBtn {
   @extend %buttonForm;
-  background: #869dee;
+  background: rgba(134, 157, 238, 0.77);
   &:hover {
     background-color: #6175bd;
   }
