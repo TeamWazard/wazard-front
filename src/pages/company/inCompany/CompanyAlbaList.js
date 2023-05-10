@@ -49,7 +49,20 @@ const CompanyAlbaList = () => {
                     <button className="fire_in">방출</button>
                   </div>
                   <div className="find_btn">
-                    <button className="find_in">조회</button>
+                    <button
+                      className="find_in"
+                      onClick={() => {
+                        console.log(it);
+                        navigate(
+                          `/company_main/${it.company_id}/alba_list/${it.alba_id}`,
+                          {
+                            state: { value: it.alba_id },
+                          }
+                        );
+                      }}
+                    >
+                      조회
+                    </button>
                   </div>
                 </div>
                 <div className="company_one_btn">

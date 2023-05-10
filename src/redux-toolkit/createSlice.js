@@ -1,6 +1,6 @@
 import { createSlice, current } from "@reduxjs/toolkit";
 import { useRef } from "react";
-// const nextId = useRef(2);
+
 let nextId = 0;
 const initialValue = [
   {

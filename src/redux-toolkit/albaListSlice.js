@@ -4,6 +4,7 @@ import { useRef } from "react";
 let nextId = 0;
 const initialValue = [
   {
+    alba_id: 0,
     company_id: 1,
     user_id: 0,
     user_name: "김민규",
@@ -12,6 +13,7 @@ const initialValue = [
     address: "경기도 부천시",
   },
   {
+    alba_id: 1,
     company_id: 1,
     user_id: 1,
     user_name: "윤서영",
