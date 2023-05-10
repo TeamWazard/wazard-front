@@ -6,6 +6,10 @@
   color: #ffffff;
 }
 
+.company-main-wrapper {
+  display: flex;
+}
+
 // 업소 리스트
 .company_list_page {
   display: flex;
@@ -235,8 +239,58 @@
   }
 }
 
-// button:hover {
-//   filter: brightness(80%);
-//   cursor: pointer;
-//   transition: 0.4s;
-// }
+//알바생 초대 화면
+.invite-wrapper {
+  .title {
+    margin-left: 20px;
+    h2 {
+      color: #656577;
+    }
+  }
+
+  .main {
+    margin: 30px;
+    h3 {
+      b {
+        color: #9e30f4;
+      }
+    }
+    .emailform {
+      display: flex;
+
+      .email-wrapper {
+        height: 50px;
+        width: 450px;
+        margin: 5px;
+        input {
+          font-size: 14px;
+          width: 100%;
+          height: 48px;
+          padding: 0px 11px 1px 15px;
+          border-radius: 4px;
+          border: 1px solid rgb(221, 221, 221);
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 1.5;
+          color: rgb(51, 51, 51);
+          outline: none;
+          box-sizing: border-box;
+        }
+      }
+
+      .btn-wrapper {
+        margin: 5px;
+        button {
+          border-radius: 20px;
+          border: none;
+          width: 130px;
+          height: 50px;
+          cursor: pointer;
+          font-size: 18px;
+          background: #4a52ff;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}

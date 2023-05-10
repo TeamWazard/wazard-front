@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import Header from "components/Header";
@@ -10,6 +10,7 @@ import "../../../style/company/companyAlba.scss";
 
 const CompanyAlba = () => {
   const location = useLocation();
+  const company_id = useParams();
   const id = location.state.value;
   const [currentMonth, setCurrentMonth] = useState(moment());
   // console.log(id);
@@ -90,7 +91,7 @@ const CompanyAlba = () => {
     <div className="companyAlba">
       <Header />
       <div className="companyAlba-Wrapper">
-        <LeftMenuCeo />
+        <LeftMenuCeo companyId={company_id} />
         <div className="list-Wrapper">
           <div className="title">
             <h2>{alba.user_name}</h2>
