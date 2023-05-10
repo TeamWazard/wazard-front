@@ -17,10 +17,13 @@ import CeoMain from "./pages/main/CeoMain";
 import CeoMain2 from "./pages/main/CeoMain2";
 
 import CompanyAlbaList from "pages/company/inCompany/CompanyAlbaList";
-
-import CompanyAlba from "pages/company/inCompany/CompanyAlba";
 import CompanyAlbaSalary from "pages/company/inCompany/CompanyAlbaSalary";
 import CompanyInvite from "pages/company/inCompany/CompanyInvite";
+import CompanyContractEdit from "pages/company/inCompany/CompanyContractEdit";
+import CompanyContractEditCheck from "pages/company/inCompany/CompanyContractEditCheck";
+
+
+
 function App() {
   return (
     <Provider store={store}>
@@ -50,9 +53,20 @@ function App() {
             />
 
             <Route
+
+              path="/company_main/:id/alba_list/contract/:id"
+              element={<CompanyContractEdit />}
+            ></Route>
+            <Route
+              path="/company_main/:id/alba_list/contract/:id/check"
+              element={<CompanyContractEditCheck />}
+            ></Route>
+
+            <Route>
               path="/company_main/:id/invite"
               element={<CompanyInvite />}
-            />
+            </Route>
+
 
             <Route path="/ceomain" element={<CeoMain />} />
             <Route path="/ceomain2" element={<CeoMain2 />} />
