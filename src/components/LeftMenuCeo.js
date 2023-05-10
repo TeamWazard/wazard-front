@@ -161,10 +161,16 @@ const LeftMenuCeo = (props) => {
         </NavLink>
 
         <NavLink
-          to={`/ceomain2`}
-          className={location.pathname === `/ceomain2` ? "active" : ""}
+          to={`/company_main/${companyId}/qr`}
+          className={
+            location.pathname === `/company_main/${companyId}/qr`
+              ? "active"
+              : ""
+          }
         >
-          <MenuItem isActive={location.pathname === `/ceomain2`}>
+          <MenuItem
+            isActive={location.pathname === `/company_main/${companyId}/qr`}
+          >
             QR코드 조회
           </MenuItem>
         </NavLink>

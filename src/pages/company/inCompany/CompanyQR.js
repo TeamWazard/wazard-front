@@ -12,10 +12,10 @@ function CompanyQR() {
   const [text, setText] = useState(
     "https://github.com/TeamWazard/wazard-front"
   );
-  const { id } = useParams();
-  const company = useSelector((state) =>
-    state.companies.find((company) => company.company_id === parseInt(id))
-  );
+  //const { id } = useParams();
+  //   const company = useSelector((state) =>
+  //     state.companies.find((company) => company.company_id === parseInt(id))
+  //   );
 
   useEffect(() => {
     const timerID = setInterval(() => {
@@ -41,7 +41,7 @@ function CompanyQR() {
             <h2>QR코드 조회</h2>
           </div>
           <div className="main">
-            <h2 className="company-name">{company.company_name}</h2>
+            {/* <h2 className="company-name">{company.company_name}</h2> */}
             <div>
               <QRCode value={text} size={200} />
             </div>
