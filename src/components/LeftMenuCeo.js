@@ -146,10 +146,16 @@ const LeftMenuCeo = (props) => {
         </NavLink>
 
         <NavLink
-          to={`/ceomain`}
-          className={location.pathname === `/ceomain` ? "active" : ""}
+          to={`/company_main/${companyId}/invite`}
+          className={
+            location.pathname === `/company_main/${companyId}/invite`
+              ? "active"
+              : ""
+          }
         >
-          <MenuItem isActive={location.pathname === `/ceomain`}>
+          <MenuItem
+            isActive={location.pathname === `/company_main/${companyId}/invite`}
+          >
             알바생 초대
           </MenuItem>
         </NavLink>

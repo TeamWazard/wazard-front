@@ -20,6 +20,7 @@ import CompanyAlbaList from "pages/company/inCompany/CompanyAlbaList";
 
 import CompanyAlba from "pages/company/inCompany/CompanyAlba";
 import CompanyAlbaSalary from "pages/company/inCompany/CompanyAlbaSalary";
+import CompanyInvite from "pages/company/inCompany/CompanyInvite";
 function App() {
   return (
     <Provider store={store}>
@@ -46,6 +47,11 @@ function App() {
             <Route
               path="/company_main/:id/alba_salary"
               element={<CompanyAlbaSalary />}
+            />
+
+            <Route
+              path="/company_main/:id/invite"
+              element={<CompanyInvite />}
             />
 
             <Route path="/ceomain" element={<CeoMain />} />
