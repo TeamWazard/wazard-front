@@ -8,6 +8,12 @@
 
 .company-main-wrapper {
   display: flex;
+  .title {
+    margin-left: 20px;
+    h2 {
+      color: #656577;
+    }
+  }
 }
 
 // 업소 리스트
@@ -241,13 +247,6 @@
 
 //알바생 초대 화면
 .invite-wrapper {
-  .title {
-    margin-left: 20px;
-    h2 {
-      color: #656577;
-    }
-  }
-
   .main {
     margin: 30px;
     h3 {
@@ -291,6 +290,22 @@
           color: #ffffff;
         }
       }
+    }
+  }
+}
+
+// QR 조회 화면
+.qr-wrapper {
+  width: 80vw;
+  min-width: 1000px;
+  .main {
+    max-width: 500px;
+    text-align: center;
+    margin: 0 auto;
+    h2.company-name {
+      color: #1e26b7;
+      font-size: 30px;
+      text-shadow: 1px 1px 1px gray;
     }
   }
 }

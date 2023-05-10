@@ -21,8 +21,8 @@ import CompanyAlbaSalary from "pages/company/inCompany/CompanyAlbaSalary";
 import CompanyInvite from "pages/company/inCompany/CompanyInvite";
 import CompanyContractEdit from "pages/company/inCompany/CompanyContractEdit";
 import CompanyContractEditCheck from "pages/company/inCompany/CompanyContractEditCheck";
-
-
+import CompanyAlba from "pages/company/inCompany/CompanyAlba";
+import CompanyQR from "pages/company/inCompany/CompanyQR";
 
 function App() {
   return (
@@ -53,7 +53,6 @@ function App() {
             />
 
             <Route
-
               path="/company_main/:id/alba_list/contract/:id"
               element={<CompanyContractEdit />}
             ></Route>
@@ -62,11 +61,12 @@ function App() {
               element={<CompanyContractEditCheck />}
             ></Route>
 
-            <Route>
+            <Route
               path="/company_main/:id/invite"
               element={<CompanyInvite />}
-            </Route>
+            ></Route>
 
+            <Route path="/company_main/:id/qr" element={<CompanyQR />}></Route>
 
             <Route path="/ceomain" element={<CeoMain />} />
             <Route path="/ceomain2" element={<CeoMain2 />} />
