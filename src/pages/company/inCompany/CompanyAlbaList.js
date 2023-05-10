@@ -55,7 +55,14 @@ const CompanyAlbaList = () => {
                 <div className="company_one_btn">
                   <button
                     className="in"
-                    onClick={() => navigate(`/company_main/${it.company_id}`)}
+                    onClick={() =>
+                      navigate(
+                        `/company_main/${it.company_id}/alba_list/contract/${it.user_id}`,
+                        {
+                          state: { prop1: it.company_id, prop2: it.user_id },
+                        }
+                      )
+                    }
                   >
                     계약정보수정
                   </button>

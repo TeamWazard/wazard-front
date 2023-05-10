@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 
 import Header from "components/Header";
@@ -7,7 +7,7 @@ import LeftMenuCeo from "components/LeftMenuCeo";
 
 import "../../../style/company/companyAlba.scss";
 
-const CompanyConstractEdit = (props) => {
+const CompanyContractEditCheck = (props) => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [alba, setAlba] = useState("______");
@@ -17,10 +17,6 @@ const CompanyConstractEdit = (props) => {
   const [address, setAddress] = useState(
     " 경기도 부천시 역곡동 역곡로 130번길 24 "
   );
-
-  const location = useLocation();
-  const { prop1, prop2 } = location.state;
-
   const [workWeek, setWorkWeek] = useState({
     monday: false,
     tuesday: true,
@@ -61,18 +57,32 @@ const CompanyConstractEdit = (props) => {
               </p>
               <p>
                 1. 근로 계약기간:{" "}
-                <span style={{ textDecoration: "underline" }}>
-                  {workDateStart}
-                </span>{" "}
+                <input
+                  type="text"
+                  value={workDateStart}
+                  onChange={(e) => {
+                    setWorkDateStart(e.target.value);
+                  }}
+                />
                 부터{" "}
-                <span style={{ textDecoration: "underline" }}>
-                  {workDateEnd}
-                </span>{" "}
+                <input
+                  type="text"
+                  value={workDateEnd}
+                  onChange={(e) => {
+                    setWorkDateEnd(e.target.value);
+                  }}
+                />
                 까지
               </p>
               <p>
                 2. 근무 장소:{" "}
-                <span style={{ textDecoration: "underline" }}>{address}</span>{" "}
+                <input
+                  type="text"
+                  value={address}
+                  onChange={(e) => {
+                    setAddress(e.target.value);
+                  }}
+                />
               </p>
               <p>
                 3. 근무 요일: 매주{" "}
@@ -82,7 +92,6 @@ const CompanyConstractEdit = (props) => {
                   <input
                     type="checkbox"
                     name="monday"
-                    disabled="disabled"
                     checked={workWeek.monday}
                     onChange={handleCheckboxChange}
                   />
@@ -92,7 +101,6 @@ const CompanyConstractEdit = (props) => {
                   <input
                     type="checkbox"
                     name="tuesday"
-                    disabled="disabled"
                     checked={workWeek.tuesday}
                     onChange={handleCheckboxChange}
                   />
@@ -102,7 +110,6 @@ const CompanyConstractEdit = (props) => {
                   <input
                     type="checkbox"
                     name="wednesday"
-                    disabled="disabled"
                     checked={workWeek.wednesday}
                     onChange={handleCheckboxChange}
                   />
@@ -112,7 +119,6 @@ const CompanyConstractEdit = (props) => {
                   <input
                     type="checkbox"
                     name="thursday"
-                    disabled="disabled"
                     checked={workWeek.thursday}
                     onChange={handleCheckboxChange}
                   />
@@ -122,7 +128,6 @@ const CompanyConstractEdit = (props) => {
                   <input
                     type="checkbox"
                     name="friday"
-                    disabled="disabled"
                     checked={workWeek.friday}
                     onChange={handleCheckboxChange}
                   />
@@ -132,7 +137,6 @@ const CompanyConstractEdit = (props) => {
                   <input
                     type="checkbox"
                     name="saturday"
-                    disabled="disabled"
                     checked={workWeek.saturday}
                     onChange={handleCheckboxChange}
                   />
@@ -142,7 +146,6 @@ const CompanyConstractEdit = (props) => {
                   <input
                     type="checkbox"
                     name="sunday"
-                    disabled="disabled"
                     checked={workWeek.sunday}
                     onChange={handleCheckboxChange}
                   />
@@ -150,11 +153,24 @@ const CompanyConstractEdit = (props) => {
               </p>
               <p>
                 4. 근로 시간:{" "}
-                <span style={{ textDecoration: "underline" }}>{workTime}</span>{" "}
+                <input
+                  type="text"
+                  value={workTime}
+                  onChange={(e) => {
+                    setWorkTime(e.target.value);
+                  }}
+                />{" "}
               </p>
               <p>
                 5. 시급:{" "}
-                <span style={{ textDecoration: "underline" }}>{pay}</span> 원
+                <input
+                  type="text"
+                  value={pay}
+                  onChange={(e) => {
+                    setPay(e.target.value);
+                  }}
+                />{" "}
+                원
               </p>
               <p>
                 6. 연차유급휴가
@@ -166,20 +182,9 @@ const CompanyConstractEdit = (props) => {
               </p>
             </div>
           </div>
-          <div className="aa">
-            <button
-              className="edit-btn"
-              onClick={() =>
-                navigate(
-                  `/company_main/${prop1}/alba_list/contract/${prop2}/check`,
-                  {
-                    state: { prop1: prop1, prop2: prop2 },
-                  }
-                )
-              }
-            >
-              수정
-            </button>
+          <div className="bb">
+            <button className="check-btn">저장</button>
+            <button className="cancel-btn">취소</button>
           </div>
         </div>
       </div>
@@ -187,4 +192,4 @@ const CompanyConstractEdit = (props) => {
   );
 };
 
-export default CompanyConstractEdit;
+export default CompanyContractEditCheck;
