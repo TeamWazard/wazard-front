@@ -1,4 +1,5 @@
 import Header from "components/Header";
+import { useNavigate, useParams } from "react-router-dom";
 import LeftMenuCeo from "components/LeftMenuCeo";
 import { useState } from "react";
 
@@ -13,6 +14,8 @@ const CompanyInvite = () => {
       /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
     return regex.test(input);
   };
+
+  const { id } = useParams();
 
   const handlesubmit = () => {
     const isValidEmail = validateEmail(userEmail);
@@ -32,7 +35,7 @@ const CompanyInvite = () => {
     <div>
       <Header />
       <div className="company-main-wrapper">
-        <LeftMenuCeo />
+        <LeftMenuCeo companyId={id} />
         <div className="invite-wrapper">
           <div className="title">
             <h2>알바생 초대</h2>
