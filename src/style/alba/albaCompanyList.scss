@@ -1,0 +1,22 @@
+.alba-plus_company {
+  //   display: flex;
+  //   //   justify-content: flex-end;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  button {
+    bottom: 0;
+    background-color: rgba(74, 82, 255, 0.85);
+    color: #ffffff;
+    width: 210px;
+    height: 50px;
+    border-radius: 15px;
+    border: none;
+    font-size: 20px;
+  }
+  button:hover {
+    background-color: rgba(48, 54, 165, 0.85);
+  }
+}

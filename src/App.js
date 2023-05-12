@@ -23,6 +23,7 @@ import CompanyContractEdit from "pages/company/inCompany/CompanyContractEdit";
 import CompanyContractEditCheck from "pages/company/inCompany/CompanyContractEditCheck";
 import CompanyAlba from "pages/company/inCompany/CompanyAlba";
 import CompanyQR from "pages/company/inCompany/CompanyQR";
+import AlbaList from "pages/alba/AlbaListPage";
 
 function App() {
   return (
@@ -70,6 +71,9 @@ function App() {
 
             <Route path="/ceomain" element={<CeoMain />} />
             <Route path="/ceomain2" element={<CeoMain2 />} />
+
+            {/* 알바생화면 */}
+            <Route path="/alba_list" element={<AlbaList />} />
           </Routes>
         </div>
       </BrowserRouter>

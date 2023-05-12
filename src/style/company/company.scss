@@ -39,69 +39,10 @@
     align-items: center;
     border-bottom: 4px solid #9db5fd;
     h2 {
+      color: #656577;
       display: inline-block;
     }
   }
-
-  .list {
-    display: inline-block;
-    width: 100%;
-    .company_one {
-      margin: 20px;
-      display: flex;
-      justify-content: center;
-
-      .company_img {
-        width: 200px;
-        height: 100px;
-      }
-
-      .company_one_right {
-        display: flex;
-        background: rgba(17, 26, 215, 0.05);
-        opacity: 0.7;
-        border-radius: 20px;
-        width: 60vw;
-        height: 200px;
-        font-size: 20px;
-        justify-content: center;
-        flex-direction: column;
-        .company_set {
-          display: flex;
-        }
-
-        label {
-          display: inline-block;
-          font-weight: 700;
-          width: 100px;
-        }
-      }
-
-      .company_one_btn {
-        display: flex;
-        flex-direction: column;
-        width: 80px;
-
-        .in {
-          height: 80%;
-          margin: 5px;
-          background: #4a52ff;
-          @extend %bluck_type;
-        }
-        button:hover {
-          background-color: #1e26b7;
-        }
-
-        .edit {
-          height: 20%;
-          margin: 5px;
-          background: #788cf2;
-          @extend %bluck_type;
-        }
-      }
-    }
-  }
-
   .plus_company {
     text-align: center;
     button {
@@ -115,6 +56,67 @@
 
     button:hover {
       background-color: #a9a9a9;
+    }
+  }
+}
+
+.list {
+  display: inline-block;
+  width: 100%;
+  .company_one {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+
+    .company_img {
+      width: 200px;
+      height: 100px;
+    }
+
+    .company_one_right {
+      display: flex;
+      background: rgba(17, 26, 215, 0.05);
+      opacity: 0.7;
+      border-radius: 20px;
+      width: 60vw;
+      height: 200px;
+      font-size: 20px;
+      justify-content: center;
+      flex-direction: column;
+      .company_set {
+        display: flex;
+      }
+
+      label {
+        display: inline-block;
+        font-weight: 700;
+        width: 100px;
+      }
+    }
+
+    .company_one_btn {
+      display: flex;
+      flex-direction: column;
+      width: 80px;
+
+      .in {
+        height: 80%;
+        margin: 5px;
+        background: #4a52ff;
+        @extend %bluck_type;
+        font-size: 18px;
+      }
+      button:hover {
+        background-color: #1e26b7;
+      }
+
+      .edit {
+        height: 20%;
+        margin: 5px;
+        background: #788cf2;
+        font-size: 18px;
+        @extend %bluck_type;
+      }
     }
   }
 }
