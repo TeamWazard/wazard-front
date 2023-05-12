@@ -24,6 +24,11 @@ import CompanyContractEditCheck from "pages/company/inCompany/CompanyContractEdi
 import CompanyAlba from "pages/company/inCompany/CompanyAlba";
 import CompanyQR from "pages/company/inCompany/CompanyQR";
 
+import AlbaMainTest from "pages/main/AlbaMainTest";
+import AlbaTest1 from "pages/main/AlbaTest1";
+import AlbaTest2 from "pages/main/AlbaTest2";
+import AlbaTest3 from "pages/main/AlbaTest3";
+
 function App() {
   return (
     <Provider store={store}>
@@ -68,8 +73,10 @@ function App() {
 
             <Route path="/company_main/:id/qr" element={<CompanyQR />}></Route>
 
-            <Route path="/ceomain" element={<CeoMain />} />
-            <Route path="/ceomain2" element={<CeoMain2 />} />
+            <Route path="/albamaintest" element={<AlbaMainTest />} />
+            <Route path="/albatest1" element={<AlbaTest1 />} />
+            <Route path="/albatest2" element={<AlbaTest2 />} />
+            <Route path="/albatest3" element={<AlbaTest3 />} />
           </Routes>
         </div>
       </BrowserRouter>
