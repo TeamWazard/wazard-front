@@ -17,6 +17,8 @@ function CompanyQR() {
   //     state.companies.find((company) => company.company_id === parseInt(id))
   //   );
 
+  const { id } = useParams();
+
   useEffect(() => {
     const timerID = setInterval(() => {
       setDate(new Date());
@@ -35,7 +37,7 @@ function CompanyQR() {
     <div>
       <Header />
       <div className="company-main-wrapper">
-        <LeftMenuCeo />
+        <LeftMenuCeo companyId={id} />
         <div className="qr-wrapper">
           <div className="title">
             <h2>QR코드 조회</h2>
