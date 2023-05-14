@@ -31,23 +31,7 @@ function CompanyListView(prop) {
             </div>
           </div>
           <div className="company_one_btn">
-            {/* <button
-              className="in"
-              onClick={() => navigate(`/company_main/${it.company_id}`)}
-            >
-              입장
-            </button>
-            <button
-              className="edit"
-              onClick={() =>
-                navigate("/company_edit", {
-                  state: { value: it.company_id },
-                })
-              }
-            >
-              수정
-            </button> */}
-            <button className="in">입장</button>
+            <button className="alba-in">입장</button>
           </div>
         </div>
       ))}

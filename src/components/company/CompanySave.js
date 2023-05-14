@@ -5,6 +5,7 @@ import ceoIcon from "../../imgs/ceoIcon.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { create, edit } from "../../redux-toolkit/createSlice";
 import "../../style/company/company.scss";
+import AddressPost from "components/AddressPost";
 
 const CompanySave = ({ mode, onSave, id }) => {
   const navigate = useNavigate();
@@ -23,6 +24,12 @@ const CompanySave = ({ mode, onSave, id }) => {
   const editCompany = useSelector((state) =>
     state.companies.find((company) => company.company_id === parseInt(id))
   );
+  const [address, setAddress] = useState("");
+
+  const handleAddressChange = (addr) => {
+    setAddress(addr);
+    console.log(address);
+  };
 
   const [company, setCompany] = useState(
     editCompany || {
@@ -137,11 +144,7 @@ const CompanySave = ({ mode, onSave, id }) => {
             </div>
             <div className="editor_set">
               <label>주소 </label>
-              <input
-                ref={inputRefs.addressInput}
-                name="address"
-                onChange={handleChangeState}
-              ></input>
+              <AddressPost name="address" />
             </div>
             {/* {message !== "" && <p>{message}</p>} */}
             <div className="editor_set">
