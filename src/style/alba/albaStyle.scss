@@ -1,0 +1,21 @@
+// 알바생페이지 통합 스타일
+
+.alba-noNavbar-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.alba-companyList-wrapper {
+  width: 100%;
+  display: flex;
+  .title {
+    display: flex;
+    height: 100px;
+    margin-top: 20px;
+    align-items: center;
+    // border-bottom: 4px solid #9db5fd;
+    h2 {
+      color: #656577;
+      display: inline-block;
+    }
+  }
+}

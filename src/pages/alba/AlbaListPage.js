@@ -1,4 +1,4 @@
-import Header from "components/Header";
+import HeaderAlba from "components/HeaderAlba";
 import CompanyListView from "components/company/CompanyListView";
 
 import "../../style/company/company.scss";
@@ -7,7 +7,7 @@ import "../../style/alba/albaCompanyList.scss";
 function AlbaList() {
   return (
     <div className="company_list_page">
-      <Header />
+      <HeaderAlba />
       <div className="company_list_wrapper">
         <div className="title">
           <h2>내가 알바중인 매장</h2>
