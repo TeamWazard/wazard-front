@@ -9,6 +9,29 @@ import AddressPost from "components/AddressPost";
 
 const CompanySave = ({ mode, onSave, id }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const companyId = useRef(2); // id 2부터 시작
+  const isEditMode = mode === "edit";
+
+  const editCompany = useSelector((state) =>
+    state.companies.find((company) => company.company_id === parseInt(id))
+  );
+
+  const [company, setCompany] = useState(
+    isEditMode
+      ? editCompany
+      : {
+          user_id: "",
+          company_id: "",
+          company_name: "",
+          address: "",
+          tel: "",
+          salary_day: "",
+          company_img: "",
+        }
+  );
+
+  // 미입력 확인
   const imgRef = useRef();
   const [imgFile, saveImgFile] = useImgsave("", imgRef);
   const inputRefs = {
@@ -19,11 +42,8 @@ const CompanySave = ({ mode, onSave, id }) => {
     tel3Input: useRef(),
     salaryDayInput: useRef(),
   };
-  const dispatch = useDispatch();
-  const companyId = useRef(2);
-  const editCompany = useSelector((state) =>
-    state.companies.find((company) => company.company_id === parseInt(id))
-  );
+
+  //주소
   const [address, setAddress] = useState("");
 
   const handleAddressChange = (addr) => {
@@ -31,23 +51,23 @@ const CompanySave = ({ mode, onSave, id }) => {
     console.log(address);
   };
 
-  const [company, setCompany] = useState(
-    editCompany || {
-      user_id: "",
-      company_id: "",
-      company_name: "",
-      address: "",
-      tel: "",
-      salary_day: "",
-      company_img: "",
-    }
-  );
-
+  //전화번호
   const [phoneNumber, setPhoneNumber] = useState({
     tel1: "",
     tel2: "",
     tel3: "",
   });
+
+  useEffect(() => {
+    if (mode === "edit") {
+      //수정 페이지인 경우
+      if (editCompany) {
+        setCompany(editCompany);
+      }
+    } else {
+      //추가 페이지인 경우
+    }
+  }, [mode]);
 
   useEffect(() => {
     setCompany({
@@ -56,27 +76,33 @@ const CompanySave = ({ mode, onSave, id }) => {
     });
   }, [phoneNumber]);
 
+  // 전화번호 숫자만 입력 가능
   const handlePhoneNumber = (e) => {
     const currentPhoneNum = e.target.value.replace(/[^0-9]/g, "");
     e.target.value = currentPhoneNum;
-
     setPhoneNumber({ ...phoneNumber, [e.target.name]: currentPhoneNum });
   };
 
+  // 정보 입력
   const handleChangeState = (e) => {
     {
-      setCompany({
-        ...company,
+      setCompany((prevCompany) => ({
+        //prev 추가
+        ...prevCompany,
         [e.target.name]: e.target.value,
-      });
+      }));
     }
   };
+
+  // 저장했을때
   const onSubmit = () => {
     if (company.company_name === "") {
       inputRefs.companyNameInput.current.focus();
-    } else if (company.address === "") {
-      inputRefs.addressInput.current.focus();
-    } else if (phoneNumber.tel1 === "") {
+    }
+    // else if (company.address === "") {
+    //   inputRefs.addressInput.current.focus();
+    // }
+    else if (phoneNumber.tel1 === "") {
       inputRefs.tel1Input.current.focus();
     } else if (phoneNumber.tel2 === "") {
       inputRefs.tel2Input.current.focus();
@@ -85,37 +111,16 @@ const CompanySave = ({ mode, onSave, id }) => {
     } else if (company.salary_day === "") {
       inputRefs.salaryDayInput.current.focus();
     } else {
-      if (mode === "add") {
-        dispatch(
-          create({
-            company_id: companyId.current,
-            user_id: company.user_id,
-            company_name: company.company_name,
-            address: company.address,
-            tel: company.tel,
-            salary_day: company.salary_day,
-            company_img: company.company_img,
-          })
-        );
-      } else if (mode === "edit") {
-        dispatch(
-          edit({
-            company_id: company.company_id,
-            user_id: company.user_id,
-            company_name: company.company_name,
-            address: company.address,
-            tel: company.tel,
-            salary_day: company.salary_day,
-            company_img: company.company_img,
-          })
-        );
+      if (isEditMode) {
+        dispatch(edit({ id, company: company }));
+      } else {
+        dispatch(create(company));
       }
 
       companyId.current += 1;
       navigate(-1);
     }
   };
-  console.log(company);
   return (
     <div>
       <div className="list">
@@ -126,6 +131,7 @@ const CompanySave = ({ mode, onSave, id }) => {
               이미지 업로드
             </label>
             <input
+              name="image"
               id="companyImg"
               type="file"
               accept="image/*"
@@ -147,7 +153,7 @@ const CompanySave = ({ mode, onSave, id }) => {
               <AddressPost name="address" />
             </div>
             {/* {message !== "" && <p>{message}</p>} */}
-            <div className="editor_set">
+            <div className="editor_set tel">
               <label>전화번호 </label>
               <input
                 value={phoneNumber.tel1}

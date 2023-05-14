@@ -1,5 +1,4 @@
 import { createSlice, current } from "@reduxjs/toolkit";
-import { useRef } from "react";
 
 let nextId = 0;
 const initialValue = [
@@ -32,19 +31,12 @@ export const companySlice = createSlice({
       state.push({ ...action.payload, company_id: nextId });
     },
     edit: (state, action) => {
-      const index = state.findIndex(
-        (company) => company.company_id === action.payload.company_id
-      );
-
-      if (index !== -1) {
-        state[index] = action.payload;
-      }
-    },
-    remove: (state, action) => {
-      return state.filter((e) => e.id !== action.payload);
+      const { id, company } = action.payload;
+      // console.log(current(state[id])); // 값확인
+      return state.map((item, idx) => (idx === id ? company : item));
     },
   },
 });
 
 export default companySlice.reducer;
-export const { create, edit, remove } = companySlice.actions;
+export const { create, edit } = companySlice.actions;
