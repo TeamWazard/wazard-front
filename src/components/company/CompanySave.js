@@ -203,7 +203,9 @@ const CompanySave = ({ mode, id }) => {
                   onChange={handleInput}
                   value={company.zonecode}
                 />
-                <button onClick={handleComplete}>우편번호 찾기</button>
+                <button className="searchAddress" onClick={handleComplete}>
+                  우편번호 찾기
+                </button>
                 <br />
                 <label className="address-label">주소 </label>
                 <input
