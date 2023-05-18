@@ -53,6 +53,7 @@
       border-radius: 100px;
       border: none;
       font-size: 30px;
+      cursor: pointer;
     }
 
     button:hover {
@@ -178,6 +179,9 @@
     margin: 10px;
     margin-left: 40px;
   }
+  .tel {
+    font-size: 22px;
+  }
 
   .editor_set {
     // height: 50px;
@@ -214,6 +218,7 @@
     [name="tel2"],
     [name="tel3"] {
       width: 80px;
+      margin: 0px 5px 0px 5px;
     }
 
     [type="date"] {
@@ -223,6 +228,7 @@
     select {
       border-radius: 50px;
       height: 30px;
+      width: 150px;
     }
   }
 
@@ -243,13 +249,17 @@
     border: none;
     font-size: 22px;
     margin: 20px;
+    cursor: pointer;
   }
   .save {
     background-color: #4a52ff;
     color: #ffffff;
   }
   .save:hover {
-    background-color: #8a90ff;
+    background-color: #393c83;
+  }
+  .cancel:hover {
+    background-color: #a5a5a5;
   }
 }
 
