@@ -28,29 +28,38 @@ const CompanyAlbaList = () => {
             {albalist.map((it) => (
               <div className="company_one">
                 <div className="company_one_right">
-                  <div className="company_set">
-                    <label>성명</label>
-                    {it.user_name}
+                  <div className="company_info">
+                    <div className="company_set">
+                      <label>성명:</label>
+                      {it.user_name}
+                    </div>
+                    <div className="company_set">
+                      <label>나이:</label>
+                      {it.user_birth}
+                    </div>
+                    <div className="company_set">
+                      <label>성별:</label>
+                      {it.user_gender}
+                    </div>
+                    <div className="company_set">
+                      <label>거주지:</label>
+                      {it.address}
+                    </div>
+                    <div className="company_set">
+                      <label>휴대폰 번호:</label>
+                      {it.user_number}
+                    </div>
+                    <div className="company_set">
+                      <label>입사일:</label>
+                      {it.user_join}
+                    </div>
                   </div>
-                  <div className="company_set">
-                    <label>나이</label>
-                    {it.user_age}
-                  </div>
-                  <div className="company_set">
-                    <label>성별</label>
-                    {it.user_gender}
-                  </div>
-                  <div className="company_set">
-                    <label>거주지</label>
-                    {it.address}
-                  </div>
-
-                  <div className="fire_btn">
-                    <button className="fire_in">방출</button>
-                  </div>
-                  <div className="find_btn">
-                    <button
-                      className="find_in"
+                  <div className="company_btn_all">
+                    <div className="fire_btn">
+                      <button className="fire_in">방출</button>
+                    </div>
+                    <div
+                      className="find_btn"
                       onClick={() => {
                         console.log(it);
                         navigate(
@@ -61,8 +70,21 @@ const CompanyAlbaList = () => {
                         );
                       }}
                     >
-                      조회
-                    </button>
+                      <button
+                        className="find_in"
+                        // onClick={() => {
+                        //   console.log(it);
+                        //   navigate(
+                        //     `/company_main/${it.company_id}/alba_list/${it.alba_id}`,
+                        //     {
+                        //       state: { value: it.alba_id },
+                        //     }
+                        //   );
+                        // }}
+                      >
+                        조회
+                      </button>
+                    </div>
                   </div>
                 </div>
                 <div className="company_one_btn">

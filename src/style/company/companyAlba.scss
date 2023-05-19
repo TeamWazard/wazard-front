@@ -79,64 +79,57 @@
         height: 200px;
         font-size: 20px;
         justify-content: center;
-        flex-direction: column;
-
-        .absent_btn {
-          position: absolute;
-          width: 100vw;
-          left: 1000px;
-
-          .absent_in {
-            width: 70px;
-            height: 40px;
-            background: #ffc148;
-            @extend %bluck_type;
+        flex-direction: row;
+        .company_info {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-gap: 10px;
+          width: 660px;
+          .company_set {
+            display: flex;
+            font-weight: 700;
+            display: inline-block;
           }
-          button:hover {
-            background-color: #ffb348;
-          }
-        }
 
-        .fire_btn {
-          position: absolute;
-          width: 100vw;
-          left: 1100px;
-
-          .fire_in {
-            width: 70px;
-            height: 40px;
-            background: #f5381e;
-            @extend %bluck_type;
-          }
-          button:hover {
-            background-color: #f51e1e;
+          label {
+            display: inline-block;
+            font-weight: 700;
+            width: 100px;
           }
         }
-
-        .find_btn {
-          position: absolute;
-          width: 100vw;
-          left: 1200px;
-
-          .find_in {
-            width: 70px;
-            height: 40px;
-            background: #1ef525;
-            @extend %bluck_type;
-          }
-          button:hover {
-            background-color: #5ef51e;
-          }
-        }
-
-        .company_set {
+        .company_btn_all {
+          width: 200px;
+          height: 100px;
           display: flex;
-        }
+          margin-top: 80px;
 
-        label {
-          display: inline-block;
-          font-weight: 700;
-          width: 100px;
+          .fire_btn {
+            width: 100vw;
+
+            .fire_in {
+              width: 70px;
+              height: 40px;
+              background: #f5381e;
+              @extend %bluck_type;
+            }
+            button:hover {
+              background-color: #f51e1e;
+            }
+          }
+
+          .find_btn {
+            width: 100vw;
+
+            .find_in {
+              width: 70px;
+              height: 40px;
+              background: #1ef525;
+              @extend %bluck_type;
+            }
+            button:hover {
+              background-color: #5ef51e;
+            }
+          }
         }
       }
 
@@ -144,12 +137,13 @@
         display: flex;
         flex-direction: column;
         width: 80px;
-
+        @extend %bluck_type;
         .in {
           height: 100%;
           margin: 5px;
           background: #4a52ff;
           @extend %bluck_type;
+          font-size: 14px;
         }
         button:hover {
           background-color: #1e26b7;
