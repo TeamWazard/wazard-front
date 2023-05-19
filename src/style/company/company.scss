@@ -117,6 +117,13 @@
         font-size: 18px;
         @extend %bluck_type;
       }
+      .alba-in {
+        height: 100%;
+        margin: 5px;
+        background: #4a52ff;
+        @extend %bluck_type;
+        font-size: 18px;
+      }
     }
   }
 }

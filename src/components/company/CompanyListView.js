@@ -47,7 +47,7 @@ function CompanyListView(prop) {
             >
               수정
             </button> */}
-            <button className="in">입장</button>
+            <button className="alba-in">입장</button>
           </div>
         </div>
       ))}
