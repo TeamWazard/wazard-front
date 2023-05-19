@@ -1,0 +1,45 @@
+// 카카오 도로명주소 팝업창 스타일
+.address-main {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  max-height: 600px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 5px;
+}
+.postmodal {
+}
+
+.close-button-container {
+  border-bottom: 1px solid gray;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-button {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+}
+
+.daum-postcode-container {
+  margin-top: 10px;
+}
+
+//주소 입력란
+.address-search {
+  .address-label {
+    // font-size: 16px !important;
+    border: none !important;
+    display: inline-block;
+    width: 80px !important;
+  }
+  .user_enroll_text {
+    width: 250px !important;
+    margin: 0px 10px 0px 10px;
+  }
+}

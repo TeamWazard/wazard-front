@@ -26,7 +26,7 @@ const CompanyList = () => {
                 </div>
                 <div className="company_set">
                   <label>주소</label>
-                  {it.address}
+                  {it.address} {it.address_detail}
                 </div>
                 <div className="company_set">
                   <label>전화번호</label>
@@ -35,6 +35,10 @@ const CompanyList = () => {
                 <div className="company_set">
                   <label>월급날</label>
                   {it.salary_day} 일
+                </div>
+                <div className="company_set">
+                  <label>업종</label>
+                  {it.company_type}
                 </div>
               </div>
               <div className="company_one_btn">
@@ -46,11 +50,11 @@ const CompanyList = () => {
                 </button>
                 <button
                   className="edit"
-                  onClick={() =>
-                    navigate("/company_edit", {
+                  onClick={() => {
+                    navigate(`/company_edit/`, {
                       state: { value: it.company_id },
-                    })
-                  }
+                    });
+                  }}
                 >
                   수정
                 </button>
