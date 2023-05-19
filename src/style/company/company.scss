@@ -41,6 +41,7 @@
     h2 {
       color: #656577;
       display: inline-block;
+      font-size: 30px;
     }
   }
   .plus_company {
@@ -52,6 +53,7 @@
       border-radius: 100px;
       border: none;
       font-size: 30px;
+      cursor: pointer;
     }
 
     button:hover {
@@ -105,6 +107,14 @@
         background: #4a52ff;
         @extend %bluck_type;
         font-size: 18px;
+        cursor: pointer;
+      }
+      .alba-in {
+        height: 1000%;
+        margin: 5px;
+        background: #4a52ff;
+        @extend %bluck_type;
+        font-size: 18px;
       }
       button:hover {
         background-color: #1e26b7;
@@ -115,6 +125,7 @@
         margin: 5px;
         background: #788cf2;
         font-size: 18px;
+        cursor: pointer;
         @extend %bluck_type;
       }
       .alba-in {
@@ -171,10 +182,12 @@
   .editor_right {
     display: flex;
     flex-direction: column;
-    text-align: center;
     justify-content: center;
     margin: 10px;
     margin-left: 40px;
+  }
+  .tel {
+    font-size: 22px;
   }
 
   .editor_set {
@@ -182,14 +195,12 @@
     display: flex;
     align-items: center;
     margin: 10px;
-    // justify-content: center;
     label {
-      // display: inline-block;
+      font-size: 18px;
       width: 100px;
-      text-align: center;
-      display: flex;
-      // justify-content: center;
-      align-items: center;
+      // text-align: center;
+      font-weight: bold;
+      // border-right: 3px solid gray;
     }
 
     input {
@@ -199,7 +210,6 @@
       border: 1px solid #828282;
       border-radius: 10px;
       display: inline-block;
-      // transform: translate(-50%, -50%);
 
       &:focus {
         outline: none;
@@ -215,6 +225,7 @@
     [name="tel2"],
     [name="tel3"] {
       width: 80px;
+      margin: 0px 5px 0px 5px;
     }
 
     [type="date"] {
@@ -224,6 +235,7 @@
     select {
       border-radius: 50px;
       height: 30px;
+      width: 150px;
     }
   }
 
@@ -244,14 +256,26 @@
     border: none;
     font-size: 22px;
     margin: 20px;
+    cursor: pointer;
   }
   .save {
     background-color: #4a52ff;
     color: #ffffff;
   }
   .save:hover {
-    background-color: #8a90ff;
+    background-color: #393c83;
   }
+  .cancel:hover {
+    background-color: #a5a5a5;
+  }
+}
+.searchAddress {
+  background-color: #4a52ff;
+  color: #ffffff;
+  border: none;
+  padding: 5px;
+  width: 120px;
+  border-radius: 10px;
 }
 
 //알바생 초대 화면
