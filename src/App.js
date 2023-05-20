@@ -30,6 +30,7 @@ import AlbaTest1 from "pages/main/AlbaTest1";
 import AlbaTest2 from "pages/main/AlbaTest2";
 import AlbaTest3 from "pages/main/AlbaTest3";
 import AlbaInvitePage from "pages/alba/AlbaInvitedPage";
+import AlbaContract from "pages/alba/AlbaContract";
 
 function App() {
   return (
@@ -83,6 +84,7 @@ function App() {
             {/* 알바생화면 */}
             <Route path="/alba_list" element={<AlbaList />} />
             <Route path="/alba_invited" element={<AlbaInvitePage />} />
+            <Route path="/alba_contract" element={<AlbaContract />} />
           </Routes>
         </div>
       </BrowserRouter>

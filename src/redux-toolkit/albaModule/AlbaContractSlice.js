@@ -6,11 +6,11 @@ export const AlbaContractSlice = createSlice({
     user_name: "김민규",
     company_name: "CU",
     contract_start: "2022년 12월 12일",
-    contract_end: "2034년 12월 11일",
+    contract_end: "2024년 12월 11일",
     address: "경기도 부천시 역곡동 역곡로 130번길 24",
     time: "09:00 - 18:00",
-    salary: 9500,
-    week: [false, false, true, false, false, false, false],
+    salary: 10000,
+    week: [false, false, true, false, true, false, false],
   },
   reducers: {
     setUserName: (state, action) => {

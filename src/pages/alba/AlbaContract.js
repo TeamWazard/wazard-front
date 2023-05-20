@@ -3,13 +3,14 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 
 import Header from "components/Header";
-import LeftMenuCeo from "components/LeftMenuCeo";
 
-import "../../../style/company/companyAlba.scss";
+import "../../style/company/companyAlba.scss";
+import LeftMenuAlba from "components/LeftMenuAlba";
 
 const AlbaContract = (props) => {
   const dispatch = useDispatch();
   const albaContract = useSelector((state) => state.alba_contract);
+  const week = useSelector((state) => state.alba_contract.week);
   const navigate = useNavigate();
   const { id } = useParams();
   const [alba, setAlba] = useState("______");
@@ -21,7 +22,6 @@ const AlbaContract = (props) => {
   );
 
   const location = useLocation();
-  const { prop1, prop2 } = location.state;
 
   const [workWeek, setWorkWeek] = useState({
     monday: false,
@@ -35,8 +35,6 @@ const AlbaContract = (props) => {
   const [workTime, setWorkTime] = useState(" 09:00 - 18:00 ");
   const [pay, setPay] = useState("9500");
 
-  const albalist = useSelector((state) => state.albalist);
-
   const handleCheckboxChange = (e) => {
     const { name, checked } = e.target;
     setWorkWeek((prevState) => ({ ...prevState, [name]: checked }));
@@ -46,7 +44,7 @@ const AlbaContract = (props) => {
     <div className="albaList">
       <Header />
       <div className="companyAlba-Wrapper">
-        <LeftMenuCeo companyId={id} />
+        <LeftMenuAlba companyId={id} />
         <div className="list-Wrapper">
           <div className="title">
             <h2>계약정보 조회</h2>
@@ -57,18 +55,23 @@ const AlbaContract = (props) => {
                 <br />
               </p>
               <p>
-                <span style={{ textDecoration: "underline" }}>{alba}</span> 님과{" "}
-                <span style={{ textDecoration: "underline" }}>{store}</span> 의
-                계약
+                <span style={{ textDecoration: "underline" }}>
+                  {albaContract.user_name}
+                </span>{" "}
+                님과{" "}
+                <span style={{ textDecoration: "underline" }}>
+                  {albaContract.company_name}
+                </span>{" "}
+                의 계약
               </p>
               <p>
                 1. 근로 계약기간:{" "}
                 <span style={{ textDecoration: "underline" }}>
-                  {workDateStart}
+                  {albaContract.contract_start}
                 </span>{" "}
                 부터{" "}
                 <span style={{ textDecoration: "underline" }}>
-                  {workDateEnd}
+                  {albaContract.contract_end}
                 </span>{" "}
                 까지
               </p>
@@ -85,7 +88,7 @@ const AlbaContract = (props) => {
                     type="checkbox"
                     name="monday"
                     disabled="disabled"
-                    checked={workWeek.monday}
+                    checked={week[0]}
                     onChange={handleCheckboxChange}
                   />
                 </label>
@@ -95,7 +98,7 @@ const AlbaContract = (props) => {
                     type="checkbox"
                     name="tuesday"
                     disabled="disabled"
-                    checked={workWeek.tuesday}
+                    checked={week[1]}
                     onChange={handleCheckboxChange}
                   />
                 </label>
@@ -105,7 +108,7 @@ const AlbaContract = (props) => {
                     type="checkbox"
                     name="wednesday"
                     disabled="disabled"
-                    checked={workWeek.wednesday}
+                    checked={week[2]}
                     onChange={handleCheckboxChange}
                   />
                 </label>
@@ -115,7 +118,7 @@ const AlbaContract = (props) => {
                     type="checkbox"
                     name="thursday"
                     disabled="disabled"
-                    checked={workWeek.thursday}
+                    checked={week[3]}
                     onChange={handleCheckboxChange}
                   />
                 </label>
@@ -125,7 +128,7 @@ const AlbaContract = (props) => {
                     type="checkbox"
                     name="friday"
                     disabled="disabled"
-                    checked={workWeek.friday}
+                    checked={week[4]}
                     onChange={handleCheckboxChange}
                   />
                 </label>
@@ -135,7 +138,7 @@ const AlbaContract = (props) => {
                     type="checkbox"
                     name="saturday"
                     disabled="disabled"
-                    checked={workWeek.saturday}
+                    checked={week[5]}
                     onChange={handleCheckboxChange}
                   />
                 </label>
@@ -145,18 +148,23 @@ const AlbaContract = (props) => {
                     type="checkbox"
                     name="sunday"
                     disabled="disabled"
-                    checked={workWeek.sunday}
+                    checked={week[6]}
                     onChange={handleCheckboxChange}
                   />
                 </label>
               </p>
               <p>
                 4. 근로 시간:{" "}
-                <span style={{ textDecoration: "underline" }}>{workTime}</span>{" "}
+                <span style={{ textDecoration: "underline" }}>
+                  {albaContract.time}
+                </span>{" "}
               </p>
               <p>
                 5. 시급:{" "}
-                <span style={{ textDecoration: "underline" }}>{pay}</span> 원
+                <span style={{ textDecoration: "underline" }}>
+                  {albaContract.salary}
+                </span>{" "}
+                원
               </p>
               <p>
                 6. 연차유급휴가
