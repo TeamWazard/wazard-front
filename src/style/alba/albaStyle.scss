@@ -1,9 +1,13 @@
 // 알바생페이지 통합 스타일 (메뉴바 없는 경우)
+.alba-wrapper {
+  overflow-x: hidden;
+}
 .alba-noNavbar-wrapper {
   display: flex;
   align-items: center;
   overflow-x: hidden;
   flex-direction: column;
+  min-height: 600px;
 }
 .alba-companyList-wrapper {
   width: 80%;
