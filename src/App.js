@@ -30,11 +30,13 @@ import AlbaTest1 from "pages/main/AlbaTest1";
 import AlbaTest2 from "pages/main/AlbaTest2";
 import AlbaTest3 from "pages/main/AlbaTest3";
 import AlbaInvitePage from "pages/alba/AlbaInvitedPage";
+import ScrollToTop from "components/ScrollToTop";
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
+        <ScrollToTop />
         <div className="App">
           <Routes>
             <Route exact path="/" element={<Login />} />
