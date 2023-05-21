@@ -179,4 +179,4 @@ const LeftMenuCeo = (props) => {
   );
 };
 
-export default LeftMenuCeo;
+export default React.memo(LeftMenuCeo);
