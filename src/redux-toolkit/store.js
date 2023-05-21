@@ -4,6 +4,7 @@ import { companySlice } from "./createSlice";
 import { albaListSlice } from "./albaListSlice";
 import { albaSalarySlice } from "./albaSalarySlice";
 import { albaCompanyListSlice } from "./albaModule/AlbaCompanyListReducer";
+import { AlbaContractSlice } from "./albaModule/AlbaContractSlice";
 
 const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ const store = configureStore({
     albalist: albaListSlice.reducer,
     albasalary: albaSalarySlice.reducer,
     alba_company: albaCompanyListSlice.reducer,
+    alba_contract: AlbaContractSlice.reducer,
   },
 });
 

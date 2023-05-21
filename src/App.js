@@ -32,6 +32,9 @@ import AlbaTest3 from "pages/main/AlbaTest3";
 import AlbaInvitePage from "pages/alba/AlbaInvitedPage";
 import ScrollToTop from "components/ScrollToTop";
 
+import AlbaContract from "pages/alba/AlbaContract";
+
+
 function App() {
   return (
     <Provider store={store}>
@@ -85,6 +88,7 @@ function App() {
             {/* 알바생화면 */}
             <Route path="/alba_list" element={<AlbaList />} />
             <Route path="/alba_invited" element={<AlbaInvitePage />} />
+            <Route path="/alba_contract" element={<AlbaContract />} />
           </Routes>
         </div>
       </BrowserRouter>
