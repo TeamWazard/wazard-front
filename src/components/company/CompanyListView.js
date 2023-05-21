@@ -31,7 +31,14 @@ function CompanyListView(prop) {
             </div>
           </div>
           <div className="company_one_btn">
-            <button className="alba-in">입장</button>
+            <button
+              className="alba-in"
+              onClick={(e) => {
+                navigate(`/alba_main/${it.id}`);
+              }}
+            >
+              입장
+            </button>
           </div>
         </div>
       ))}
