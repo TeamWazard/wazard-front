@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import HeaderAlba from "components/HeaderAlba";
 
 import "../../style/alba/albaStyle.scss";
+import Footer from "components/Footer";
 
 function AlbaInvitedPage() {
   const [codes, setCodes] = useState(["", "", "", "", "", ""]);
@@ -47,7 +48,9 @@ function AlbaInvitedPage() {
             </div>
           </div>
         </div>
+        {/* <Footer /> */}
       </div>
+      <Footer />
     </div>
   );
 }

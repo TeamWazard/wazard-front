@@ -4,6 +4,8 @@ import CompanyListView from "components/company/CompanyListView";
 
 import "../../style/company/company.scss";
 import "../../style/alba/albaCompanyList.scss";
+import Footer from "components/Footer";
+import Footer_2 from "components/Footer_2";
 
 function AlbaList() {
   const navigate = useNavigate();
@@ -26,6 +28,7 @@ function AlbaList() {
           </button>
         </div>
       </div>
+      <Footer_2 />
     </div>
   );
 }
