@@ -33,6 +33,7 @@ import AlbaInvitePage from "pages/alba/AlbaInvitedPage";
 import ScrollToTop from "components/ScrollToTop";
 import AlbaContract from "pages/alba/AlbaContract";
 import AlbaMainPage from "pages/alba/inAlba/AlbaMainPage";
+
 function App() {
   return (
     <Provider store={store}>
