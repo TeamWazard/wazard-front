@@ -31,9 +31,8 @@ import AlbaTest2 from "pages/main/AlbaTest2";
 import AlbaTest3 from "pages/main/AlbaTest3";
 import AlbaInvitePage from "pages/alba/AlbaInvitedPage";
 import ScrollToTop from "components/ScrollToTop";
-
 import AlbaContract from "pages/alba/AlbaContract";
-
+import AlbaMainPage from "pages/alba/inAlba/AlbaMainPage";
 
 function App() {
   return (
@@ -84,6 +83,8 @@ function App() {
             <Route path="/albatest1" element={<AlbaTest1 />} />
             <Route path="/albatest2" element={<AlbaTest2 />} />
             <Route path="/albatest3" element={<AlbaTest3 />} />
+
+            <Route path="/alba_main/:id" element={<AlbaMainPage />} />
 
             {/* 알바생화면 */}
             <Route path="/alba_list" element={<AlbaList />} />

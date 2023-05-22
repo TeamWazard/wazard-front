@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import React from "react";
 
 const Footer_container = styled.div`
   background-color: #f1f1f1;
@@ -102,4 +103,4 @@ function Footer_2() {
   );
 }
 
-export default Footer_2;
+export default React.memo(Footer_2);

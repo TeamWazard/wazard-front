@@ -5,7 +5,7 @@ import "../../style/alba/albaStyle.scss";
 import Footer from "components/Footer";
 
 function AlbaInvitedPage() {
-  const [codes, setCodes] = useState(["", "", "", "", "", ""]);
+  const [codes, setCodes] = useState(["", "", "", "", "", "", "", ""]);
   const inputRefs = useRef([]);
 
   const handleChange = (event, index) => {

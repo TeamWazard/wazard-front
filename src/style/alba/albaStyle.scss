@@ -22,6 +22,7 @@
     h2 {
       color: #656577;
       display: inline-block;
+      font-size: 30px;
     }
   }
 
@@ -57,6 +58,72 @@
     .submit:hover {
       background-color: #1d24af;
       transition: 0.5s;
+    }
+  }
+}
+
+// 알바생 메인 페이지
+.alba-navbar-wrapper {
+  display: flex;
+  overflow-x: hidden;
+  .main {
+    min-width: 1000px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .main-container {
+      padding: 20px;
+      width: 1050px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .title {
+    }
+    .calender-wrapper {
+      margin: 0;
+    }
+    .date {
+      margin: 30px 10px 10px 10px;
+      width: 1000px;
+      &-title {
+        font-style: italic;
+        font-weight: 500;
+        font-size: 30px;
+        border-bottom: 3px solid #4a52ff;
+        padding: 10px;
+        label {
+          font-style: normal;
+          color: #888888;
+        }
+      }
+      &-contents {
+        margin: 10px;
+      }
+    }
+    .salary-wrapper {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      .salary-box {
+        position: relative;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px;
+        background-color: #c2d1ff;
+        p {
+          position: absolute;
+          background-color: #d9d9d9;
+          padding: 10px;
+          font-size: 13px;
+          top: -20px;
+          width: 360px;
+          border-radius: 8px;
+          color: #414141;
+          text-align: center;
+        }
+      }
     }
   }
 }
