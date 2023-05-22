@@ -33,7 +33,7 @@ import AlbaInvitePage from "pages/alba/AlbaInvitedPage";
 import ScrollToTop from "components/ScrollToTop";
 
 import AlbaContract from "pages/alba/AlbaContract";
-
+import MyPageAlbaRecord from "pages/alba/MyPageAlbaRecord";
 
 function App() {
   return (
@@ -89,6 +89,7 @@ function App() {
             <Route path="/alba_list" element={<AlbaList />} />
             <Route path="/alba_invited" element={<AlbaInvitePage />} />
             <Route path="/alba_contract" element={<AlbaContract />} />
+            <Route path="/alba_record" element={<MyPageAlbaRecord />} />
           </Routes>
         </div>
       </BrowserRouter>

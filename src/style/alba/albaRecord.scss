@@ -1,0 +1,17 @@
+.albaRecord-Wrapper {
+  display: flex;
+  .companyBody-Wrapper {
+    width: 80vw;
+    .title {
+      display: flex;
+      height: 60px;
+
+      align-items: center;
+      border-bottom: 4px solid #9db5fd;
+      margin-left: 20px;
+      h2 {
+        color: #000000;
+      }
+    }
+  }
+}

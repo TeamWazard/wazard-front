@@ -83,7 +83,7 @@ const SubMenuItem = styled.div`
   `}
 `;
 
-const LeftMenuAlba = (props) => {
+const LeftMenuMyPage = (props) => {
   const location = useLocation();
   const [showSubMenu, setShowSubMenu] = useState(false);
   const { companyId } = props;
@@ -107,43 +107,25 @@ const LeftMenuAlba = (props) => {
   return (
     <MenuLine>
       <MenuWrap>
-        <NavLink to={`/albamaintest`}>
-          <MenuTitle>알바생 페이지</MenuTitle>
-        </NavLink>
+        {/* <NavLink to={`/albamaintest`}> */}
+        <MenuTitle>마이페이지</MenuTitle>
+        {/* </NavLink> */}
 
         <NavLink
           to={`/albatest1`}
           className={location.pathname === `/albatest1` ? "active" : ""}
         >
           <MenuItem isActive={location.pathname === `/albatest1`}>
-            계약 정보 조회
+            내정보 관리
           </MenuItem>
         </NavLink>
 
         <NavLink
-          to={`/albatest2`}
-          className={location.pathname === `/albatest2` ? "active" : ""}
+          to={`/alba_record`}
+          className={location.pathname === `/alba_record` ? "active" : ""}
         >
-          <MenuItem isActive={location.pathname === `/albatest2`}>
-            월급 통계 조회
-          </MenuItem>
-        </NavLink>
-
-        <NavLink
-          to={`/albatest3`}
-          className={location.pathname === `/albatest3` ? "active" : ""}
-        >
-          <MenuItem isActive={location.pathname === `/albatest3`}>
-            대타 기록
-          </MenuItem>
-        </NavLink>
-
-        <NavLink
-          to={`/albatest3`}
-          className={location.pathname === `/albatest3` ? "active" : ""}
-        >
-          <MenuItem isActive={location.pathname === `/albatest3`}>
-            출퇴근 조회
+          <MenuItem isActive={location.pathname === `/alba_record`}>
+            태도 점수 조회
           </MenuItem>
         </NavLink>
       </MenuWrap>
@@ -151,4 +133,4 @@ const LeftMenuAlba = (props) => {
   );
 };
 
-export default LeftMenuAlba;
+export default LeftMenuMyPage;
