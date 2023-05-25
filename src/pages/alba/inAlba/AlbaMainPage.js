@@ -1,5 +1,6 @@
 import HeaderAlba from "components/HeaderAlba";
 import LeftMenuAlba from "components/LeftMenuAlba";
+import moment from "moment";
 import { useState } from "react";
 import Calendar from "react-calendar";
 import { RiErrorWarningLine } from "react-icons/ri";
@@ -13,7 +14,10 @@ function AlbaMainPage() {
   );
   const [value, onChange] = useState(new Date());
   const [view, setView] = useState(0);
-
+  const albaAttendance = useSelector((state) => state.alba_attendance);
+  const albaDays = albaAttendance.filter((alba) => {
+    return alba.date === moment(value).format("YYYY-MM-DD");
+  });
   return (
     <div className="alba-wrapper">
       <HeaderAlba />
@@ -30,6 +34,15 @@ function AlbaMainPage() {
                 value={value}
                 showNeighboringMonth={false}
                 calendarType="US"
+                tileContent={({ date, view }) => {
+                  if (
+                    albaAttendance.filter(
+                      (x) => x.date === moment(date).format("YYYY-MM-DD")
+                    )[0]
+                  ) {
+                    return <div className="work-completed">출근완료</div>;
+                  }
+                }}
               />
             </div>
             <div className="date">
@@ -38,7 +51,29 @@ function AlbaMainPage() {
                 <label>날 근무 현황</label>
               </div>
               <div className="date-contents">
-                <span>알바 기록이 없습니다.</span>
+                {albaDays.length > 0 ? (
+                  albaDays.map((alba, index) => (
+                    <div key={index} className="alba-parttime">
+                      <span className="number">{index + 1} .</span>
+                      <span className="start">
+                        <b>출근시간: </b>
+                        {alba.start}
+                      </span>
+                      <span className="end">
+                        <b>퇴근시간: </b>
+                        {alba.end}
+                      </span>
+                    </div>
+                  ))
+                ) : (
+                  <p>알바 기록이 없습니다.</p>
+                )}
+                {/* {albaDays.map((alba) => (
+                  <div key={alba.id}>
+                    <p>Date: {alba.date}</p>
+                    <p>Value: {alba.start}</p>
+                  </div>
+                ))} */}
               </div>
             </div>
             <div className="salary-wrapper">
