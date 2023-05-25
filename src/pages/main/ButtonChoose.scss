@@ -27,6 +27,24 @@
   justify-content: center;
 }
 
+%btn_type {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  width: 400px;
+  height: 300px;
+  border: none;
+  border-radius: 64px;
+  cursor: pointer;
+  color: white;
+  p {
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 100%;
+  }
+  &:hover {
+    transition: 0.3s;
+  }
+}
+
 .btnPJ {
   font-style: bold;
   font-weight: 400;
@@ -53,6 +71,22 @@
   color: white;
   cursor: pointer;
   margin-left: 50px;
+}
+.btnAttendance {
+  @extend %btn_type;
+  background-color: #4a52ff;
+  margin-right: 50px;
+  &:hover {
+    background-color: #3941d4;
+  }
+}
+.btnOffWork {
+  @extend %btn_type;
+  background-color: #ff554a;
+  margin-left: 50px;
+  &:hover {
+    background-color: #d3453b;
+  }
 }
 
 .btnPageFooter {
