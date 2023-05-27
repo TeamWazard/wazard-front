@@ -99,7 +99,7 @@ const CompanyAlbaList = () => {
                       )
                     }
                   >
-                    계약정보수정
+                    계약정보조회
                   </button>
                 </div>
               </div>

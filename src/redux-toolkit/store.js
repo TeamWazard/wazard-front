@@ -5,6 +5,7 @@ import { albaListSlice } from "./albaListSlice";
 import { albaSalarySlice } from "./albaSalarySlice";
 import { albaCompanyListSlice } from "./albaModule/AlbaCompanyListReducer";
 import { AlbaContractSlice } from "./albaModule/AlbaContractSlice";
+import { AlbaRecordListSlice } from "./albaModule/AlbaRecordListSlice";
 import { AlbaAttendance } from "./albaModule/AlbaAttendance";
 
 const store = configureStore({
@@ -14,6 +15,7 @@ const store = configureStore({
     albasalary: albaSalarySlice.reducer,
     alba_company: albaCompanyListSlice.reducer,
     alba_contract: AlbaContractSlice.reducer,
+    alba_record: AlbaRecordListSlice.reducer,
     alba_attendance: AlbaAttendance.reducer,
   },
 });

@@ -122,9 +122,9 @@ const LeftMenuMyPage = (props) => {
 
         <NavLink
           to={`/alba_record`}
-          className={location.pathname === `/alba_record` ? "active" : ""}
+          className={location.pathname.includes(`/alba_record`) ? "active" : ""}
         >
-          <MenuItem isActive={location.pathname === `/alba_record`}>
+          <MenuItem isActive={location.pathname.includes(`/alba_record`)}>
             태도 점수 조회
           </MenuItem>
         </NavLink>
