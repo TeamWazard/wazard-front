@@ -6,18 +6,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { create, edit } from "../../redux-toolkit/createSlice";
 import "../../style/company/company.scss";
 import Post from "components/AddressPost";
+import store from "../../imgs/icons/store.svg";
 
 const CompanySave = ({ mode, id }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isEditMode = mode === "edit";
   const industries = [
-    "학원/독서실",
-    "마트/편의점",
-    "프랜차이즈",
-    "음식점/카페",
-    "회사",
-    "기타",
+    "학원/독서실 🏫",
+    "마트/편의점 🏪",
+    "프랜차이즈 😋",
+    "음식점/카페 ☕",
+    "회사 🏨",
+    "기타 🙋",
   ];
 
   const editCompany = useSelector((state) =>

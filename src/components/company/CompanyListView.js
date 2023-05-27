@@ -14,19 +14,19 @@ function CompanyListView(prop) {
           <div className="company_img">이미지: {it.img}</div>
           <div className="company_one_right">
             <div className="company_set">
-              <label>업장 명</label>
+              <label>😀 업장 명</label>
               {it.name}
             </div>
             <div className="company_set">
-              <label>전화번호</label>
+              <label>📞 전화번호</label>
               {it.tel}
             </div>
             <div className="company_set">
-              <label>주소</label>
+              <label>🏢 주소</label>
               {it.address}
             </div>
             <div className="company_set">
-              <label>월급날</label>
+              <label>💸 월급날</label>
               {it.salary_day} 일
             </div>
           </div>
