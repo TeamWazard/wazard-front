@@ -18,7 +18,7 @@ function AlbaMainPage() {
     <div className="alba-wrapper">
       <HeaderAlba />
       <div className="alba-navbar-wrapper">
-        <LeftMenuAlba />
+        <LeftMenuAlba companyId={id} />
         <div className="main">
           <div className="main-container">
             <div className="title">
