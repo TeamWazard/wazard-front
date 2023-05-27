@@ -107,15 +107,21 @@ const LeftMenuAlba = (props) => {
   return (
     <MenuLine>
       <MenuWrap>
-        <NavLink to={`/albamaintest`}>
+        <NavLink to={`/alba_main/${companyId}`}>
           <MenuTitle>알바생 페이지</MenuTitle>
         </NavLink>
 
         <NavLink
-          to={`/albatest1`}
-          className={location.pathname === `/albatest1` ? "active" : ""}
+          to={`/alba_main/${companyId}/contract`}
+          className={
+            location.pathname === `/alba_main/${companyId}/contract`
+              ? "active"
+              : ""
+          }
         >
-          <MenuItem isActive={location.pathname === `/albatest1`}>
+          <MenuItem
+            isActive={location.pathname === `/alba_main/${companyId}/contract`}
+          >
             계약 정보 조회
           </MenuItem>
         </NavLink>
