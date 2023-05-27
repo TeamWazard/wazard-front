@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import people from "../../imgs/icons/people.svg";
 
 import "../../style/company/company.scss";
 
@@ -28,6 +29,12 @@ function CompanyListView(prop) {
             <div className="company_set">
               <label>💸 월급날</label>
               {it.salary_day} 일
+            </div>
+            <div className="company_set">
+              <label>
+                <img src={people} width="20" /> 업종
+              </label>
+              {it.company_type}
             </div>
           </div>
           <div className="company_one_btn">

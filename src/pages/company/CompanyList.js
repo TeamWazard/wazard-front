@@ -48,7 +48,7 @@ const CompanyList = () => {
                 </div>
                 <div className="company_set">
                   <label>
-                    <img src={people} width="23" /> 업종
+                    <img src={people} width="20" /> 업종
                   </label>
                   {it.company_type}
                 </div>
