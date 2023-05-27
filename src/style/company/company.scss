@@ -337,3 +337,94 @@
     }
   }
 }
+
+//일바생 출퇴근 기록 로그인 모달
+.modal-wrapper {
+  // // opacity: 0;
+  // transition: opacity 0.3s ease-in-out;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .submit-form {
+    margin-top: 30px;
+    p {
+      font-weight: bold;
+    }
+    input {
+      height: 30px;
+      width: 200px;
+      border-radius: 5px;
+      border: solid 2px #a5a5a5;
+      font-size: 16px;
+      &:focus {
+        outline: none;
+        border: solid 2px #9e30f4;
+      }
+    }
+    .submit {
+      display: block;
+      margin: 25px auto;
+      padding: 10px;
+      background-color: #788cf2;
+      border: none;
+      border-radius: 4px;
+      color: #ffffff;
+      font-size: 18px;
+      width: 100px;
+    }
+  }
+}
+
+.modal-content {
+  width: 500px;
+  height: 400px;
+  position: relative;
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
+
+  .modal-title {
+    border-bottom: 4px solid #788cf2;
+    color: #656577;
+  }
+  .close-button {
+    font-size: 20px;
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+// .modal-open {
+//   overflow: hidden;
+// }
+
+//모달 애니메이션
+.alert-enter {
+  opacity: 0;
+  // transform: scale(0.9);
+}
+.alert-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.alert-exit {
+  opacity: 1;
+}
+.alert-exit-active {
+  opacity: 0;
+  // transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}

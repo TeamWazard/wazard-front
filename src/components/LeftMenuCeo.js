@@ -171,7 +171,7 @@ const LeftMenuCeo = (props) => {
           <MenuItem
             isActive={location.pathname === `/company_main/${companyId}/qr`}
           >
-            QR코드 조회
+            알바생 출퇴근 기록
           </MenuItem>
         </NavLink>
       </MenuWrap>
