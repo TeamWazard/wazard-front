@@ -1,6 +1,6 @@
 .react-calendar {
-  width: 900px;
-  height: 500px;
+  width: 700px;
+  height: auto;
   max-width: 100%;
   background: white;
   border: 2px solid #dcdcdc;
@@ -12,18 +12,13 @@
   z-index: 1;
 }
 
-.react-calendar--doubleView {
-  width: 700px;
-}
+// .react-calendar--doubleView {
+//   // width: 700px;
+// }
 
-.react-calendar--doubleView .react-calendar__viewContainer {
-  display: flex;
-  margin: -0.5em;
-}
-
-.react-calendar--doubleView .react-calendar__viewContainer > * {
-  width: 50%;
-  margin: 0.2em;
+.react-calendar__viewContainer {
+  // display: flex;
+  margin: 10px;
 }
 
 .react-calendar,
@@ -40,6 +35,7 @@
   border: 0;
   outline: none;
   border-radius: 100px;
+  transition: 0.3s;
 }
 
 .react-calendar button:enabled:hover {
@@ -71,19 +67,12 @@
   background-color: #e6e6e6;
 }
 
-.react-calendar__month-view {
-  width: 90%;
-  margin: 0 auto;
-  * {
-    font-size: 15px;
-  }
-}
-
 .react-calendar__month-view__weekdays {
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 20px;
+  height: 65px;
 }
 
 .react-calendar__month-view__weekdays__weekday {
@@ -98,11 +87,6 @@
   font-weight: bold;
 }
 
-.react-calendar__month-view__days__day {
-  abbr {
-    // font-style: bold;
-  }
-}
 .react-calendar__month-view__days__day--weekend {
   color: #d10000;
   font-style: bold;
@@ -120,10 +104,11 @@
 
 .react-calendar__tile {
   max-width: 100%;
-  padding: 10px 6.6667px;
+  padding: 10px;
   background: none;
   text-align: center;
-  line-height: 3em;
+  height: 80px;
+  font-size: 16px;
 }
 
 .react-calendar__tile:disabled {
@@ -154,13 +139,13 @@
 }
 
 .react-calendar__tile--active {
-  background: #006edc;
+  background: #8fa8ff;
   color: white;
 }
 
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
-  background: #1087ff;
+  background: #4a52ff;
 }
 
 .react-calendar--selectRange .react-calendar__tile--hover {
@@ -169,4 +154,21 @@
 .calender-wrapper {
   display: flex;
   margin-top: 40px;
+}
+
+.highlight {
+  // abbr {
+  //   background-color: #a9d4ff;
+  //   border-radius: 100px;
+  //   padding: 10px;
+  // }
+}
+
+.work-completed {
+  background-color: green;
+  color: rgb(255, 255, 255);
+  padding: 5px;
+  border-radius: 10px;
+  margin: 3px;
+  font-size: 12px;
 }

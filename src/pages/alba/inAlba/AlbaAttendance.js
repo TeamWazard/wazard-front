@@ -1,49 +1,46 @@
+import HeaderAlba from "components/HeaderAlba";
+import LeftMenuAlba from "components/LeftMenuAlba";
 import { useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-
-import Header from "components/Header";
-import LeftMenuCeo from "components/LeftMenuCeo";
 import moment from "moment";
+import axios from "axios";
 
-import "../../../style/company/companyAlba.scss";
-
-const CompanyAlba = () => {
-  const location = useLocation();
-  const company_id = useParams();
-  const id = location.state.value;
+function AlbaAttendance() {
   const [currentMonth, setCurrentMonth] = useState(moment());
-  // console.log(id);
-  const alba = useSelector((state) =>
-    state.albalist.find((alba) => alba.alba_id === parseInt(id))
-  );
-  // console.log(alba);
-  //출근 기록
   const [employeesAttend, setEmployeesAttend] = useState([
+    //출근 기록
     {
       id: 0,
-      company_id: 1,
-      name: "김민규",
       date: "2023-05-02",
       start_time: "08:59",
       end_time: "16:01",
       late: false,
-      absent: false,
     },
     {
       id: 1,
-      company_id: 1,
-      name: "김민규",
       date: "2023-05-03",
       start_time: "08:59",
       end_time: "16:01",
       late: false,
-      absent: false,
+    },
+    {
+      id: 2,
+      date: "2023-05-23",
+      start_time: "08:53",
+      end_time: "16:01",
+      late: false,
+    },
+    {
+      id: 3,
+      date: "2023-06-01",
+      start_time: "08:50",
+      end_time: "16:02",
+      late: false,
     },
     // 알바생의 근무정보 추가
   ]);
-  // 퇴근 기록
+
   const [employeesAbsent, setEmployeesAbsent] = useState([
+    //퇴근 기록
     {
       id: 0,
       date: "2023-05-24",
@@ -51,10 +48,30 @@ const CompanyAlba = () => {
     },
   ]);
 
+  //서버 api test
+  // axios.get("http://localhost:8080/company/own/0").then(function (response) {
+  //   console.log(response);
+  // });
+
+  // async function getData() {
+  //   try {
+  //     //응답 성공
+  //     const response = await axios.get("http://localhost:8080/company/own/0", {
+  //       params: {
+  //         //url 뒤에 붙는 param id값
+  //         accountId: 0,
+  //       },
+  //     });
+  //     console.log(response);
+  //   } catch (error) {
+  //     //응답 실패
+  //     console.error(error);
+  //   }
+  // }
+
   function handlePrevMonth() {
     setCurrentMonth(currentMonth.clone().subtract(1, "month"));
   }
-
   function handleNextMonth() {
     setCurrentMonth(currentMonth.clone().add(1, "month"));
   }
@@ -66,48 +83,14 @@ const CompanyAlba = () => {
   const filteredEmployeesAbsent = employeesAbsent.filter(
     (employee) => moment(employee.date).month() === currentMonth.month()
   );
-
-  // 경고창
-  function handleConfirm(action, employee) {
-    if (action === "late") {
-      const result = window.confirm("지각체크를 하시겠습니까?");
-      if (result) handleLateToggleClick(employee);
-    } else {
-      const result = window.confirm("결석체크를 하시겠습니까?");
-      if (result) handleAbsentToggleClick(employee);
-    }
-  }
-
-  //지각 수정
-  function handleLateToggleClick(employee) {
-    const updatedEmployees = employeesAttend.map((emp) => {
-      if (emp.id === employee.id) {
-        return { ...emp, late: !emp.late };
-      }
-      return emp;
-    });
-    setEmployeesAttend(updatedEmployees);
-  }
-
-  //결석 수정
-  function handleAbsentToggleClick(employee) {
-    const updatedEmployees = employeesAbsent.map((emp) => {
-      if (emp.id === employee.id) {
-        return { ...emp, absent: !emp.absent };
-      }
-      return emp;
-    });
-    setEmployeesAbsent(updatedEmployees);
-  }
-
   return (
-    <div className="companyAlba">
-      <Header />
-      <div className="companyAlba-Wrapper">
-        <LeftMenuCeo companyId={company_id} />
+    <div className="alba-wrapper">
+      <HeaderAlba />
+      <div className="alba-navbar-wrapper">
+        <LeftMenuAlba />
         <div className="alba-list-Wrapper">
           <div className="title">
-            <h2>{alba.user_name}</h2>
+            <h2>김민규</h2> {/* 본인이름 */}
           </div>
           <div className="month">
             <button onClick={handlePrevMonth}>{"<"}</button>
@@ -128,7 +111,6 @@ const CompanyAlba = () => {
                   <th>출근시간</th>
                   <th>퇴근시간</th>
                   <th>지각여부</th>
-                  <th>지각버튼</th>
                 </tr>
               </thead>
               <tbody>
@@ -143,31 +125,12 @@ const CompanyAlba = () => {
                     <td>{employee.start_time}</td>
                     <td>{employee.end_time}</td>
                     <td>{employee.late ? "O" : "X"}</td>
-
-                    <td>
-                      {employee.late ? (
-                        <button
-                          className="lateBtnCancel"
-                          onClick={() => handleLateToggleClick(employee)}
-                        >
-                          지각취소
-                        </button>
-                      ) : (
-                        <button
-                          className="lateBtn"
-                          onClick={() => {
-                            handleConfirm("late", employee);
-                          }}
-                        >
-                          지각
-                        </button>
-                      )}
-                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
+
           <div className="member-absent">
             <div>
               <h3>결근 기록부</h3>
@@ -197,6 +160,6 @@ const CompanyAlba = () => {
       </div>
     </div>
   );
-};
+}
 
-export default CompanyAlba;
+export default AlbaAttendance;

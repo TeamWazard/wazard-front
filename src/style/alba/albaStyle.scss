@@ -99,6 +99,27 @@
       }
       &-contents {
         margin: 10px;
+        font-size: 20px;
+        .number {
+          font-size: 23px;
+          padding: 10px;
+          font-weight: bold;
+          color: #4a52ff;
+          text-shadow: 1px 1px 1px gray;
+        }
+        .alba-parttime {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          span {
+            padding: 10px;
+          }
+          b {
+            font-size: 16px;
+            margin-right: 10px;
+          }
+        }
       }
     }
     .salary-wrapper {
@@ -124,6 +145,25 @@
           text-align: center;
         }
       }
+    }
+  }
+}
+
+//알바생 출퇴근 조회
+.alba-list-Wrapper {
+  .member {
+    width: 900px;
+    margin: 20px;
+  }
+  .member-absent {
+    margin: 20px;
+    width: 500px;
+    margin: 20px;
+  }
+  .title {
+    margin-left: 20px;
+    h2 {
+      color: #656577;
     }
   }
 }
