@@ -18,7 +18,8 @@ const CompanyAlba = () => {
     state.albalist.find((alba) => alba.alba_id === parseInt(id))
   );
   // console.log(alba);
-  const [employees, setEmployees] = useState([
+  //출근 기록
+  const [employeesAttend, setEmployeesAttend] = useState([
     {
       id: 0,
       company_id: 1,
@@ -41,6 +42,14 @@ const CompanyAlba = () => {
     },
     // 알바생의 근무정보 추가
   ]);
+  // 퇴근 기록
+  const [employeesAbsent, setEmployeesAbsent] = useState([
+    {
+      id: 0,
+      date: "2023-05-24",
+      absent: true,
+    },
+  ]);
 
   function handlePrevMonth() {
     setCurrentMonth(currentMonth.clone().subtract(1, "month"));
@@ -50,7 +59,11 @@ const CompanyAlba = () => {
     setCurrentMonth(currentMonth.clone().add(1, "month"));
   }
 
-  const filteredEmployees = employees.filter(
+  const filteredEmployeesAttend = employeesAttend.filter(
+    (employee) => moment(employee.date).month() === currentMonth.month()
+  );
+
+  const filteredEmployeesAbsent = employeesAbsent.filter(
     (employee) => moment(employee.date).month() === currentMonth.month()
   );
 
@@ -67,24 +80,24 @@ const CompanyAlba = () => {
 
   //지각 수정
   function handleLateToggleClick(employee) {
-    const updatedEmployees = employees.map((emp) => {
+    const updatedEmployees = employeesAttend.map((emp) => {
       if (emp.id === employee.id) {
         return { ...emp, late: !emp.late };
       }
       return emp;
     });
-    setEmployees(updatedEmployees);
+    setEmployeesAttend(updatedEmployees);
   }
 
   //결석 수정
   function handleAbsentToggleClick(employee) {
-    const updatedEmployees = employees.map((emp) => {
+    const updatedEmployees = employeesAbsent.map((emp) => {
       if (emp.id === employee.id) {
         return { ...emp, absent: !emp.absent };
       }
       return emp;
     });
-    setEmployees(updatedEmployees);
+    setEmployeesAbsent(updatedEmployees);
   }
 
   return (
@@ -92,7 +105,7 @@ const CompanyAlba = () => {
       <Header />
       <div className="companyAlba-Wrapper">
         <LeftMenuCeo companyId={company_id} />
-        <div className="list-Wrapper">
+        <div className="alba-list-Wrapper">
           <div className="title">
             <h2>{alba.user_name}</h2>
           </div>
@@ -104,6 +117,9 @@ const CompanyAlba = () => {
             <button onClick={handleNextMonth}>{">"}</button>
           </div>
           <div className="member">
+            <div>
+              <h3>출근 기록부</h3>
+            </div>
             <table className="alba-work-table">
               <thead>
                 <tr>
@@ -112,13 +128,11 @@ const CompanyAlba = () => {
                   <th>출근시간</th>
                   <th>퇴근시간</th>
                   <th>지각여부</th>
-                  <th>결석여부</th>
                   <th>지각버튼</th>
-                  <th>결석버튼</th>
                 </tr>
               </thead>
               <tbody>
-                {filteredEmployees.map((employee) => (
+                {filteredEmployeesAttend.map((employee) => (
                   <tr key={employee.id}>
                     <td>{employee.date}</td>
                     <td>
@@ -129,7 +143,7 @@ const CompanyAlba = () => {
                     <td>{employee.start_time}</td>
                     <td>{employee.end_time}</td>
                     <td>{employee.late ? "O" : "X"}</td>
-                    <td>{employee.absent ? "O" : "X"}</td>
+
                     <td>
                       {employee.late ? (
                         <button
@@ -149,22 +163,30 @@ const CompanyAlba = () => {
                         </button>
                       )}
                     </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="member-absent">
+            <div>
+              <h3>결근 기록부</h3>
+            </div>
+            <table className="alba-work-table">
+              <thead>
+                <tr>
+                  <th>날짜</th>
+                  <th>요일</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredEmployeesAbsent.map((employee) => (
+                  <tr key={employee.id}>
+                    <td>{employee.date}</td>
                     <td>
-                      {employee.absent ? (
-                        <button
-                          className="absentBtnCancel"
-                          onClick={() => handleAbsentToggleClick(employee)}
-                        >
-                          결석취소
-                        </button>
-                      ) : (
-                        <button
-                          className="absentBtn"
-                          onClick={() => handleConfirm("absent", employee)}
-                        >
-                          결석
-                        </button>
-                      )}
+                      {new Date(employee.date).toLocaleDateString("ko-KR", {
+                        weekday: "long",
+                      })}
                     </td>
                   </tr>
                 ))}

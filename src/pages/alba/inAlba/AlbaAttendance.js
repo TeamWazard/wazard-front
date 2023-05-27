@@ -2,10 +2,12 @@ import HeaderAlba from "components/HeaderAlba";
 import LeftMenuAlba from "components/LeftMenuAlba";
 import { useState } from "react";
 import moment from "moment";
+import axios from "axios";
 
 function AlbaAttendance() {
   const [currentMonth, setCurrentMonth] = useState(moment());
   const [employeesAttend, setEmployeesAttend] = useState([
+    //출근 기록
     {
       id: 0,
       date: "2023-05-02",
@@ -28,7 +30,7 @@ function AlbaAttendance() {
       late: false,
     },
     {
-      id: 2,
+      id: 3,
       date: "2023-06-01",
       start_time: "08:50",
       end_time: "16:02",
@@ -38,12 +40,34 @@ function AlbaAttendance() {
   ]);
 
   const [employeesAbsent, setEmployeesAbsent] = useState([
+    //퇴근 기록
     {
       id: 0,
       date: "2023-05-24",
       absent: true,
     },
   ]);
+
+  //서버 api test
+  // axios.get("http://localhost:8080/company/own/0").then(function (response) {
+  //   console.log(response);
+  // });
+
+  // async function getData() {
+  //   try {
+  //     //응답 성공
+  //     const response = await axios.get("http://localhost:8080/company/own/0", {
+  //       params: {
+  //         //url 뒤에 붙는 param id값
+  //         accountId: 0,
+  //       },
+  //     });
+  //     console.log(response);
+  //   } catch (error) {
+  //     //응답 실패
+  //     console.error(error);
+  //   }
+  // }
 
   function handlePrevMonth() {
     setCurrentMonth(currentMonth.clone().subtract(1, "month"));
@@ -116,8 +140,6 @@ function AlbaAttendance() {
                 <tr>
                   <th>날짜</th>
                   <th>요일</th>
-
-                  <th>결석여부</th>
                 </tr>
               </thead>
               <tbody>
@@ -129,8 +151,6 @@ function AlbaAttendance() {
                         weekday: "long",
                       })}
                     </td>
-
-                    <td>{employee.absent ? "O" : "X"}</td>
                   </tr>
                 ))}
               </tbody>
