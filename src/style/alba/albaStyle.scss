@@ -127,3 +127,22 @@
     }
   }
 }
+
+//알바생 출퇴근 조회
+.alba-list-Wrapper {
+  .member {
+    width: 900px;
+    margin: 10px;
+  }
+  .member-absent {
+    margin: 20px;
+    width: 900px;
+    margin: 10px;
+  }
+  .title {
+    margin-left: 20px;
+    h2 {
+      color: #656577;
+    }
+  }
+}

@@ -256,25 +256,28 @@
   }
 }
 
-.companyAlba {
-  .month {
-    margin: 10px;
-    span {
-      font-size: 20px;
-      font-weight: 600;
-      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
-    }
-    button {
-      margin: 0px 10px 0px 10px;
-      width: 40px;
-      height: 40px;
-      border: none;
-      border-radius: 100px;
-      background-color: rgba(134, 157, 238, 0.5);
-      font-size: 16px;
+.month {
+  margin: 10px;
+  span {
+    font-size: 20px;
+    font-weight: 600;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
+  }
+  button {
+    margin: 0px 10px 0px 10px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 100px;
+    background-color: rgba(134, 157, 238, 0.5);
+    font-size: 16px;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(53, 65, 109, 0.5);
+      transition: 0.3s;
     }
   }
-  .member {
-    margin: 20px;
-  }
+}
+.member {
+  margin: 20px;
 }
