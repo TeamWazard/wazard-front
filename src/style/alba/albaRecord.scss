@@ -94,5 +94,54 @@
         }
       }
     }
+    .listCheck {
+      display: inline-block;
+      width: 100%;
+      .company_one {
+        margin: 20px;
+        display: flex;
+        justify-content: center;
+
+        .company_img {
+          width: 200px;
+          height: 150px;
+        }
+
+        .company_one_right {
+          display: flex;
+          background: rgba(17, 26, 215, 0.05);
+          opacity: 0.9;
+          border-radius: 20px;
+          width: 60vw;
+          height: 460px;
+          font-size: 20px;
+          // justify-content: center;
+          flex-direction: column;
+          .company_set {
+            display: flex;
+          }
+
+          label {
+            display: inline-block;
+            font-weight: 700;
+            width: 130px;
+          }
+        }
+        .company_one_btn {
+          display: flex;
+          flex-direction: column;
+          width: 80px;
+
+          .in {
+            height: 100%;
+            margin: 5px;
+            background: #4a52ff;
+            @extend %bluck_type;
+            font-size: 18px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
   }
 }

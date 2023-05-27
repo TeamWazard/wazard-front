@@ -58,7 +58,7 @@ const MyPageAlbaRecord = () => {
                 <div className="company_one_btn">
                   <button
                     className="in"
-                    onClick={() => navigate(`/company_main/${it.company_id}`)}
+                    onClick={() => navigate(`/alba_record/${it.company_id}`)}
                   >
                     조회
                   </button>

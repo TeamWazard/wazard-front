@@ -32,7 +32,7 @@ const initialValue = [
 
   {
     user_id: 0,
-    company_id: 3,
+    company_id: 11,
     company_name: "파리바게뜨",
     address: "부천시 역곡동 역곡로 222",
     tel: "031-983-0022",

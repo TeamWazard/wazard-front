@@ -35,6 +35,7 @@ import AlbaContract from "pages/alba/AlbaContract";
 import MyPageAlbaRecord from "pages/alba/MyPageAlbaRecord";
 import AlbaMainPage from "pages/alba/inAlba/AlbaMainPage";
 import AlbaAttendance from "pages/alba/inAlba/AlbaAttendance";
+import MyPageAlbaRecordCheck from "pages/alba/MyPageAlbaRecordCheck";
 
 function App() {
   return (
@@ -98,6 +99,10 @@ function App() {
             <Route path="/alba_invited" element={<AlbaInvitePage />} />
             <Route path="/alba_main/:id/contract" element={<AlbaContract />} />
             <Route path="/alba_record" element={<MyPageAlbaRecord />} />
+            <Route
+              path="/alba_record/:id"
+              element={<MyPageAlbaRecordCheck />}
+            />
           </Routes>
         </div>
       </BrowserRouter>
