@@ -40,7 +40,7 @@ function AlbaMainPage() {
                       (x) => x.date === moment(date).format("YYYY-MM-DD")
                     )[0]
                   ) {
-                    return <div className="work-completed">출근완료</div>;
+                    return <div className="work-completed">출근😊</div>;
                   }
                 }}
               />

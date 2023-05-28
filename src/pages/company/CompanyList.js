@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Header from "../../components/Header";
-
+import people from "../../imgs/icons/people.svg";
 import "../../style/company/company.scss";
 import axios from "axios";
 import { useEffect } from "react";
@@ -31,23 +31,25 @@ const CompanyList = () => {
               <div className="company_img">이미지: {it.img}</div>
               <div className="company_one_right">
                 <div className="company_set">
-                  <label>업장명</label>
+                  <label>😀 업장명</label>
                   {it.company_name}
                 </div>
                 <div className="company_set">
-                  <label>주소</label>
+                  <label>🏢 주소</label>
                   {it.address} {it.address_detail}
                 </div>
                 <div className="company_set">
-                  <label>전화번호</label>
+                  <label>📞 전화번호</label>
                   {it.tel}
                 </div>
                 <div className="company_set">
-                  <label>월급날</label>
+                  <label>💸 월급날</label>
                   {it.salary_day} 일
                 </div>
                 <div className="company_set">
-                  <label>업종</label>
+                  <label>
+                    <img src={people} width="20" /> 업종
+                  </label>
                   {it.company_type}
                 </div>
               </div>

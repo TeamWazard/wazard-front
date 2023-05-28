@@ -7,9 +7,10 @@ export const albaCompanyListSlice = createSlice({
     {
       id: 0,
       name: "손가",
-      address: "부천시",
+      address: "경기도 부천시 원미구 역곡동 역곡로13번길 27 1층",
       tel: "010-1234-1234",
       salary_day: 1,
+      company_type: "음식점 🥘",
     },
   ],
   reducers: {

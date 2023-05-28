@@ -6,18 +6,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { create, edit } from "../../redux-toolkit/createSlice";
 import "../../style/company/company.scss";
 import Post from "components/AddressPost";
+import people from "../../imgs/icons/people.svg";
 
 const CompanySave = ({ mode, id }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isEditMode = mode === "edit";
   const industries = [
-    "학원/독서실",
-    "마트/편의점",
-    "프랜차이즈",
-    "음식점/카페",
-    "회사",
-    "기타",
+    "학원/독서실 🏫",
+    "마트/편의점 🏪",
+    "프랜차이즈 😋",
+    "음식점 🥘",
+    "카페 ☕",
+    "회사 🏨",
+    "기타 🙋",
   ];
 
   const editCompany = useSelector((state) =>
@@ -181,7 +183,7 @@ const CompanySave = ({ mode, id }) => {
           </div>
           <div className="editor_right">
             <div className="editor_set">
-              <label>업장명 </label>
+              <label>😀 업장명 </label>
               <input
                 ref={inputRefs.companyNameInput}
                 name="company_name"
@@ -190,7 +192,7 @@ const CompanySave = ({ mode, id }) => {
               />
             </div>
             <div className="editor_set">
-              <label>주소 </label>
+              <label>🏢 주소 </label>
 
               <div className="address-search">
                 <label className="address-label">우편번호</label>
@@ -238,7 +240,7 @@ const CompanySave = ({ mode, id }) => {
               </div>
             </div>
             <div className="editor_set tel">
-              <label>전화번호 </label>
+              <label>📞 전화번호 </label>
               <input
                 ref={inputRefs.tel1Input}
                 name="tel1"
@@ -264,7 +266,7 @@ const CompanySave = ({ mode, id }) => {
               />
             </div>
             <div className="editor_set">
-              <label>월급날 </label>
+              <label>💸 월급날 </label>
               <select
                 name="salary_day"
                 onChange={handleChangeState}
@@ -281,7 +283,9 @@ const CompanySave = ({ mode, id }) => {
               {"  "}일
             </div>
             <div className="editor_set">
-              <label>업종 </label>
+              <label>
+                <img src={people} width="20" /> 업종{" "}
+              </label>
               <select
                 name="company_type"
                 onChange={handleChangeState}

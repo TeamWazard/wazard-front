@@ -167,3 +167,16 @@
     }
   }
 }
+
+button {
+  cursor: pointer;
+  transition: 0.5s;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  // filter: brightness(50%);
+  // cursor: pointer;
+  // transition: 0.5s;
+  transform: scale(0.95);
+}

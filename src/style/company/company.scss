@@ -1,7 +1,7 @@
 //중복 값 처리
 // 박스 둥굴게 글씨 하얀색
 %bluck_type {
-  border-radius: 10px;
+  border-radius: 15px;
   border: none;
   color: #ffffff;
 }
@@ -75,12 +75,13 @@
       display: flex;
       background: rgba(17, 26, 215, 0.05);
       opacity: 0.7;
-      border-radius: 20px;
+      border-radius: 13px;
       width: 60vw;
       height: 200px;
       font-size: 20px;
       justify-content: center;
       flex-direction: column;
+      padding: 8px;
       .company_set {
         display: flex;
       }
@@ -88,7 +89,7 @@
       label {
         display: inline-block;
         font-weight: 700;
-        width: 100px;
+        width: 130px;
       }
     }
 
@@ -96,6 +97,7 @@
       display: flex;
       flex-direction: column;
       width: 80px;
+      margin: 3px;
 
       .in {
         height: 80%;
@@ -235,10 +237,17 @@
     }
   }
 
-  button:hover {
-    filter: brightness(50%);
+  button {
     cursor: pointer;
     transition: 0.5s;
+    transition: all 0.3s ease;
+  }
+
+  button:hover {
+    // filter: brightness(50%);
+    // cursor: pointer;
+    // transition: 0.5s;
+    transform: scale(0.9);
   }
 }
 
@@ -427,4 +436,17 @@
   opacity: 0;
   // transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
+}
+
+button {
+  cursor: pointer;
+  transition: 0.5s;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  // filter: brightness(50%);
+  // cursor: pointer;
+  // transition: 0.5s;
+  transform: scale(0.96);
 }
