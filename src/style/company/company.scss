@@ -1,7 +1,7 @@
 //중복 값 처리
 // 박스 둥굴게 글씨 하얀색
 %bluck_type {
-  border-radius: 10px;
+  border-radius: 15px;
   border: none;
   color: #ffffff;
 }
@@ -75,12 +75,13 @@
       display: flex;
       background: rgba(17, 26, 215, 0.05);
       opacity: 0.7;
-      border-radius: 20px;
+      border-radius: 13px;
       width: 60vw;
       height: 200px;
       font-size: 20px;
       justify-content: center;
       flex-direction: column;
+      padding: 8px;
       .company_set {
         display: flex;
       }
@@ -88,7 +89,7 @@
       label {
         display: inline-block;
         font-weight: 700;
-        width: 100px;
+        width: 130px;
       }
     }
 
@@ -96,6 +97,7 @@
       display: flex;
       flex-direction: column;
       width: 80px;
+      margin: 3px;
 
       .in {
         height: 80%;
@@ -235,10 +237,17 @@
     }
   }
 
-  button:hover {
-    filter: brightness(50%);
+  button {
     cursor: pointer;
     transition: 0.5s;
+    transition: all 0.3s ease;
+  }
+
+  button:hover {
+    // filter: brightness(50%);
+    // cursor: pointer;
+    // transition: 0.5s;
+    transform: scale(0.9);
   }
 }
 
@@ -323,18 +332,121 @@
   }
 }
 
-// QR 조회 화면
+// QR 조회 화면 -> 알바생 출퇴근 기록 화면
 .qr-wrapper {
   width: 80vw;
   min-width: 1000px;
   .main {
-    max-width: 500px;
+    max-width: 800px;
     text-align: center;
     margin: 0 auto;
     h2.company-name {
-      color: #1e26b7;
       font-size: 30px;
       text-shadow: 1px 1px 1px gray;
     }
   }
+}
+
+//일바생 출퇴근 기록 로그인 모달
+// .modal-wrapper {
+//   // // opacity: 0;
+//   // transition: opacity 0.3s ease-in-out;
+// }
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .submit-form {
+    margin-top: 30px;
+    p {
+      font-weight: bold;
+    }
+    input {
+      height: 30px;
+      width: 200px;
+      border-radius: 5px;
+      border: solid 2px #a5a5a5;
+      font-size: 16px;
+      &:focus {
+        outline: none;
+        border: solid 2px #9e30f4;
+      }
+    }
+    .submit {
+      display: block;
+      margin: 25px auto;
+      padding: 10px;
+      background-color: #788cf2;
+      border: none;
+      border-radius: 4px;
+      color: #ffffff;
+      font-size: 18px;
+      width: 100px;
+    }
+  }
+}
+
+.modal-content {
+  width: 500px;
+  height: 400px;
+  position: relative;
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
+
+  .modal-title {
+    border-bottom: 4px solid #788cf2;
+    color: #656577;
+  }
+  .close-button {
+    font-size: 20px;
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+// .modal-open {
+//   overflow: hidden;
+// }
+
+//모달 애니메이션
+.alert-enter {
+  opacity: 0;
+  // transform: scale(0.9);
+}
+.alert-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.alert-exit {
+  opacity: 1;
+}
+.alert-exit-active {
+  opacity: 0;
+  // transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+button {
+  cursor: pointer;
+  transition: 0.5s;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  // filter: brightness(50%);
+  // cursor: pointer;
+  // transition: 0.5s;
+  transform: scale(0.96);
 }

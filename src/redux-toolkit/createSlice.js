@@ -11,7 +11,7 @@ const initialValue = [
     tel: "02-3333-2323",
     salary_day: 1,
     company_img: null,
-    company_type: "프랜차이즈",
+    company_type: "프랜차이즈 😋",
   },
   {
     company_id: 1,
@@ -23,7 +23,7 @@ const initialValue = [
     tel: "02-3333-2323",
     salary_day: 1,
     company_img: null,
-    company_type: "마트/편의점",
+    company_type: "마트/편의점 🏪",
   },
 ];
 
