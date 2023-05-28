@@ -36,6 +36,8 @@ import MyPageAlbaRecord from "pages/alba/MyPageAlbaRecord";
 import AlbaMainPage from "pages/alba/inAlba/AlbaMainPage";
 import AlbaAttendance from "pages/alba/inAlba/AlbaAttendance";
 import MyPageAlbaRecordCheck from "pages/alba/MyPageAlbaRecordCheck";
+import MyPageCertification from "pages/main/MyPageCertification";
+import MyPageEdit from "pages/main/MyPageEdit";
 
 function App() {
   return (
@@ -103,6 +105,13 @@ function App() {
               path="/alba_record/:id"
               element={<MyPageAlbaRecordCheck />}
             />
+
+            {/* 마이페이지 */}
+            <Route
+              path="/my_account/password"
+              element={<MyPageCertification />}
+            />
+            <Route path="/my_account/edit" element={<MyPageEdit />} />
           </Routes>
         </div>
       </BrowserRouter>
