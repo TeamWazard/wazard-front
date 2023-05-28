@@ -3,10 +3,20 @@ import { useSelector } from "react-redux";
 import Header from "../../components/Header";
 
 import "../../style/company/company.scss";
+import axios from "axios";
+import { useEffect } from "react";
 
 const CompanyList = () => {
   const navigate = useNavigate();
   const companies = useSelector((state) => state.companies);
+  // async function getCompanies = await axios.get('')
+  // useEffect(()=>{
+  //   const getCompanies = async () =>{
+  //     try{
+  //       const response = await axios.get('')
+  //     }
+  //   }
+  // })
 
   return (
     <div className="company_list_page">
