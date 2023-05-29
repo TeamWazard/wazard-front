@@ -363,6 +363,68 @@
       }
     }
   }
+  .waitlist-wrapper {
+    margin: 30px;
+    .waitlist-main {
+      display: flex;
+      align-items: center;
+    }
+
+    .waitlist-set {
+      background-color: rgba(17, 26, 215, 0.05);
+      width: 900px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px;
+      border-radius: 20px;
+      .waitlist-things {
+        display: flex;
+        .waitlist-one {
+          width: 150px;
+          font-size: 18px;
+          .value {
+            margin-right: 10px;
+            font-weight: bold;
+          }
+        }
+        .email {
+          width: 320px;
+        }
+        .inviteCode {
+          width: 200px;
+        }
+      }
+      .invite-state {
+        .state {
+          font-size: 20px;
+          padding: 3px 10px 3px 10px;
+          border-radius: 8px;
+        }
+        .wait {
+          border: 2px solid green;
+          color: green;
+        }
+        .disagee {
+          border: 2px solid #ff4343;
+          color: #ff4343;
+        }
+      }
+    }
+    .contract-wrapper {
+      button {
+        background-color: #4a52ff;
+        height: 100px;
+        padding: 10px;
+        border: none;
+        border-radius: 15px;
+        font-size: 14px;
+        width: 60px;
+        color: #ffffff;
+      }
+    }
+  }
 }
 
 // QR 조회 화면 -> 알바생 출퇴근 기록 화면
