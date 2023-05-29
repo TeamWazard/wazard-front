@@ -365,7 +365,7 @@ const CompanySave = ({ mode, id }) => {
               unmountOnExit
             >
               <div className="modal">
-                <div className="modal-content-confirm">
+                <div className="modal-content-confirm modal-content-base">
                   <div className="modal-title">
                     <h2>정말 삭제하시겠습니까?</h2>
                   </div>
