@@ -66,9 +66,20 @@
     display: flex;
     justify-content: center;
 
-    .company_img {
+    .company_img_wrapper {
+      margin: 10px;
       width: 200px;
-      height: 100px;
+      height: 200px;
+      display: flex;
+      justify-content: center; /* horizontally center */
+      align-items: center;
+      .company_img {
+        border-radius: 20px;
+        width: 160px;
+        height: 160px;
+        // padding: 5px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+      }
     }
 
     .company_one_right {
@@ -135,6 +146,11 @@
       }
     }
   }
+  .notice {
+    font-size: 20px;
+    margin: 20px;
+    color: #828282;
+  }
 }
 
 // 업장 등록
@@ -189,7 +205,7 @@
   }
 
   .editor_set {
-    // height: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     margin: 10px;
@@ -208,11 +224,12 @@
       border: 1px solid #828282;
       border-radius: 10px;
       display: inline-block;
+      padding: 3px;
 
       &:focus {
         outline: none;
-        border-color: #9e30f4;
-        box-shadow: 0 0 1px #9e30f4;
+        border: 2px solid #9e30f4;
+        // box-shadow: 0 0 1px #9e30f4;
       }
     }
     input[name="salary_day"] {
@@ -235,6 +252,21 @@
       height: 30px;
       width: 150px;
     }
+    .address-search {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      .address-search-1 {
+        display: flex;
+        align-items: center;
+        margin: 4px;
+      }
+      .address-search-2 {
+        display: flex;
+        align-items: center;
+        margin: 4px;
+      }
+    }
   }
 
   button {
@@ -244,9 +276,6 @@
   }
 
   button:hover {
-    // filter: brightness(50%);
-    // cursor: pointer;
-    // transition: 0.5s;
     transform: scale(0.9);
   }
 }
@@ -272,6 +301,10 @@
   }
   .cancel:hover {
     background-color: #a5a5a5;
+  }
+  .remove {
+    background-color: #f5381e;
+    color: #ffffff;
   }
 }
 .searchAddress {
@@ -390,6 +423,9 @@
       width: 100px;
     }
   }
+  .close-button {
+    font-size: 20px;
+  }
 }
 
 .modal-content {
@@ -403,9 +439,6 @@
   .modal-title {
     border-bottom: 4px solid #788cf2;
     color: #656577;
-  }
-  .close-button {
-    font-size: 20px;
   }
 }
 
