@@ -1,6 +1,14 @@
 import "./Radio.scss";
 
-function Radio({ children, value, name, defaultChecked, disabled, onHandler }) {
+function Radio({
+  children,
+  value,
+  name,
+  defaultChecked,
+  disabled,
+  onHandler,
+  check,
+}) {
   return (
     <label className="label">
       <input
@@ -11,6 +19,7 @@ function Radio({ children, value, name, defaultChecked, disabled, onHandler }) {
         defaultChecked={defaultChecked}
         disabled={disabled}
         onChange={onHandler}
+        checked={check}
       />
       {children}
     </label>

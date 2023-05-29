@@ -1,0 +1,182 @@
+.mypage-nav-container {
+  display: flex;
+}
+
+.mypage-main {
+  width: 100%;
+  .title {
+    margin-left: 20px;
+    margin-bottom: 40px;
+    h2 {
+      color: #656577;
+    }
+  }
+  // 마이페이지 비밀번호 인증 암호
+  .mypage-pwd-container {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    p {
+      color: #828282;
+    }
+    .mypage-pwd-wrapper {
+      display: flex;
+      span {
+        font-size: 20px;
+        margin: 10px;
+        line-height: 42px;
+        width: 110px;
+        font-weight: bold;
+      }
+      .submit {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        input {
+          margin: 10px;
+          color: #212529;
+          font-size: 18px;
+          padding: 10px;
+          outline: none;
+          border: 1px solid #828282;
+          border-radius: 2px;
+          background: rgba(235, 235, 235, 0.19);
+          &::placeholder {
+            font-size: 12px;
+            color: gray;
+          }
+        }
+        button {
+          width: 80px;
+          height: 42px;
+          margin: 10px;
+          background: #869dee;
+          color: #ffffff;
+          font-size: 18px;
+          font-weight: bold;
+          outline: none;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  //   개인정보 수정
+  .edit-container {
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    .edit-thing {
+      .person-title {
+        font-weight: bold;
+      }
+      .thing1 {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-top: 2px solid #eaeaea;
+      }
+      .thing2 {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-top: 2px solid #eaeaea;
+        border-bottom: 2px solid #eaeaea;
+      }
+      .thing3 {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #eaeaea;
+      }
+      .edit-set {
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin-bottom: 10px;
+        height: 30px;
+
+        label {
+          display: inline-block;
+          width: 150px;
+          font-weight: bold;
+        }
+        .edit-input {
+          width: 180px;
+          padding: 5px;
+          border: 1px solid gray;
+          border-radius: 4px;
+          &:focus {
+            outline: none;
+            border: 2px solid #9e30f4;
+          }
+          &::placeholder {
+            font-size: 12px;
+            color: #b4b4b4;
+          }
+        }
+        .tel {
+          text-align: center;
+          width: 60px;
+          padding: 5px;
+          border: 1px solid gray;
+          border-radius: 4px;
+          margin-right: 5px;
+          margin-left: 5px;
+          &:focus {
+            outline: none;
+            border: 2px solid #9e30f4;
+          }
+        }
+        .tel1 {
+          margin-left: 0px;
+        }
+        button {
+          position: absolute;
+          right: 0;
+          border: none;
+          width: 70px;
+          height: 2rem;
+          border-radius: 8px;
+          font-size: 16px;
+        }
+        button[type="change"] {
+          background-color: #ffffff;
+          border: 2px solid;
+          color: #4a52ff;
+        }
+        button[type="save"] {
+          background-color: #ffffff;
+          border: 2px solid;
+          color: rgba(134, 157, 238, 0.77);
+        }
+        .pwd-message {
+          display: flex;
+          align-items: center;
+          margin: 10px;
+          font-size: 14px;
+          color: #838383;
+        }
+      }
+    }
+    .submitBtn {
+      margin: 10px;
+      text-align: center;
+      button {
+        margin: 20px;
+        width: 100px;
+        height: 40px;
+        border: none;
+        border-radius: 10px;
+        color: #ffffff;
+        font-size: 16px;
+      }
+      .save {
+        background-color: #4a52ff;
+      }
+      .cancel {
+        background: rgba(134, 157, 238, 0.77);
+      }
+    }
+  }
+}
