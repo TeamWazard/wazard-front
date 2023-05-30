@@ -114,15 +114,15 @@ const LeftMenuCeo = (props) => {
         <NavLink
           to={`/company_main/${companyId}/alba_list`}
           className={
-            location.pathname === `/company_main/${companyId}/alba_list`
+            location.pathname.includes(`/company_main/${companyId}/alba_list`)
               ? "active"
               : ""
           }
         >
           <MenuItem
-            isActive={
-              location.pathname === `/company_main/${companyId}/alba_list`
-            }
+            isActive={location.pathname.includes(
+              `/company_main/${companyId}/alba_list`
+            )}
           >
             알바생 관리
           </MenuItem>
