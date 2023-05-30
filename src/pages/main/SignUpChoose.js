@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./SignUpChoose.scss";
 
 import Radio from "./../../components/Radio";
+import axios from "axios";
 
 const SignUpChoose = () => {
   const location = useLocation();
@@ -52,6 +53,30 @@ const SignUpChoose = () => {
   const [passwordConfirmMessage, setPasswordConfirmMessage] = useState("");
   const [nameMessage, setNameMessage] = useState("");
   const [genderMessage, setGenderMessage] = useState("");
+
+  //API
+  const registeraxios = () => {
+    axios
+      .post("http://wazard.shop:900u0/account/join", {
+        email: email,
+        password: password,
+        userName: name,
+        gender: gender,
+        phoneNumber: phoneNumber,
+        role: "EMPLOYER",
+      })
+      .then((response) => {
+        console.log(response);
+        alert("회원가입성공");
+        if ((response.status = 200)) {
+          return navigate(-1);
+        }
+      })
+      .catch((err) => {
+        alert("회원가입이 되지 않았습니다.");
+        console.log(err);
+      });
+  };
 
   const onEmailHandler = (e) => {
     const currentEmail = e.target.value;
@@ -193,6 +218,7 @@ const SignUpChoose = () => {
       return;
     }
     event.preventDefault();
+    registeraxios();
 
     // let body = {
     //   email: email,
