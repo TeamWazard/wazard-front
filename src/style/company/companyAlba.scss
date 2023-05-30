@@ -51,6 +51,16 @@
       margin: 20px;
     }
   }
+  .cc {
+    text-align: center;
+    .invite-btn {
+      width: 100px;
+      height: 50px;
+      background: #4a52ff;
+      @extend %bluck_type;
+      margin: 20px;
+    }
+  }
 
   .list-Wrapper {
     width: 100%;

@@ -38,6 +38,7 @@ import AlbaAttendance from "pages/alba/inAlba/AlbaAttendance";
 import MyPageAlbaRecordCheck from "pages/alba/MyPageAlbaRecordCheck";
 import MyPageCertification from "pages/main/MyPageCertification";
 import MyPageEdit from "pages/main/MyPageEdit";
+import CompanyInviteContract from "pages/company/inCompany/CompanyInviteContract";
 
 function App() {
   return (
@@ -80,6 +81,10 @@ function App() {
             <Route
               path="/company_main/:id/invite"
               element={<CompanyInvite />}
+            ></Route>
+            <Route
+              path="/company_main/:id/invite/:id"
+              element={<CompanyInviteContract />}
             ></Route>
 
             <Route path="/company_main/:id/qr" element={<CompanyQR />}></Route>
