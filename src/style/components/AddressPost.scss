@@ -17,6 +17,7 @@
   border-bottom: 1px solid gray;
   display: flex;
   justify-content: flex-end;
+  height: 17px;
 }
 
 .close-button {
@@ -39,7 +40,8 @@
     width: 80px !important;
   }
   .user_enroll_text {
-    width: 250px !important;
+    padding: 3px;
+    width: 280px !important;
     margin: 0px 10px 0px 10px;
   }
 }

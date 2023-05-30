@@ -86,13 +86,13 @@ function CompanyQR() {
                   {/* )} */}
                 </CSSTransition>
 
-                {modalIsOpen && (
+                {/* {modalIsOpen && (
                   <Modal
                     isOpen={modalIsOpen}
                     onClose={closeModal}
                     loginState={loginState}
                   />
-                )}
+                )} */}
               </div>
             </div>
           </div>
