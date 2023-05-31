@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import Header from "components/Header";
 
-import "../../style/company/companyAlba.scss";
+import "../../../style/company/companyAlba.scss";
 import LeftMenuAlba from "components/LeftMenuAlba";
 
 const AlbaContract = (props) => {
