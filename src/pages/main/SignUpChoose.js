@@ -99,13 +99,12 @@ const SignUpChoose = () => {
         config
       )
       .then((response) => {
-        alert("이메일을 전송했습니다.");
+        setEmailMessage("이메일을 전송하였습니다.");
         setAuthenticationCode(response.data.authenticationCode);
-        console.log(response.data.authenticationCode);
       })
       .catch((err) => {
-        alert("이메일 전송에 실패하였습니다.");
-        console.log(err);
+        setEmailMessage("이메일 전송에 실패하였습니다.");
+        // console.log(err);
       });
   };
 
@@ -208,15 +207,16 @@ const SignUpChoose = () => {
       setEmailMessage("이메일형식이 올바르지 않습니다.");
     } else {
       setEmailMessage("");
+      // alert("이메일 전송 완료 (api실행 x)");
       emailauth();
     }
   };
 
   // 이메일 인증 코드 확인
   const handledClickEmailCheckBtn = (e) => {
-    if (emailCheck === authenticationCode) {
-      setEmailCheckMessage("✅ 이메일 인증이 성공적으로 완료되었습니다.");
+    if (authenticationCode !== "" && emailCheck === authenticationCode) {
       setIsEmailCheck(true);
+      setEmailCheckMessage("✅ 이메일 인증이 성공적으로 완료되었습니다.");
     } else {
       setEmailCheckMessage("인증번호가 올바르지 않습니다.");
     }
@@ -236,8 +236,17 @@ const SignUpChoose = () => {
       isGender === true &&
       isBirth === true
     ) {
-      console.log(phoneNumber);
-      registeraxios();
+      alert("회원가입 완료");
+      // console.log({
+      //   email: email,
+      //   password: password,
+      //   userName: name,
+      //   gender: gender,
+      //   birth: birth,
+      //   phoneNumber: `${phoneNumber.fstNum}-${phoneNumber.secNum}-${phoneNumber.thrNum}`,
+      //   role: userType,
+      // });
+      // registeraxios();
       event.preventDefault();
     }
     if (isEmail === false) {
@@ -302,7 +311,7 @@ const SignUpChoose = () => {
               ref={emailInput}
               type="email"
               value={email}
-              placeholder="test@email.com"
+              placeholder="wazard123@email.com"
               onChange={onEmailHandler}
             />{" "}
             <button className="button_send" onClick={handledClickEmailBtn}>
@@ -310,7 +319,12 @@ const SignUpChoose = () => {
               이메일 인증
             </button>
           </div>
-          <p className="message">{emailMessage}</p>
+          {isEmail ? (
+            <p className="message-succes">{emailMessage}</p>
+          ) : (
+            <p className="message">{emailMessage}</p>
+          )}
+
           <div className="Form">
             <div className="registerLabel">
               <label>이메일 인증번호</label>
@@ -325,7 +339,12 @@ const SignUpChoose = () => {
               인증 확인
             </button>
           </div>
-          <p className="message">{emailCheckMessage}</p>
+          {isEmailCheck ? (
+            <p className="message-succes">{emailCheckMessage}</p>
+          ) : (
+            <p className="message">{emailCheckMessage}</p>
+          )}
+
           <div className="Form">
             <div className="registerLabel">
               <label>비밀번호</label>
