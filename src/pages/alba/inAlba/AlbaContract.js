@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 
-import Header from "components/Header";
+import HeaderAlba from "components/HeaderAlba";
 
 import "../../../style/company/companyAlba.scss";
 import LeftMenuAlba from "components/LeftMenuAlba";
@@ -42,7 +42,7 @@ const AlbaContract = (props) => {
 
   return (
     <div className="albaList">
-      <Header />
+      <HeaderAlba />
       <div className="companyAlba-Wrapper">
         <LeftMenuAlba companyId={id} />
         <div className="list-Wrapper">

@@ -36,6 +36,7 @@ import MyPageAlbaRecord from "pages/alba/MyPageAlbaRecord";
 import AlbaMainPage from "pages/alba/inAlba/AlbaMainPage";
 import AlbaAttendance from "pages/alba/inAlba/AlbaAttendance";
 import AlbaReplace from "pages/alba/inAlba/AlbaReplace";
+import AlbaReplaceForm from "pages/alba/inAlba/AlbaReplaceForm";
 import MyPageAlbaRecordCheck from "pages/alba/MyPageAlbaRecordCheck";
 import MyPageCertification from "pages/main/MyPageCertification";
 import MyPageEdit from "pages/main/MyPageEdit";
@@ -107,6 +108,10 @@ function App() {
             <Route path="/alba_invited" element={<AlbaInvitePage />} />
             <Route path="/alba_main/:id/contract" element={<AlbaContract />} />
             <Route path="/alba_main/:id/replace" element={<AlbaReplace />} />
+            <Route
+              path="/alba_main/:id/replace/form"
+              element={<AlbaReplaceForm />}
+            />
             <Route path="/alba_record" element={<MyPageAlbaRecord />} />
             <Route
               path="/alba_record/:id"

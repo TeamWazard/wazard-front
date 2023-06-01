@@ -4,42 +4,31 @@ export const AlbaReplaceSlice = createSlice({
   name: "alba_replace",
   initialState: [
     {
-      user: "김민규",
-      replace_user: "김정환",
-      time: {
-        year: "2023",
-        month: "04",
-        date: "11",
-        start: "07:00",
-        end: "12:00",
-      },
+      userName: "김민규",
+      replaceUser: "김정환",
+      startTime: "08:00",
+      endTime: "13:30",
+      checkDate: "2023-06-02",
     },
     {
-      user: "김민규",
-      replace_user: "김정환",
-      time: {
-        year: "2023",
-        month: "04",
-        date: "11",
-        start: "07:00",
-        end: "12:00",
-      },
+      userName: "김민규",
+      replaceUser: "김정환",
+      startTime: "08:00",
+      endTime: "13:30",
+      checkDate: "2023-06-02",
     },
     {
-      user: "김민규",
-      replace_user: "김정환",
-      time: {
-        year: "2023",
-        month: "04",
-        date: "11",
-        start: "07:00",
-        end: "12:00",
-      },
+      userName: "김민규",
+      replaceUser: "김정환",
+      startTime: "08:00",
+      endTime: "13:30",
+      checkDate: "2023-06-02",
     },
   ],
   reducers: {
     addReplace: (state, action) => {
-      state.push(action.payload);
+      const nextId = state.length;
+      state.push({ ...action.payload });
     },
   },
 });
