@@ -87,6 +87,7 @@ const LeftMenuAlba = (props) => {
   const location = useLocation();
   const [showSubMenu, setShowSubMenu] = useState(false);
   const { companyId } = props;
+
   const handleSubMenuToggle = () => {
     setShowSubMenu(!showSubMenu);
   };
@@ -136,10 +137,18 @@ const LeftMenuAlba = (props) => {
         </NavLink>
 
         <NavLink
-          to={`/albatest3`}
-          className={location.pathname === `/albatest3` ? "active" : ""}
+          to={`/alba_main/${companyId}/replace`}
+          className={
+            location.pathname === `/alba_main/${companyId}/replace/form`
+              ? "active"
+              : ""
+          }
         >
-          <MenuItem isActive={location.pathname === `/albatest3`}>
+          <MenuItem
+            isActive={
+              location.pathname === `/alba_main/${companyId}/replace/form`
+            }
+          >
             대타 기록
           </MenuItem>
         </NavLink>
