@@ -31,13 +31,16 @@ import AlbaTest2 from "pages/main/AlbaTest2";
 import AlbaTest3 from "pages/main/AlbaTest3";
 import AlbaInvitePage from "pages/alba/AlbaInvitedPage";
 import ScrollToTop from "components/ScrollToTop";
-import AlbaContract from "pages/alba/AlbaContract";
+import AlbaContract from "pages/alba/inAlba/AlbaContract";
 import MyPageAlbaRecord from "pages/alba/MyPageAlbaRecord";
 import AlbaMainPage from "pages/alba/inAlba/AlbaMainPage";
 import AlbaAttendance from "pages/alba/inAlba/AlbaAttendance";
+import AlbaReplace from "pages/alba/inAlba/AlbaReplace";
+import AlbaReplaceForm from "pages/alba/inAlba/AlbaReplaceForm";
 import MyPageAlbaRecordCheck from "pages/alba/MyPageAlbaRecordCheck";
 import MyPageCertification from "pages/main/MyPageCertification";
 import MyPageEdit from "pages/main/MyPageEdit";
+import CompanyInviteContract from "pages/company/inCompany/CompanyInviteContract";
 
 function App() {
   return (
@@ -81,6 +84,10 @@ function App() {
               path="/company_main/:id/invite"
               element={<CompanyInvite />}
             ></Route>
+            <Route
+              path="/company_main/:id/invite/:id"
+              element={<CompanyInviteContract />}
+            ></Route>
 
             <Route path="/company_main/:id/qr" element={<CompanyQR />}></Route>
 
@@ -100,6 +107,11 @@ function App() {
             <Route path="/alba_list" element={<AlbaList />} />
             <Route path="/alba_invited" element={<AlbaInvitePage />} />
             <Route path="/alba_main/:id/contract" element={<AlbaContract />} />
+            <Route path="/alba_main/:id/replace" element={<AlbaReplace />} />
+            <Route
+              path="/alba_main/:id/replace/form"
+              element={<AlbaReplaceForm />}
+            />
             <Route path="/alba_record" element={<MyPageAlbaRecord />} />
             <Route
               path="/alba_record/:id"

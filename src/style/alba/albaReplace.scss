@@ -1,0 +1,212 @@
+//중복 값 처리
+// 박스 둥굴게 글씨 하얀색
+%bluck_type {
+  border-radius: 50px;
+  border: none;
+  color: #ffffff;
+}
+
+%inputBox {
+  padding: 10px 12px;
+  border: 1px solid #d2d2d2;
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: #f5f5f5;
+
+  &:focus {
+    outline: none;
+    border-color: #9e30f4;
+    box-shadow: 0 0 1px #9e30f4;
+  }
+
+  &::placeholder {
+    color: #a6a6a6;
+    font-size: 14px;
+  }
+}
+
+.Alba-Wrapper {
+  [type="date"] {
+    @extend %inputBox;
+    cursor: pointer;
+    width: 300px;
+  }
+  display: flex;
+  .list-Wrapper {
+    width: 80vw;
+    .title {
+      display: flex;
+      height: 80px;
+
+      align-items: center;
+      border-bottom: 4px solid #9db5fd;
+      margin-left: 20px;
+      p {
+        color: #000000;
+        font-size: 36px;
+        font-weight: 700;
+      }
+      .btn_record {
+        width: 160px;
+        height: 50px;
+        background: #4a52ff;
+        @extend %bluck_type;
+        margin: 20px;
+        font-size: 20px;
+      }
+    }
+
+    .list {
+      display: inline-block;
+      width: 100%;
+      .company_one {
+        margin: 20px;
+        display: flex;
+        justify-content: center;
+
+        .company_img {
+          width: 200px;
+          height: 100px;
+        }
+
+        .company_one_right {
+          display: flex;
+          background: rgba(17, 26, 215, 0.05);
+          opacity: 0.9;
+          border-radius: 20px;
+          width: 60vw;
+          height: 100px;
+          font-size: 22px;
+
+          flex-direction: row;
+          .company_set {
+            width: 200px;
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+            margin-right: 30px;
+          }
+          .company_set_time {
+            width: 350px;
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+            margin-right: 30px;
+          }
+
+          label {
+            display: inline-block;
+            font-weight: 700;
+            width: 120px;
+          }
+        }
+        .company_one_btn {
+          display: flex;
+          flex-direction: column;
+          width: 80px;
+
+          .in {
+            height: 100%;
+            margin: 5px;
+            background: #4a52ff;
+            @extend %bluck_type;
+            font-size: 18px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .form-Wrapper {
+      margin-top: 30px;
+      height: 400px;
+      display: flex;
+      flex-direction: column; /* 요소들을 수직으로 배치 */
+
+      justify-content: flex-start; /* 수직 시작 위치 */
+      align-items: center; /* 수평 가운데 위치 */
+      .line {
+        width: 600px;
+        height: 30px;
+        margin: 16px;
+
+        label {
+          display: inline-block;
+          font-weight: 700;
+          width: 90px;
+        }
+        .input_box {
+          width: 300px;
+          @extend %inputBox;
+          margin-left: 5px;
+          margin-right: 5px;
+        }
+
+        .time {
+          width: 120px;
+          @extend %inputBox;
+          margin-left: 5px;
+          margin-right: 5px;
+        }
+      }
+      .btn_record {
+        width: 160px;
+        height: 50px;
+        background: #4a52ff;
+        @extend %bluck_type;
+        margin: 20px;
+        font-size: 20px;
+      }
+    }
+    .listCheck {
+      display: inline-block;
+      width: 100%;
+      .company_one {
+        margin: 20px;
+        display: flex;
+        justify-content: center;
+
+        .company_img {
+          width: 200px;
+          height: 150px;
+        }
+
+        .company_one_right {
+          display: flex;
+          background: rgba(17, 26, 215, 0.05);
+          opacity: 0.9;
+          border-radius: 20px;
+          width: 60vw;
+          height: 460px;
+          font-size: 20px;
+          // justify-content: center;
+          flex-direction: column;
+          .company_set {
+            display: flex;
+          }
+
+          label {
+            display: inline-block;
+            font-weight: 700;
+            width: 130px;
+          }
+        }
+        .company_one_btn {
+          display: flex;
+          flex-direction: column;
+          width: 80px;
+
+          .in {
+            height: 100%;
+            margin: 5px;
+            background: #4a52ff;
+            @extend %bluck_type;
+            font-size: 18px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
