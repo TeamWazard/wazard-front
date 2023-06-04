@@ -5,7 +5,7 @@ import userIcon from "../../imgs/userIcon.svg";
 import passwordIcon from "../../imgs/passwordIcon.svg";
 import axios from "axios";
 import "./Login.scss";
-import { setUser } from "../../redux-toolkit/userSlice";
+import { getUser } from "../../redux-toolkit/userSlice";
 
 export default function Login() {
   const [user, setUser] = useState({
@@ -53,14 +53,14 @@ export default function Login() {
       .then((response) => {
         console.log(response);
         if (response.status === 200) {
-          // const userData = {
-          //   accountId: response.data.accountId,
-          //   email: response.data.email,
-          //   userName: response.data.userName,
-          //   role: response.data.role,
-          // };
-          // dispatch(setUser(userData));
-          // localStorage.setItem("accessToken", response.data.accessToken);
+          const userData = {
+            accountId: response.data.accountId,
+            email: response.data.email,
+            userName: response.data.userName,
+            role: response.data.role,
+          };
+          dispatch(getUser(userData));
+          localStorage.setItem("accessToken", response.data.accessToken);
           alert(`${response.data.userName}님 어서오세요!`);
 
           if (response.data.role === "EMPLOYER") {
