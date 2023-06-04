@@ -8,6 +8,7 @@ import { AlbaContractSlice } from "./albaModule/AlbaContractSlice";
 import { AlbaRecordListSlice } from "./albaModule/AlbaRecordListSlice";
 import { AlbaAttendance } from "./albaModule/AlbaAttendance";
 import { AlbaReplaceSlice } from "./albaModule/AlbaReplaceSlice";
+import { userSlice } from "./userSlice";
 
 const store = configureStore({
   reducer: {
@@ -19,6 +20,7 @@ const store = configureStore({
     alba_record: AlbaRecordListSlice.reducer,
     alba_attendance: AlbaAttendance.reducer,
     alba_replace: AlbaReplaceSlice.reducer,
+    user: userSlice.reducer,
   },
 });
 
