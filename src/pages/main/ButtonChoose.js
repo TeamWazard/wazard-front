@@ -6,11 +6,11 @@ import { useNavigate } from "react-router-dom";
 const ButtonChoose = () => {
   const navigate = useNavigate();
   const onClickPJButton = () => {
-    navigate("/signup", { state: { userType: "PJ" } });
+    navigate("/signup", { state: { userType: "EMPLOYEE" } });
   };
 
   const onClickCEOButton = () => {
-    navigate("/signup", { state: { userType: "CEO" } });
+    navigate("/signup", { state: { userType: "EMPLOYER" } });
   };
 
   return (

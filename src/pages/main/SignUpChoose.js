@@ -3,11 +3,14 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./SignUpChoose.scss";
 
 import Radio from "./../../components/Radio";
+import axios from "axios";
 
 const SignUpChoose = () => {
   const location = useLocation();
-  // const userType = location.state.userType;
+  const userType = location.state.userType;
   const navigate = useNavigate();
+
+  // 회원가입 입력 값
   const [email, setEmail] = useState("");
   const [emailCheck, setEmailCheck] = useState("");
   const [password, setPassword] = useState("");
@@ -20,6 +23,7 @@ const SignUpChoose = () => {
     secNum: "",
     thrNum: "",
   });
+  const [authenticationCode, setAuthenticationCode] = useState("");
 
   // console.log(userType);
 
@@ -28,6 +32,7 @@ const SignUpChoose = () => {
   const passwordInput = useRef();
   const passwordConfirmInput = useRef();
   const nameInput = useRef();
+  const birthinput = useRef();
   const genderInput = useRef();
   const phoneNumInput_1 = useRef();
   const phoneNumInput_2 = useRef();
@@ -52,6 +57,56 @@ const SignUpChoose = () => {
   const [passwordConfirmMessage, setPasswordConfirmMessage] = useState("");
   const [nameMessage, setNameMessage] = useState("");
   const [genderMessage, setGenderMessage] = useState("");
+
+  //API 회원가입
+  const registeraxios = () => {
+    const config = { "Content-Type": "application/json" };
+    axios
+      .post(
+        "http://wazard.shop:9000/account/join",
+        {
+          email: email,
+          password: password,
+          userName: name,
+          gender: gender,
+          birth: birth,
+          phoneNumber: `${phoneNumber.fstNum}-${phoneNumber.secNum}-${phoneNumber.thrNum}`,
+          role: userType,
+        },
+        config
+      )
+      .then((response) => {
+        console.log(response);
+        alert("회원가입성공");
+        if ((response.status = 200)) {
+          return navigate(-1);
+        }
+      })
+      .catch((err) => {
+        alert("회원가입이 되지 않았습니다.");
+        console.log(err);
+      });
+  };
+  //API 이메일 인증
+  const emailauth = () => {
+    const config = { "Content-Type": "application/json" };
+    axios
+      .post(
+        "http://wazard.shop:9000/mail/auth",
+        {
+          email: email,
+        },
+        config
+      )
+      .then((response) => {
+        setEmailMessage("이메일을 전송하였습니다.");
+        setAuthenticationCode(response.data.authenticationCode);
+      })
+      .catch((err) => {
+        setEmailMessage("이메일 전송에 실패하였습니다.");
+        // console.log(err);
+      });
+  };
 
   const onEmailHandler = (e) => {
     const currentEmail = e.target.value;
@@ -146,17 +201,25 @@ const SignUpChoose = () => {
     setIsPhoneNum_3(currentPhoneNum.length === 4);
   };
 
+  //이메일 코드 전송
   const handledClickEmailBtn = (e) => {
     if (isEmail === false) {
       setEmailMessage("이메일형식이 올바르지 않습니다.");
     } else {
       setEmailMessage("");
+      // alert("이메일 전송 완료 (api실행 x)");
+      emailauth();
     }
   };
 
+  // 이메일 인증 코드 확인
   const handledClickEmailCheckBtn = (e) => {
-    // 인증 번호 확인
-    setEmailCheckMessage("인증번호가 올바르지 않습니다.");
+    if (authenticationCode !== "" && emailCheck === authenticationCode) {
+      setIsEmailCheck(true);
+      setEmailCheckMessage("✅ 이메일 인증이 성공적으로 완료되었습니다.");
+    } else {
+      setEmailCheckMessage("인증번호가 올바르지 않습니다.");
+    }
   };
 
   const onSubmitHandler = (event) => {
@@ -165,15 +228,34 @@ const SignUpChoose = () => {
     } else {
       setGenderMessage("");
     }
+    if (
+      isEmail === true &&
+      isEmailCheck === true &&
+      isConfirmPassword == true &&
+      isName === true &&
+      isGender === true &&
+      isBirth === true
+    ) {
+      alert("회원가입 완료");
+      // console.log({
+      //   email: email,
+      //   password: password,
+      //   userName: name,
+      //   gender: gender,
+      //   birth: birth,
+      //   phoneNumber: `${phoneNumber.fstNum}-${phoneNumber.secNum}-${phoneNumber.thrNum}`,
+      //   role: userType,
+      // });
+      // registeraxios();
+      event.preventDefault();
+    }
     if (isEmail === false) {
       emailInput.current.focus();
       return;
-    }
-    // else if (isEmailCheck === false) {
-    //   emailCheckInput.current.focus();
-    //   return;
-    // }
-    else if (isPassword === false) {
+    } else if (isEmailCheck === false) {
+      emailCheckInput.current.focus();
+      return;
+    } else if (isPassword === false) {
       passwordInput.current.focus();
       return;
     } else if (isConfirmPassword === false) {
@@ -182,6 +264,8 @@ const SignUpChoose = () => {
     } else if (isName === false) {
       nameInput.current.focus();
       return;
+    } else if (isBirth === false) {
+      birthinput.current.focus();
     } else if (isPhoneNum_1 === false) {
       phoneNumInput_1.current.focus();
       return;
@@ -192,7 +276,6 @@ const SignUpChoose = () => {
       phoneNumInput_3.current.focus();
       return;
     }
-    event.preventDefault();
 
     // let body = {
     //   email: email,
@@ -228,7 +311,7 @@ const SignUpChoose = () => {
               ref={emailInput}
               type="email"
               value={email}
-              placeholder="test@email.com"
+              placeholder="wazard123@email.com"
               onChange={onEmailHandler}
             />{" "}
             <button className="button_send" onClick={handledClickEmailBtn}>
@@ -236,17 +319,32 @@ const SignUpChoose = () => {
               이메일 인증
             </button>
           </div>
-          <p className="message">{emailMessage}</p>
+          {isEmail ? (
+            <p className="message-succes">{emailMessage}</p>
+          ) : (
+            <p className="message">{emailMessage}</p>
+          )}
+
           <div className="Form">
             <div className="registerLabel">
               <label>이메일 인증번호</label>
             </div>
-            <input ref={emailCheckInput} className="refisterInputInBtn" />{" "}
+            <input
+              ref={emailCheckInput}
+              className="refisterInputInBtn"
+              onChange={onEmailCheckHandler}
+              value={emailCheck}
+            />{" "}
             <button className="button_send" onClick={handledClickEmailCheckBtn}>
               인증 확인
             </button>
           </div>
-          <p className="message">{emailCheckMessage}</p>
+          {isEmailCheck ? (
+            <p className="message-succes">{emailCheckMessage}</p>
+          ) : (
+            <p className="message">{emailCheckMessage}</p>
+          )}
+
           <div className="Form">
             <div className="registerLabel">
               <label>비밀번호</label>
@@ -291,7 +389,7 @@ const SignUpChoose = () => {
               <div className="gender_male">
                 <Radio
                   name="genderCheck"
-                  value="male"
+                  value="MALE"
                   onHandler={onGenderHandler}
                 >
                   남성
@@ -300,7 +398,7 @@ const SignUpChoose = () => {
               <div className="gender_female">
                 <Radio
                   name="genderCheck"
-                  value="female"
+                  value="FEMALE"
                   onHandler={onGenderHandler}
                 >
                   여성
@@ -314,10 +412,12 @@ const SignUpChoose = () => {
               <label>생년 월 일</label>
             </div>
             <input
+              ref={birthinput}
               type="date"
               value={birth}
               onChange={(e) => {
                 setBirth(e.target.value);
+                setIsBirth(true);
               }}
             />
           </div>
