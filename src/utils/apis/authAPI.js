@@ -35,9 +35,8 @@ export const loginAPI = async ({ email, password }) => {
       password,
     });
     console.log("로그인 완료");
-    const accessToken = response.data.accessToken;
-    localStorage.setItem("accessToken", accessToken);
-    return response.data;
+    localStorage.setItem("accessToken", response.data.accessToken);
+    return response;
   } catch (error) {
     throw error;
   }
