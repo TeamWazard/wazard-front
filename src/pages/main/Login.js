@@ -1,18 +1,29 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import userIcon from "../../imgs/userIcon.svg";
 import passwordIcon from "../../imgs/passwordIcon.svg";
+import axios from "axios";
 import "./Login.scss";
-import { loginAPI } from "utils/apis/authAPI";
-import { useDispatch } from "react-redux";
-import { login } from "redux-toolkit/userSlice";
 
 const User = {
   email: "jjjuyoa@gmail.com",
   password: "!as990422",
 };
+import { loginAPI } from "utils/apis/authAPI";
+import { useDispatch } from "react-redux";
+import { login }
+import { getUser } from "../../redux-toolkit/userSlice";
 
 export default function Login() {
+  const [user, setUser] = useState({
+    accountId: 1,
+    email: "",
+    userName: "",
+    role: "", // EMPLOYEE
+    accessToken: "",
+  });
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -29,6 +40,49 @@ export default function Login() {
     }
     setNotAllow(true);
   }, [emailValid, passwordValid]);
+
+  const inputRefs = {
+    emailInput: useRef(),
+    passwordInput: useRef(),
+  };
+
+  //로그인 일단 200번 띄움
+  const loginAxios = () => {
+    const config = { "Content-Type": "application/json" };
+    axios
+      .post(
+        "http://wazard.shop:9000/account/login",
+        {
+          email: email,
+          password: password,
+        },
+        config
+      )
+      .then((response) => {
+        console.log(response);
+        if (response.status === 200) {
+          const userData = {
+            accountId: response.data.accountId,
+            email: response.data.email,
+            userName: response.data.userName,
+            role: response.data.role,
+          };
+          dispatch(getUser(userData));
+          localStorage.setItem("accessToken", response.data.accessToken);
+          alert(`${response.data.userName}님 어서오세요!`);
+
+          if (response.data.role === "EMPLOYER") {
+            navigate(`/company_list`);
+          } else if (response.data.role === "EMPLOYEE") {
+            navigate(`/alba_list`);
+          }
+        }
+      })
+      .catch((err) => {
+        alert("이메일, 비밀번호를 확인해주세요.");
+        console.log(err);
+      });
+  };
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -79,6 +133,21 @@ export default function Login() {
     }
   }
 
+  const onClickConfirmButton2 = () => {
+    loginAxios();
+    // if (email === "") {
+    //   inputRefs.emailInput.current.focus();
+    // } else if (password === "") {
+    //   inputRefs.passwordInput.current.focus();
+    // } else if (email === user.email && password === user.password) {
+    //   console.log(email);
+    //   console.log(password);
+    //   alert("로그인에 성공했습니다.");
+    // } else {
+    //   alert("등록되지 않은 회원입니다.");
+    // }
+  };
+
   const emailInput = useRef();
   const passwordInput = useRef();
 
@@ -93,7 +162,7 @@ export default function Login() {
           </div>
           <div className="inputWrap">
             <input
-              ref={emailInput}
+              ref={inputRefs.emailInput}
               className="input"
               type="text"
               value={email}
@@ -106,7 +175,7 @@ export default function Login() {
           </div>
           <div className="inputWrap">
             <input
-              ref={passwordInput}
+              ref={inputRefs.passwordInput}
               className="input"
               type="password"
               value={password}
@@ -116,7 +185,7 @@ export default function Login() {
           <div>
             <button
               onClick={onClickConfirmButton}
-              disabled={notAllow}
+              // disabled={notAllow}
               className="loginButton"
             >
               LOGIN

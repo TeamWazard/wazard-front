@@ -8,6 +8,7 @@ import { AlbaContractSlice } from "./albaModule/AlbaContractSlice";
 import { AlbaRecordListSlice } from "./albaModule/AlbaRecordListSlice";
 import { AlbaAttendance } from "./albaModule/AlbaAttendance";
 import { AlbaReplaceSlice } from "./albaModule/AlbaReplaceSlice";
+import { userSlice } from "./userSlice";
 import { albaWaitListSlice } from "./albaModule/AlbaWaitListSlice";
 import { userSlice } from "./userSlice";
 

@@ -10,6 +10,15 @@ import { getCompanies } from "utils/apis/companyAPI";
 const CompanyList = () => {
   const navigate = useNavigate();
   const companies = useSelector((state) => state.companies);
+  // async function getCompanies = await axios.get('')
+  // useEffect(()=>{
+  //   const getCompanies = async () =>{
+  //     try{
+  //       const response = await axios.get('')
+  //     }
+  //   }
+  // })
+
   const user = useSelector((state) => state.user);
   console.log(user);
   async function handleGetCompanies() {
@@ -27,6 +36,8 @@ const CompanyList = () => {
   useEffect(() => {
     handleGetCompanies(); // 페이지 로드 시 함수 호출
   }, []);
+
+  console.log(user);
 
   return (
     <div className="company_list_page">
