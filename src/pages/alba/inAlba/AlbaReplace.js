@@ -22,7 +22,7 @@ const AlbaReplace = () => {
         <LeftMenuAlba companyId={id} />
         <div className="list-Wrapper">
           <div className="title">
-            <p>대타 기록</p>
+            <h2>대타 기록</h2>
             <button
               className="btn_record"
               onClick={() => {

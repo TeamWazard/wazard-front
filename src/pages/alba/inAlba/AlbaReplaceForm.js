@@ -93,7 +93,7 @@ const AlbaReplaceForm = () => {
         <LeftMenuAlba companyId={id} />
         <div className="list-Wrapper">
           <div className="title">
-            <p>대타 기록하기</p>
+            <h2>대타 기록하기</h2>
           </div>
           <div className="form-Wrapper">
             <div className="line">
