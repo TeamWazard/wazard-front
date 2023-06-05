@@ -5,8 +5,11 @@ import { useSelector } from "react-redux";
 import "../style/components/Header.scss";
 
 const HeaderAlba = () => {
-  const userName = useSelector((state) => state.alba_contract);
+  const user = useSelector((state) => state.user);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const userName = user.userName;
+
+  console.log(userName);
 
   const handleMouseEnter = () => {
     setIsDropdownVisible(true);
@@ -25,7 +28,7 @@ const HeaderAlba = () => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        {userName.user_name}님 환영합니다!
+        {userName}님 환영합니다!
         {isDropdownVisible && (
           <div className="dropdown">
             <NavLink to="/my_account" className="dropdownItem">

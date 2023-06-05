@@ -9,6 +9,7 @@ import { useEffect } from "react";
 const CompanyList = () => {
   const navigate = useNavigate();
   const companies = useSelector((state) => state.companies);
+  const user = useSelector((state) => state.user);
   // async function getCompanies = await axios.get('')
   // useEffect(()=>{
   //   const getCompanies = async () =>{
@@ -17,6 +18,8 @@ const CompanyList = () => {
   //     }
   //   }
   // })
+
+  console.log(user);
 
   return (
     <div className="company_list_page">
