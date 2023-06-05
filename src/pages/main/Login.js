@@ -1,8 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import userIcon from "../../imgs/userIcon.svg";
 import passwordIcon from "../../imgs/passwordIcon.svg";
 import "./Login.scss";
+import { loginAPI } from "utils/apis/authAPI";
+import { useDispatch } from "react-redux";
+import { login } from "redux-toolkit/userSlice";
 
 const User = {
   email: "jjjuyoa@gmail.com",
@@ -16,6 +19,8 @@ export default function Login() {
   const [emailValid, setEmailValid] = useState(false);
   const [passwordValid, setPasswordValid] = useState(false);
   const [notAllow, setNotAllow] = useState(true);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (emailValid && passwordValid) {
@@ -45,15 +50,34 @@ export default function Login() {
       setPasswordValid(false);
     }
   };
-  const onClickConfirmButton = () => {
-    if (email === "") {
-      emailInput.current.focus();
-    } else if (email === User.email && password === User.password) {
-      alert("로그인에 성공했습니다.");
-    } else {
-      alert("등록되지 않은 회원입니다.");
+  function onClickConfirmButton() {
+    emailInput.current.focus();
+    alert("로그인에 성공했습니다.");
+    handleLoginAPI();
+    // if (email === "" || password === "") {
+    //   emailInput.current.focus();
+    //   alert("로그인에 성공했습니다.");
+    //   handleLoginAPI();
+    // } else {
+    //   alert("아이디, 비밀번호를 입력해주세요.");
+    // }
+  }
+
+  async function handleLoginAPI() {
+    try {
+      const loginUSer = await loginAPI({
+        email: email,
+        password: password,
+      });
+      const savedAccessToken = localStorage.getItem("accessToken");
+      dispatch(login(loginUSer));
+      console.log(loginUSer);
+      alert("로그인이 완료되었습니다.");
+    } catch (error) {
+      console.log(error);
+      alert("로그인 오류");
     }
-  };
+  }
 
   const emailInput = useRef();
   const passwordInput = useRef();
