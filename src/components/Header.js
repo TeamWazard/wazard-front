@@ -1,15 +1,14 @@
 import "../App.scss";
 import React, { useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+
 import "../style/components/Header.scss";
 
 const Header = () => {
-  const user = useSelector((state) => state.user);
+  const userName = useSelector((state) => state.alba_contract);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
-  const userName = user.userName;
-
-  console.log(userName);
+  const navigate = useNavigate();
 
   const handleMouseEnter = () => {
     setIsDropdownVisible(true);
@@ -18,6 +17,14 @@ const Header = () => {
   const handleMouseLeave = () => {
     setIsDropdownVisible(false);
   };
+
+  const logoutHandleChange = () => {
+    localStorage.clear();
+    navigate("/");
+  };
+
+  console.log(localStorage.getItem("userName"));
+
   return (
     <div className="topbar">
       <NavLink to="/company_list">
@@ -28,15 +35,15 @@ const Header = () => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        {userName}님 환영합니다!
+        {localStorage.getItem("userName")}님 환영합니다!
         {isDropdownVisible && (
           <div className="dropdown">
             <NavLink to="/my_account" className="dropdownItem">
               내 정보 관리
             </NavLink>
-            <NavLink to="/logout" className="dropdownItem">
+            <div className="dropdownItem" onClick={logoutHandleChange}>
               로그아웃
-            </NavLink>
+            </div>
           </div>
         )}
       </div>
