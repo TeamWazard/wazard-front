@@ -29,13 +29,13 @@ const MyPageAlbaRecord = () => {
         <LeftMenuMyPage />
         <div className="companyBody-Wrapper">
           <div className="title">
-            <p>종합 태도 점수</p>
+            <h2>종합 태도 점수</h2>
           </div>
           <div className="attitude-score">
             <h2>태도 점수: {formattedAverage}</h2>
           </div>
           <div className="albaRecord-title">
-            <p>과거 알바 기록</p>
+            <h2>과거 알바 기록</h2>
           </div>
           <div className="list">
             {alba_record.map((it) => (

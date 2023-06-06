@@ -25,6 +25,11 @@ export default function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  localStorage.removeItem("accountId");
+  localStorage.removeItem("email");
+  localStorage.removeItem("userName");
+  localStorage.removeItem("accessToken");
+
   useEffect(() => {
     if (emailValid && passwordValid) {
       setNotAllow(false);
@@ -60,6 +65,9 @@ export default function Login() {
             role: response.data.role,
           };
           dispatch(getUser(userData));
+          localStorage.setItem("accountId", response.data.accountId);
+          localStorage.setItem("email", response.data.email);
+          localStorage.setItem("userName", response.data.userName);
           localStorage.setItem("accessToken", response.data.accessToken);
           alert(`${response.data.userName}님 어서오세요!`);
 

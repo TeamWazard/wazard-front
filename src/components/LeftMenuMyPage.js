@@ -112,10 +112,10 @@ const LeftMenuMyPage = (props) => {
         {/* </NavLink> */}
 
         <NavLink
-          to={`/albatest1`}
-          className={location.pathname === `/albatest1` ? "active" : ""}
+          to={`/my_account/edit`}
+          className={location.pathname === `/my_account/edit` ? "active" : ""}
         >
-          <MenuItem isActive={location.pathname === `/albatest1`}>
+          <MenuItem isActive={location.pathname === `/my_account/edit`}>
             내정보 관리
           </MenuItem>
         </NavLink>

@@ -26,6 +26,7 @@
 }
 
 .Alba-Wrapper {
+  font-family: "Do Hyeon", sans-serif;
   [type="date"] {
     @extend %inputBox;
     cursor: pointer;
@@ -41,10 +42,8 @@
       align-items: center;
       border-bottom: 4px solid #9db5fd;
       margin-left: 20px;
-      p {
-        color: #000000;
-        font-size: 36px;
-        font-weight: 700;
+      h2 {
+        color: #656577;
       }
       .btn_record {
         width: 160px;

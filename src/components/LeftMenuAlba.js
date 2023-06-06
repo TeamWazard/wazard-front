@@ -139,15 +139,15 @@ const LeftMenuAlba = (props) => {
         <NavLink
           to={`/alba_main/${companyId}/replace`}
           className={
-            location.pathname === `/alba_main/${companyId}/replace/form`
+            location.pathname.includes(`/alba_main/${companyId}/replace`)
               ? "active"
               : ""
           }
         >
           <MenuItem
-            isActive={
-              location.pathname === `/alba_main/${companyId}/replace/form`
-            }
+            isActive={location.pathname.includes(
+              `/alba_main/${companyId}/replace`
+            )}
           >
             대타 기록
           </MenuItem>
