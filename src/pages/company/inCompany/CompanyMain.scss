@@ -23,7 +23,9 @@
         font-size: 30px;
         border-bottom: 3px solid #4a52ff;
         padding: 10px;
-        label {
+        .comment {
+          margin: 10px;
+          font-size: 18px;
           font-style: normal;
           color: #888888;
         }

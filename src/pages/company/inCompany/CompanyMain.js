@@ -55,7 +55,7 @@ const CompanyMain = (props) => {
           <div className="date">
             <div className="date-title">
               {value.toLocaleDateString()}
-              <label>날에 근무한 알바생</label>
+              <label className="comment">날에 근무한 알바생</label>
             </div>
 
             <div className="memberList">
