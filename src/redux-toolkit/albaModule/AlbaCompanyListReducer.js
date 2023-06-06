@@ -11,6 +11,8 @@ export const albaCompanyListSlice = createSlice({
       tel: "010-1234-1234",
       salary_day: 1,
       company_type: "음식점 🥘",
+      company_img:
+        "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjEwMTJfMjky%2FMDAxNjY1NTU0MDk3OTIy.dK1sM3JTiyCwEnQkrEBEcpMz9_xjoNhFQ-lKbfJ56M4g.nFyN7IYrup-cay5L4SEWX1gAGcTvrXWFrKtm6eAie_Ug.JPEG.seunjoo3%2Fphoto_1665548761.jpg",
     },
   ],
   reducers: {

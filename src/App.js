@@ -42,6 +42,7 @@ import MyPageCertification from "pages/main/MyPageCertification";
 import MyPageEdit from "pages/main/MyPageEdit";
 import CompanyInviteContract from "pages/company/inCompany/CompanyInviteContract";
 import AlbaCommute from "pages/alba/inAlba/AlbaCommute";
+import AlbaInvitedContract from "pages/alba/AlbaInvitedContract";
 
 function App() {
   return (
@@ -107,6 +108,7 @@ function App() {
             {/* 알바생화면 */}
             <Route path="/alba_list" element={<AlbaList />} />
             <Route path="/alba_invited" element={<AlbaInvitePage />} />
+            <Route path="/alba_invited/:id" element={<AlbaInvitedContract />} />
             <Route path="/alba_main/:id/contract" element={<AlbaContract />} />
             <Route path="/alba_main/:id/replace" element={<AlbaReplace />} />
             <Route path="/alba_main/:id/commute" element={<AlbaCommute />} />
