@@ -22,7 +22,7 @@ const CompanyAlba = () => {
   //모달 이용
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedEmployee, setSelectedEmployee] = useState(null);
-
+  const [modalIsOpen2, setModalIsOpen2] = useState(false);
   //출근 기록
   const [employeesAttend, setEmployeesAttend] = useState([
     {
@@ -99,6 +99,23 @@ const CompanyAlba = () => {
     setEmployeesAttend(updatedEmployees);
   }
 
+  // 결석 버튼 변경
+  function handleConfirm2(action, employee) {
+    handleAbsentToggleClick(employee);
+    closeModal2();
+  }
+
+  //결석 수정
+  function handleAbsentToggleClick(employee) {
+    const updatedEmployees = employeesAttend.map((emp) => {
+      if (emp.id === employee.id) {
+        return { ...emp, absent: !emp.absent };
+      }
+      return emp;
+    });
+    setEmployeesAttend(updatedEmployees);
+  }
+
   //모달 창
   const openModal = () => {
     setModalIsOpen(true);
@@ -106,6 +123,14 @@ const CompanyAlba = () => {
 
   const closeModal = () => {
     setModalIsOpen(false);
+  };
+
+  const openModal2 = () => {
+    setModalIsOpen2(true);
+  };
+
+  const closeModal2 = () => {
+    setModalIsOpen2(false);
   };
 
   return (
@@ -136,7 +161,9 @@ const CompanyAlba = () => {
                   <th>출근시간</th>
                   <th>퇴근시간</th>
                   <th>지각여부</th>
+                  <th>결석여부</th>
                   <th>지각버튼</th>
+                  <th>결석버튼</th>
                 </tr>
               </thead>
               <tbody>
@@ -152,6 +179,7 @@ const CompanyAlba = () => {
                       <td>{employee.start_time}</td>
                       <td>{employee.end_time}</td>
                       <td>{employee.late ? "O" : "X"}</td>
+                      <td>{employee.absent ? "O" : "X"}</td>
 
                       <td>
                         {employee.late ? (
@@ -170,6 +198,26 @@ const CompanyAlba = () => {
                             }}
                           >
                             지각
+                          </button>
+                        )}
+                      </td>
+                      <td>
+                        {employee.absent ? (
+                          <button
+                            className="absentBtnCancel"
+                            onClick={() => handleAbsentToggleClick(employee)}
+                          >
+                            결석취소
+                          </button>
+                        ) : (
+                          <button
+                            className="absentBtn"
+                            onClick={() => {
+                              setSelectedEmployee(employee);
+                              openModal2();
+                            }}
+                          >
+                            결석
                           </button>
                         )}
                       </td>
@@ -200,6 +248,36 @@ const CompanyAlba = () => {
                           네
                         </button>
                         <button className="no" onClick={closeModal}>
+                          아니요
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </CSSTransition>
+                <CSSTransition
+                  in={modalIsOpen2}
+                  timeout={300}
+                  classNames="alert"
+                  unmountOnExit
+                >
+                  <div className="modal">
+                    <div className="modal-content-late modal-content-base">
+                      <div className="modal-title">
+                        <h2>결석 체크를 하시겠습니까?</h2>
+                      </div>
+                      <div className="modal-contents">
+                        <p className="remove-company"></p>
+                      </div>
+                      <div className="button">
+                        <button
+                          className="yes"
+                          onClick={() =>
+                            handleConfirm2("absent", selectedEmployee)
+                          }
+                        >
+                          네
+                        </button>
+                        <button className="no" onClick={closeModal2}>
                           아니요
                         </button>
                       </div>
