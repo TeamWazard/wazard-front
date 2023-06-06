@@ -26,6 +26,11 @@ export default function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  localStorage.removeItem("accountId");
+  localStorage.removeItem("email");
+  localStorage.removeItem("userName");
+  localStorage.removeItem("accessToken");
+
   useEffect(() => {
     if (emailValid && passwordValid) {
       setNotAllow(false);
@@ -40,11 +45,51 @@ export default function Login() {
   };
 
   //로그인 일단 200번 띄움
+  // <<<<<<< HEAD
   async function handleLoginAPI() {
     try {
       const response = await loginAPI({
         email: email,
         password: password,
+        // =======
+        //   const loginAxios = () => {
+        //     const config = { "Content-Type": "application/json" };
+        //     axios
+        //       .post(
+        //         "http://wazard.shop:9000/account/login",
+        //         {
+        //           email: email,
+        //           password: password,
+        //         },
+        //         config
+        //       )
+        //       .then((response) => {
+        //         console.log(response);
+        //         if (response.status === 200) {
+        //           const userData = {
+        //             accountId: response.data.accountId,
+        //             email: response.data.email,
+        //             userName: response.data.userName,
+        //             role: response.data.role,
+        //           };
+        //           dispatch(getUser(userData));
+        //           localStorage.setItem("accountId", response.data.accountId);
+        //           localStorage.setItem("email", response.data.email);
+        //           localStorage.setItem("userName", response.data.userName);
+        //           localStorage.setItem("accessToken", response.data.accessToken);
+        //           alert(`${response.data.userName}님 어서오세요!`);
+
+        //           if (response.data.role === "EMPLOYER") {
+        //             navigate(`/company_list`);
+        //           } else if (response.data.role === "EMPLOYEE") {
+        //             navigate(`/alba_list`);
+        //           }
+        //         }
+        //       })
+        //       .catch((err) => {
+        //         alert("이메일, 비밀번호를 확인해주세요.");
+        //         console.log(err);
+        // >>>>>>> 5163c0150c3a96a90a49fc424d5c43805b6ca743
       });
       if (response.status === 200) {
         dispatch(getUser(response));

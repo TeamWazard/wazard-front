@@ -41,6 +41,7 @@ import MyPageAlbaRecordCheck from "pages/alba/MyPageAlbaRecordCheck";
 import MyPageCertification from "pages/main/MyPageCertification";
 import MyPageEdit from "pages/main/MyPageEdit";
 import CompanyInviteContract from "pages/company/inCompany/CompanyInviteContract";
+import AlbaCommute from "pages/alba/inAlba/AlbaCommute";
 
 function App() {
   return (
@@ -108,6 +109,7 @@ function App() {
             <Route path="/alba_invited" element={<AlbaInvitePage />} />
             <Route path="/alba_main/:id/contract" element={<AlbaContract />} />
             <Route path="/alba_main/:id/replace" element={<AlbaReplace />} />
+            <Route path="/alba_main/:id/commute" element={<AlbaCommute />} />
             <Route
               path="/alba_main/:id/replace/form"
               element={<AlbaReplaceForm />}

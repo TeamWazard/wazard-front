@@ -7,6 +7,7 @@
 }
 
 .company-main-wrapper {
+  font-family: "Do Hyeon", sans-serif;
   display: flex;
   .title {
     margin-left: 20px;
@@ -18,6 +19,7 @@
 
 // 업소 리스트
 .company_list_page {
+  font-family: "Do Hyeon", sans-serif;
   display: flex;
   align-items: center;
   overflow-x: hidden;
@@ -95,12 +97,14 @@
       padding: 8px;
       .company_set {
         display: flex;
+        font-family: "Do Hyeon", sans-serif;
       }
 
       label {
         display: inline-block;
         font-weight: 700;
         width: 130px;
+        font-family: "Do Hyeon", sans-serif;
       }
     }
 
@@ -318,6 +322,7 @@
 
 //알바생 초대 화면
 .invite-wrapper {
+  font-family: "Do Hyeon", sans-serif;
   .main {
     margin: 30px;
     h3 {
@@ -429,6 +434,7 @@
 
 // QR 조회 화면 -> 알바생 출퇴근 기록 화면
 .qr-wrapper {
+  font-family: "Do Hyeon", sans-serif;
   width: 80vw;
   min-width: 1000px;
   .main {
