@@ -6,6 +6,7 @@ import Header from "components/Header";
 import LeftMenuCeo from "components/LeftMenuCeo";
 
 import "../../../style/company/companyAlba.scss";
+import { CSSTransition } from "react-transition-group";
 
 const CompanyInviteContract = (props) => {
   const navigate = useNavigate();
@@ -28,12 +29,46 @@ const CompanyInviteContract = (props) => {
   });
   const [workTime, setWorkTime] = useState(" 09:00 - 18:00 ");
   const [pay, setPay] = useState("9500");
+  const [email, setEmail] = useState("");
+  const [emailConfirm, setEmailConfirm] = useState(null);
 
   const albalist = useSelector((state) => state.albalist);
 
   const handleCheckboxChange = (e) => {
     const { name, checked } = e.target;
     setWorkWeek((prevState) => ({ ...prevState, [name]: checked }));
+  };
+
+  const handleCheckEmail = (e) => {
+    setEmailConfirm(true);
+    closeModal();
+    setModalIsOpenCheck(true);
+
+    // if (!validateEmail(email)) {
+    //   setEmailConfirm(false);
+    // } else {
+    //   setEmailConfirm(true);
+    //   navigate("/company_main/0/invite");
+    // }
+  };
+
+  // 이메일 타당성
+  // const validateEmail = (input) => {
+  //   const regex =
+  //     /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+  //   return regex.test(input);
+  // };
+
+  //모달 이용
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalIsOpenCheck, setModalIsOpenCheck] = useState(false);
+
+  //모달 창
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+  const closeModal = () => {
+    setModalIsOpen(false);
   };
 
   return (
@@ -184,8 +219,72 @@ const CompanyInviteContract = (props) => {
           </div>
 
           <div className="cc">
-            <button className="invite-btn">초대하기</button>
+            <button className="invite-btn" onClick={openModal}>
+              이메일 입력
+            </button>
           </div>
+          {/* 이메일 입력 */}
+          <CSSTransition
+            in={modalIsOpen}
+            timeout={300}
+            classNames="alert"
+            unmountOnExit
+          >
+            <div className="modal">
+              <div className="modal-content-contract modal-content-base">
+                <div className="modal-title">
+                  <h2>초대할 알바생의 이메일을 입력하세요.</h2>
+                </div>
+                <div className="modal-contents">
+                  <p>계약정보나 이메일에 틀린것이 없는지 확인해주세요.</p>
+                  <input
+                    className="email-input"
+                    placeholder="wazard123@gmail.com"
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
+                  />
+                  {/* {!emailConfirm ? <p>이메일 형식이 옳바르지않습니다</p> : ""} */}
+                </div>
+                <div className="button">
+                  <button className="yes" onClick={handleCheckEmail}>
+                    초대
+                  </button>
+                  <button className="no" onClick={closeModal}>
+                    취소
+                  </button>
+                </div>
+              </div>
+            </div>
+          </CSSTransition>
+          <CSSTransition
+            in={modalIsOpenCheck}
+            timeout={300}
+            classNames="alert"
+            unmountOnExit
+          >
+            <div className="modal">
+              <div className="modal-content-contract-check modal-content-base">
+                <div className="modal-title">
+                  <h2>전송완료</h2>
+                </div>
+                <div className="modal-contents">
+                  <p>초대코드 전송이 완료되었습니다.</p>
+                </div>
+                <div className="button">
+                  <button
+                    className="yes"
+                    onClick={() => {
+                      setModalIsOpenCheck(false);
+                      navigate("/company_main/0/invite");
+                    }}
+                  >
+                    확인
+                  </button>
+                </div>
+              </div>
+            </div>
+          </CSSTransition>
         </div>
       </div>
     </div>

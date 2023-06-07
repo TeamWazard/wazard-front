@@ -59,7 +59,7 @@ function AlbaInvitedPage() {
         </div>
         {/* <Footer /> */}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
