@@ -5,11 +5,11 @@ import people from "../../imgs/icons/people.svg";
 import "../../style/company/company.scss";
 import axios from "axios";
 import { useEffect } from "react";
+import { getCompanies } from "utils/apis/companyAPI";
 
 const CompanyList = () => {
   const navigate = useNavigate();
   const companies = useSelector((state) => state.companies);
-  const user = useSelector((state) => state.user);
   // async function getCompanies = await axios.get('')
   // useEffect(()=>{
   //   const getCompanies = async () =>{
@@ -18,6 +18,24 @@ const CompanyList = () => {
   //     }
   //   }
   // })
+
+  const user = useSelector((state) => state.user);
+  console.log(user);
+  async function handleGetCompanies() {
+    try {
+      const response = await getCompanies({
+        email: user.email,
+        accountId: user.accountId,
+      });
+      const data = response.data;
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  useEffect(() => {
+    handleGetCompanies(); // 페이지 로드 시 함수 호출
+  }, []);
 
   console.log(user);
 

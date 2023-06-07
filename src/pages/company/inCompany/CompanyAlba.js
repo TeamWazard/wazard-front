@@ -19,10 +19,7 @@ const CompanyAlba = () => {
   const alba = useSelector((state) =>
     state.albalist.find((alba) => alba.alba_id === parseInt(id))
   );
-  //모달 이용
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [selectedEmployee, setSelectedEmployee] = useState(null);
-  const [modalIsOpen2, setModalIsOpen2] = useState(false);
+  // console.log(alba);
   //출근 기록
   const [employeesAttend, setEmployeesAttend] = useState([
     {
@@ -38,18 +35,8 @@ const CompanyAlba = () => {
     {
       id: 1,
       company_id: 1,
-      name: "김민규2",
+      name: "김민규",
       date: "2023-05-03",
-      start_time: "08:59",
-      end_time: "16:01",
-      late: false,
-      absent: false,
-    },
-    {
-      id: 2,
-      company_id: 1,
-      name: "김민규3",
-      date: "2023-06-03",
       start_time: "08:59",
       end_time: "16:01",
       late: false,
@@ -82,10 +69,15 @@ const CompanyAlba = () => {
     (employee) => moment(employee.date).month() === currentMonth.month()
   );
 
-  // 지각 버튼 변경
+  // 경고창
   function handleConfirm(action, employee) {
-    handleLateToggleClick(employee);
-    closeModal();
+    if (action === "late") {
+      const result = window.confirm("지각체크를 하시겠습니까?");
+      if (result) handleLateToggleClick(employee);
+    } else {
+      const result = window.confirm("결석체크를 하시겠습니까?");
+      if (result) handleAbsentToggleClick(employee);
+    }
   }
 
   //지각 수정
@@ -99,39 +91,16 @@ const CompanyAlba = () => {
     setEmployeesAttend(updatedEmployees);
   }
 
-  // 결석 버튼 변경
-  function handleConfirm2(action, employee) {
-    handleAbsentToggleClick(employee);
-    closeModal2();
-  }
-
   //결석 수정
   function handleAbsentToggleClick(employee) {
-    const updatedEmployees = employeesAttend.map((emp) => {
+    const updatedEmployees = employeesAbsent.map((emp) => {
       if (emp.id === employee.id) {
         return { ...emp, absent: !emp.absent };
       }
       return emp;
     });
-    setEmployeesAttend(updatedEmployees);
+    setEmployeesAbsent(updatedEmployees);
   }
-
-  //모달 창
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalIsOpen(false);
-  };
-
-  const openModal2 = () => {
-    setModalIsOpen2(true);
-  };
-
-  const closeModal2 = () => {
-    setModalIsOpen2(false);
-  };
 
   return (
     <div className="companyAlba">
@@ -161,129 +130,43 @@ const CompanyAlba = () => {
                   <th>출근시간</th>
                   <th>퇴근시간</th>
                   <th>지각여부</th>
-                  <th>결석여부</th>
                   <th>지각버튼</th>
-                  <th>결석버튼</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredEmployeesAttend.map((employee) => (
-                  <>
-                    <tr key={employee.id}>
-                      <td>{employee.date}</td>
-                      <td>
-                        {new Date(employee.date).toLocaleDateString("ko-KR", {
-                          weekday: "long",
-                        })}
-                      </td>
-                      <td>{employee.start_time}</td>
-                      <td>{employee.end_time}</td>
-                      <td>{employee.late ? "O" : "X"}</td>
-                      <td>{employee.absent ? "O" : "X"}</td>
+                  <tr key={employee.id}>
+                    <td>{employee.date}</td>
+                    <td>
+                      {new Date(employee.date).toLocaleDateString("ko-KR", {
+                        weekday: "long",
+                      })}
+                    </td>
+                    <td>{employee.start_time}</td>
+                    <td>{employee.end_time}</td>
+                    <td>{employee.late ? "O" : "X"}</td>
 
-                      <td>
-                        {employee.late ? (
-                          <button
-                            className="lateBtnCancel"
-                            onClick={() => handleLateToggleClick(employee)}
-                          >
-                            지각취소
-                          </button>
-                        ) : (
-                          <button
-                            className="lateBtn"
-                            onClick={() => {
-                              setSelectedEmployee(employee);
-                              openModal();
-                            }}
-                          >
-                            지각
-                          </button>
-                        )}
-                      </td>
-                      <td>
-                        {employee.absent ? (
-                          <button
-                            className="absentBtnCancel"
-                            onClick={() => handleAbsentToggleClick(employee)}
-                          >
-                            결석취소
-                          </button>
-                        ) : (
-                          <button
-                            className="absentBtn"
-                            onClick={() => {
-                              setSelectedEmployee(employee);
-                              openModal2();
-                            }}
-                          >
-                            결석
-                          </button>
-                        )}
-                      </td>
-                    </tr>
-                  </>
+                    <td>
+                      {employee.late ? (
+                        <button
+                          className="lateBtnCancel"
+                          onClick={() => handleLateToggleClick(employee)}
+                        >
+                          지각취소
+                        </button>
+                      ) : (
+                        <button
+                          className="lateBtn"
+                          onClick={() => {
+                            handleConfirm("late", employee);
+                          }}
+                        >
+                          지각
+                        </button>
+                      )}
+                    </td>
+                  </tr>
                 ))}
-                <CSSTransition
-                  in={modalIsOpen}
-                  timeout={300}
-                  classNames="alert"
-                  unmountOnExit
-                >
-                  <div className="modal">
-                    <div className="modal-content-late modal-content-base">
-                      <div className="modal-title">
-                        <h2>지각 체크를 하시겠습니까?</h2>
-                      </div>
-                      <div className="modal-contents">
-                        <p className="remove-company"></p>
-                      </div>
-                      <div className="button">
-                        <button
-                          className="yes"
-                          onClick={() =>
-                            handleConfirm("late", selectedEmployee)
-                          }
-                        >
-                          네
-                        </button>
-                        <button className="no" onClick={closeModal}>
-                          아니요
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </CSSTransition>
-                <CSSTransition
-                  in={modalIsOpen2}
-                  timeout={300}
-                  classNames="alert"
-                  unmountOnExit
-                >
-                  <div className="modal">
-                    <div className="modal-content-late modal-content-base">
-                      <div className="modal-title">
-                        <h2>결석 체크를 하시겠습니까?</h2>
-                      </div>
-                      <div className="modal-contents">
-                        <p className="remove-company"></p>
-                      </div>
-                      <div className="button">
-                        <button
-                          className="yes"
-                          onClick={() =>
-                            handleConfirm2("absent", selectedEmployee)
-                          }
-                        >
-                          네
-                        </button>
-                        <button className="no" onClick={closeModal2}>
-                          아니요
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </CSSTransition>
               </tbody>
             </table>
           </div>

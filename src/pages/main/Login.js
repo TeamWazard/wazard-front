@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import userIcon from "../../imgs/userIcon.svg";
@@ -6,6 +6,7 @@ import passwordIcon from "../../imgs/passwordIcon.svg";
 import axios from "axios";
 import "./Login.scss";
 import { getUser } from "../../redux-toolkit/userSlice";
+import { loginAPI } from "utils/apis/authAPI";
 
 export default function Login() {
   const [user, setUser] = useState({
@@ -44,45 +45,66 @@ export default function Login() {
   };
 
   //로그인 일단 200번 띄움
-  const loginAxios = () => {
-    const config = { "Content-Type": "application/json" };
-    axios
-      .post(
-        "http://wazard.shop:9000/account/login",
-        {
-          email: email,
-          password: password,
-        },
-        config
-      )
-      .then((response) => {
-        console.log(response);
-        if (response.status === 200) {
-          const userData = {
-            accountId: response.data.accountId,
-            email: response.data.email,
-            userName: response.data.userName,
-            role: response.data.role,
-          };
-          dispatch(getUser(userData));
-          localStorage.setItem("accountId", response.data.accountId);
-          localStorage.setItem("email", response.data.email);
-          localStorage.setItem("userName", response.data.userName);
-          localStorage.setItem("accessToken", response.data.accessToken);
-          alert(`${response.data.userName}님 어서오세요!`);
+  // <<<<<<< HEAD
+  async function handleLoginAPI() {
+    try {
+      const response = await loginAPI({
+        email: email,
+        password: password,
+        // =======
+        //   const loginAxios = () => {
+        //     const config = { "Content-Type": "application/json" };
+        //     axios
+        //       .post(
+        //         "http://wazard.shop:9000/account/login",
+        //         {
+        //           email: email,
+        //           password: password,
+        //         },
+        //         config
+        //       )
+        //       .then((response) => {
+        //         console.log(response);
+        //         if (response.status === 200) {
+        //           const userData = {
+        //             accountId: response.data.accountId,
+        //             email: response.data.email,
+        //             userName: response.data.userName,
+        //             role: response.data.role,
+        //           };
+        //           dispatch(getUser(userData));
+        //           localStorage.setItem("accountId", response.data.accountId);
+        //           localStorage.setItem("email", response.data.email);
+        //           localStorage.setItem("userName", response.data.userName);
+        //           localStorage.setItem("accessToken", response.data.accessToken);
+        //           alert(`${response.data.userName}님 어서오세요!`);
 
-          if (response.data.role === "EMPLOYER") {
-            navigate(`/company_list`);
-          } else if (response.data.role === "EMPLOYEE") {
-            navigate(`/alba_list`);
-          }
-        }
-      })
-      .catch((err) => {
-        alert("이메일, 비밀번호를 확인해주세요.");
-        console.log(err);
+        //           if (response.data.role === "EMPLOYER") {
+        //             navigate(`/company_list`);
+        //           } else if (response.data.role === "EMPLOYEE") {
+        //             navigate(`/alba_list`);
+        //           }
+        //         }
+        //       })
+        //       .catch((err) => {
+        //         alert("이메일, 비밀번호를 확인해주세요.");
+        //         console.log(err);
+        // >>>>>>> 5163c0150c3a96a90a49fc424d5c43805b6ca743
       });
-  };
+      if (response.status === 200) {
+        dispatch(getUser(response));
+        alert(`${response.data.userName}님 어서오세요!`);
+        if (response.data.role === "EMPLOYER") {
+          navigate(`/company_list`);
+        } else if (response.data.role === "EMPLOYEE") {
+          navigate(`/alba_list`);
+        }
+      }
+    } catch (error) {
+      alert("이메일, 비밀번호를 확인해주세요.");
+      console.log(error);
+    }
+  }
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -104,8 +126,9 @@ export default function Login() {
       setPasswordValid(false);
     }
   };
-  const onClickConfirmButton = () => {
-    loginAxios();
+
+  function onClickConfirmButton() {
+    handleLoginAPI();
     // if (email === "") {
     //   inputRefs.emailInput.current.focus();
     // } else if (password === "") {
@@ -117,7 +140,7 @@ export default function Login() {
     // } else {
     //   alert("등록되지 않은 회원입니다.");
     // }
-  };
+  }
 
   const emailInput = useRef();
   const passwordInput = useRef();

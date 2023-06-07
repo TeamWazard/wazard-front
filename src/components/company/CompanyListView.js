@@ -12,7 +12,13 @@ function CompanyListView(prop) {
     <div className="list">
       {companies.map((it) => (
         <div className="company_one">
-          <div className="company_img">이미지: {it.img}</div>
+          <div className="company_img_wrapper">
+            <img
+              src={it.company_img}
+              className="company_img"
+              alt="업장이미지"
+            />
+          </div>
           <div className="company_one_right">
             <div className="company_set">
               <label>😀 업장 명</label>

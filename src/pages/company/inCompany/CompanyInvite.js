@@ -10,6 +10,7 @@ const CompanyInvite = () => {
   const [userEmail, setUserEmail] = useState("");
   const [isValid, setIsValid] = useState(false);
   const [isState, setIsState] = useState(true);
+  const navigate = useNavigate();
   const invite_user = [
     {
       id: 0,
@@ -76,7 +77,13 @@ const CompanyInvite = () => {
                 />
               </div> */}
               <div className="btn-wrapper">
-                <button>초대하기</button>
+                <button
+                  onClick={() => {
+                    navigate(`${id}`); // http://localhost:3000/company_main/1/invite/1 주소 id값으로 안줘도 될듯?
+                  }}
+                >
+                  초대하기
+                </button>
               </div>
             </div>
           </div>

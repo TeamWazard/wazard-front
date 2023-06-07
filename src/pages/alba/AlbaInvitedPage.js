@@ -3,10 +3,12 @@ import HeaderAlba from "components/HeaderAlba";
 
 import "../../style/alba/albaStyle.scss";
 import Footer from "components/Footer";
+import { useNavigate } from "react-router-dom";
 
 function AlbaInvitedPage() {
   const [codes, setCodes] = useState(["", "", "", "", "", "", "", ""]);
   const inputRefs = useRef([]);
+  const navigate = useNavigate();
 
   const handleChange = (event, index) => {
     const { value } = event.target;
@@ -44,7 +46,14 @@ function AlbaInvitedPage() {
                   ref={(el) => (inputRefs.current[index] = el)}
                 />
               ))}
-              <button className="submit">초대받기</button>
+              <button
+                className="submit"
+                onClick={() => {
+                  navigate(`1`);
+                }}
+              >
+                초대받기
+              </button>
             </div>
           </div>
         </div>

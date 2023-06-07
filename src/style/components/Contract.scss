@@ -1,0 +1,81 @@
+// 초대 시 계약서 수정 페이지
+.contract {
+  .agree-radio {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
+  }
+  .agree-textarea {
+    display: flex;
+    align-items: flex-end;
+    margin: 20px;
+    flex-direction: column;
+    p {
+      margin: 5px;
+    }
+    textarea {
+      width: 380px;
+      height: 50px;
+      padding: 10px;
+      box-sizing: border-box;
+      border: solid 2px #1e90ff;
+      border-radius: 5px;
+      resize: vertical;
+    }
+  }
+}
+.contract-Wrapper {
+  width: 97%;
+  height: 100%;
+  margin: 20px;
+  background-color: #ededed;
+  .ct-wrapper {
+    margin: 20px;
+    height: 420px;
+  }
+}
+
+.agreement-contract {
+  margin-top: 50px;
+  .agree-radio {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px;
+  }
+}
+.agreement-contract-container {
+  margin: 20px;
+  .agreement-contract {
+    margin: 20px;
+    h3 {
+      .red {
+        color: #f51e1e;
+      }
+    }
+
+    .agreement-contract-box {
+      text-align: center;
+      background-color: #ededed;
+      padding: 10px;
+      color: #575757;
+      border-radius: 5px;
+      .title {
+        color: black;
+      }
+    }
+  }
+}
+.submit-agree {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  .agree-btn {
+    height: 3rem;
+    width: 100px;
+    margin: 5px;
+    background: #656bff;
+    border-radius: 10px;
+    border: none;
+    color: #ffffff;
+  }
+}

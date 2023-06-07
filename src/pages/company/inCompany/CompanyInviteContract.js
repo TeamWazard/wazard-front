@@ -182,6 +182,7 @@ const CompanyInviteContract = (props) => {
               </p>
             </div>
           </div>
+
           <div className="cc">
             <button className="invite-btn">초대하기</button>
           </div>

@@ -4,6 +4,7 @@ import "./SignUpChoose.scss";
 
 import Radio from "./../../components/Radio";
 import axios from "axios";
+import { emailauth, signUp } from "utils/apis/authAPI";
 
 const SignUpChoose = () => {
   const location = useLocation();
@@ -59,54 +60,66 @@ const SignUpChoose = () => {
   const [genderMessage, setGenderMessage] = useState("");
 
   //API 회원가입
-  const registeraxios = () => {
-    const config = { "Content-Type": "application/json" };
-    axios
-      .post(
-        "http://wazard.shop:9000/account/join",
-        {
-          email: email,
-          password: password,
-          userName: name,
-          gender: gender,
-          birth: birth,
-          phoneNumber: `${phoneNumber.fstNum}-${phoneNumber.secNum}-${phoneNumber.thrNum}`,
-          role: userType,
-        },
-        config
-      )
-      .then((response) => {
-        console.log(response);
-        alert("회원가입성공");
-        if ((response.status = 200)) {
-          return navigate(-1);
-        }
-      })
-      .catch((err) => {
-        alert("회원가입이 되지 않았습니다.");
-        console.log(err);
-      });
-  };
+  // const registeraxios = () => {
+  //   const config = { "Content-Type": "application/json" };
+  //   axios
+  //     .post(
+  //       "http://wazard.shop:9000/account/join",
+  //       {
+  //         email: email,
+  //         password: password,
+  //         userName: name,
+  //         gender: gender,
+  //         birth: birth,
+  //         phoneNumber: `${phoneNumber.fstNum}-${phoneNumber.secNum}-${phoneNumber.thrNum}`,
+  //         role: userType,
+  //       },
+  //       config
+  //     )
+  //     .then((response) => {
+  //       console.log(response);
+  //       alert("회원가입성공");
+  //       if ((response.status = 200)) {
+  //         return navigate(-1);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       alert("회원가입이 되지 않았습니다.");
+  //       console.log(err);
+  //     });
+  // };
   //API 이메일 인증
-  const emailauth = () => {
-    const config = { "Content-Type": "application/json" };
-    axios
-      .post(
-        "http://wazard.shop:9000/mail/auth",
-        {
-          email: email,
-        },
-        config
-      )
-      .then((response) => {
-        setEmailMessage("이메일을 전송하였습니다.");
-        setAuthenticationCode(response.data.authenticationCode);
-      })
-      .catch((err) => {
-        setEmailMessage("이메일 전송에 실패하였습니다.");
-        // console.log(err);
+  async function handleSignUp() {
+    try {
+      const response = await signUp({
+        email: email,
+        password: password,
+        userName: name,
+        gender: gender,
+        birth: birth,
+        phoneNumber: `${phoneNumber.fstNum}-${phoneNumber.secNum}-${phoneNumber.thrNum}`,
+        role: userType,
       });
-  };
+      console.log(response);
+      alert("회원가입성공");
+      if ((response.status = 200)) {
+        return navigate(-1);
+      }
+    } catch (error) {
+      alert("회원가입이 되지 않았습니다.");
+      console.error(error);
+    }
+  }
+
+  async function handleEmailAuth() {
+    try {
+      const response = await emailauth({ email: email });
+      setEmailMessage("이메일을 전송하였습니다.");
+      setAuthenticationCode(response.data.authenticationCode);
+    } catch (error) {
+      setEmailMessage("이메일 전송에 실패하였습니다.");
+    }
+  }
 
   const onEmailHandler = (e) => {
     const currentEmail = e.target.value;
@@ -208,7 +221,7 @@ const SignUpChoose = () => {
     } else {
       setEmailMessage("");
       // alert("이메일 전송 완료 (api실행 x)");
-      emailauth();
+      handleEmailAuth();
     }
   };
 
@@ -237,16 +250,7 @@ const SignUpChoose = () => {
       isBirth === true
     ) {
       alert("회원가입 완료");
-      // console.log({
-      //   email: email,
-      //   password: password,
-      //   userName: name,
-      //   gender: gender,
-      //   birth: birth,
-      //   phoneNumber: `${phoneNumber.fstNum}-${phoneNumber.secNum}-${phoneNumber.thrNum}`,
-      //   role: userType,
-      // });
-      // registeraxios();
+      handleSignUp();
       event.preventDefault();
     }
     if (isEmail === false) {
@@ -299,7 +303,12 @@ const SignUpChoose = () => {
     <div className="all">
       <div className="signUpPage">
         <div className="title">
-          <h2>Welcome To Wazard</h2>
+          <h2>
+            Welcome To Wazard{" "}
+            <label className="userType">
+              {userType === "EMPLOYEE" ? "알바생" : "고용주"}
+            </label>
+          </h2>
         </div>
         <div className="RegisterForm">
           <div className="Form">
