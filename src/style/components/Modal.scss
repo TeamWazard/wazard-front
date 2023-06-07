@@ -53,3 +53,71 @@
     }
   }
 }
+.modal-content-contract {
+  width: 500px;
+  height: 220px;
+  .modal-contents {
+    margin-bottom: 10px;
+    p {
+      margin: 5px;
+      color: #616161;
+    }
+    .email-input {
+      width: 220px;
+      padding: 10px;
+      border: 1px solid #a5a5a5;
+      border-radius: 5px;
+      &::placeholder {
+        color: #c2c2c2;
+      }
+      &:focus {
+        border: none;
+        outline: 2px solid #4a52ff;
+      }
+    }
+  }
+  .button {
+    button {
+      width: 130px;
+      height: 50px;
+      border-radius: 20px;
+      border: none;
+      font-size: 20px;
+      margin: 13px 20px 0px 20px;
+      cursor: pointer;
+    }
+    .yes {
+      background-color: #d9d9d9;
+    }
+    .no {
+      background-color: #d9d9d9;
+    }
+  }
+}
+
+.modal-content-contract-check {
+  width: 300px;
+  height: 180px;
+  .modal-contents {
+    margin-bottom: 10px;
+    p {
+      margin: 5px;
+      color: #616161;
+    }
+  }
+
+  .button {
+    button {
+      width: 130px;
+      height: 50px;
+      border-radius: 20px;
+      border: none;
+      font-size: 20px;
+      margin: 13px 20px 0px 20px;
+      cursor: pointer;
+    }
+    .yes {
+      background-color: #d9d9d9;
+    }
+  }
+}

@@ -28,7 +28,7 @@ function AlbaList() {
           </button>
         </div>
       </div>
-      <Footer_2 />
+      {/* <Footer_2 /> */}
     </div>
   );
 }

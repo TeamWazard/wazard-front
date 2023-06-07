@@ -68,12 +68,6 @@ function AlbaMainPage() {
                 ) : (
                   <p>알바 기록이 없습니다.</p>
                 )}
-                {/* {albaDays.map((alba) => (
-                  <div key={alba.id}>
-                    <p>Date: {alba.date}</p>
-                    <p>Value: {alba.start}</p>
-                  </div>
-                ))} */}
               </div>
             </div>
             <div className="salary-wrapper">

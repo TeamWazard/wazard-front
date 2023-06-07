@@ -21,12 +21,14 @@ const CompanyMain = (props) => {
     {
       user_id: 0,
       user_name: "윤서영",
+      date: "2023-06-05",
       start_time: "12:58:29",
       end_time: "18:01:02",
     },
     {
       user_id: 1,
       user_name: "김정환",
+      date: "2023-06-05",
       start_time: "18:00:02",
       end_time: "23:00:30",
     },
